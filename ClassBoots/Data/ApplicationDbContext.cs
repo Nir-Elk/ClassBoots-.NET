@@ -15,5 +15,9 @@ namespace ClassBoots.Data
         }
         public DbSet<ClassBoots.Models.Subject> Subject { get; set; }
         public DbSet<ClassBoots.Models.Video> Video { get; set; }
+        public DbSet<ClassBoots.Models.School> School { get; set; }
+        public DbSet<ClassBoots.Models.Lecture> Lecture { get; set; }
+        public DbSet<ClassBoots.Models.Institution> Institution { get; set; }
+        public DbSet<ClassBoots.Models.Group> Group { get; set; }
     }
 }
