@@ -12,6 +12,6 @@ namespace ClassBoots.Models
         public int ID { get; set; }
         public int SchoolID { get; set; }
         public string Name { get; set; }
-        public int Description { get; set; }
+        public string Description { get; set; }
     }
 }
