@@ -5,19 +5,38 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
-    <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" method="post" id="logoutForm" class="navbar-right">
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
-            </li>
-            <li>
-                <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
-            </li>
-        </ul>
-    </form>
 }
 else
 {
+    <form method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <h4>Create a new account.</h4>
+        <hr />
+        <div class="text-danger validation-summary-valid" data-valmsg-summary="true">
+            <ul>
+                <li style="display:none"></li>
+            </ul>
+        </div>
+        <div class="form-group">
+            <label for="Input_Email">Email</label>
+            <input class="form-control" type="email" data-val="true" data-val-email="The Email field is not a valid e-mail address." data-val-required="The Email field is required." id="Input_Email" name="Input.Email" value="" />
+            <span class="text-danger field-validation-valid" data-valmsg-for="Input.Email" data-valmsg-replace="true"></span>
+        </div>
+        <div class="form-group">
+            <label for="Input_Password">Password</label>
+            <input class="form-control" type="password" data-val="true" data-val-length="The Password must be at least 6 and at max 100 characters long." data-val-length-max="100" data-val-length-min="6" data-val-required="The Password field is required." id="Input_Password" name="Input.Password" />
+            <span class="text-danger field-validation-valid" data-valmsg-for="Input.Password" data-valmsg-replace="true"></span>
+        </div>
+        <div class="form-group">
+            <label for="Input_ConfirmPassword">Confirm password</label>
+            <input class="form-control" type="password" data-val="true" data-val-equalto="The password and confirmation password do not match." data-val-equalto-other="*.Password" id="Input_ConfirmPassword" name="Input.ConfirmPassword" />
+            <span class="text-danger field-validation-valid" data-valmsg-for="Input.ConfirmPassword" data-valmsg-replace="true"></span>
+        </div>
+        <button type="submit" class="btn btn-default">Register</button>
+    </form>
+
+    <script src="/Identity/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="/Identity/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
     <ul class="nav navbar-nav navbar-right">
         <li><a asp-area="Identity" asp-page="/Account/Register">Register</a></li>
         <li><a asp-area="Identity" asp-page="/Account/Login">Login</a></li>
