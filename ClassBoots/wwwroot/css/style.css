@@ -96,6 +96,30 @@ html {
 a:hover, a:focus {
   text-decoration: none; }
 
+
+.hidden {
+    visibility: hidden;
+}
+
+.hidden-fade {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 2s, opacity 2s linear;
+}
+
+.visible-fade {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 2s linear;
+}
+
+.btn-img {
+    width:25px;
+    height:25px;
+    border-radius: 100px;
+    margin-right: 10px;
+}
+
 a.link {
   color: #455a64; }
   a.link:hover, a.link:focus {

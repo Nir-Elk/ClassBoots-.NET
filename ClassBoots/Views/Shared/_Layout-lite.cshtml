@@ -59,7 +59,6 @@
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text --><span>
-
                             <!-- Light Logo text -->
                             <img src="~/assets/images/logo-light-text.png" class="light-logo" alt="homepage" />
                         </span>
@@ -108,30 +107,7 @@
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
-                    <ul id="sidebarnav">
-                        <partial name="_LoginPartial" />
-                        <!--                        <li>
-                            <a class="waves-effect waves-dark" href="index.html" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a>
-                        </li>
-                        <li>
-                            <a class="waves-effect waves-dark" href="pages-profile.html" aria-expanded="false"><i class="mdi mdi-account-check"></i><span class="hide-menu">Profile</span></a>
-                        </li>
-                        <li>
-                            <a class="waves-effect waves-dark" href="table-basic.html" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">Basic Table</span></a>
-                        </li>
-                        <li>
-                            <a class="waves-effect waves-dark" href="icon-material.html" aria-expanded="false"><i class="mdi mdi-emoticon"></i><span class="hide-menu">Icons</span></a>
-                        </li>
-                        <li>
-                            <a class="waves-effect waves-dark" href="map-google.html" aria-expanded="false"><i class="mdi mdi-earth"></i><span class="hide-menu">Google Map</span></a>
-                        </li>
-                        <li>
-                            <a class="waves-effect waves-dark" id="test-button" aria-expanded="false"><i class="mdi mdi-book-open-variant"></i><span class="hide-menu">Blank Page</span></a>
-                        </li>
-                        <li>
-                            <a class="waves-effect waves-dark" href="pages-error-404.html" aria-expanded="false"><i class="mdi mdi-help-circle"></i><span class="hide-menu">Error 404</span></a>
-                        </li>-->
-                    </ul>
+                    <partial name="_LoginPartial" />
                 </nav>
                 <!-- End Sidebar navigation -->
             </div>
@@ -244,6 +220,29 @@
                 asp-fallback-src="~/js/custom.min.js"
                 asp-fallback-test="window.jQuery"></script>
     </environment>
+
+    <script>
+        $('#default-button').hide();
+
+        $.get('/api/Institutions', function (data) {
+            $.each(data, function () {
+                var $row = $('#default-button').clone();
+
+                $row.find('.btn-ref').find('.btn-img').attr('src', 'https://localhost:44389/assets/images/users/1.jpg')
+                $row.find('.btn-ref').append(this.name);
+                $row.click(function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    alert("button was clicked");
+                })
+                $row.show();
+                $('#sidebarnav').append($row);
+            });
+        });
+
+    </script>
+
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>

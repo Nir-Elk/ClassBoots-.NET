@@ -5,6 +5,9 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
+<ul id="sidebarnav">
+    <li id="default-button" style="display:none"><a class="waves-effect waves-dark btn-ref" aria-expanded="false"><img class="btn-img" src="" /><span class="hide-menu"></span></a></li>
+</ul>
 }
 else
 {
@@ -13,3 +16,5 @@ else
         <li><a asp-area="Identity" asp-page="/Account/Login">Login</a></li>
     </ul>
 }
+
+
