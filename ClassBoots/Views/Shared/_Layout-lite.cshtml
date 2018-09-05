@@ -187,6 +187,7 @@
         <script src="~/js/sidebarmenu.js"></script>
         <script src="~/assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
         <script src="~/js/custom.min.js"></script>
+        <script src="~/js/navigator.js"></script>
     </environment>
     <environment exclude="Development">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"
@@ -219,6 +220,9 @@
         <script src="~/js/custom.min.js"
                 asp-fallback-src="~/js/custom.min.js"
                 asp-fallback-test="window.jQuery"></script>
+        <script src="~/js/navigator.js"
+                asp-fallback-src="~/navigator.js"
+                asp-fallback-test="window.jQuery"></script>
     </environment>
 
     <script>
@@ -236,13 +240,8 @@
                     alert("button was clicked");
                 })
                 $row.show();
-                
                 $('#sidebarnav').append($row);
             });
-        });
-
-        $.get('/api/appusers', function (data) {
-            $('#namearea').text(data[0].firstName);
         });
 
     </script>
