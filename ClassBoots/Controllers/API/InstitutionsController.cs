@@ -36,5 +36,17 @@ namespace ClassBoots.Controllers.API
             }
             return item;
         }
+
+        [HttpGet("{id}/Schools")]
+        public ActionResult<List<School>> GetSchools(int id)
+        {
+            var item = _context.School.Where(row => row.InstitutionID.Equals(id));
+
+            if (item == null)
+            {
+                return NotFound();
+            }
+            return item.ToList();
+        }
     }
 }
