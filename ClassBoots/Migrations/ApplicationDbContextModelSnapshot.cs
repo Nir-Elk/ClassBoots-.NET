@@ -19,6 +19,24 @@ namespace ClassBoots.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("ClassBoots.Models.AppUser", b =>
+                {
+                    b.Property<string>("Email")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("FirstName")
+                        .IsRequired();
+
+                    b.Property<int>("GroupID");
+
+                    b.Property<string>("LastName")
+                        .IsRequired();
+
+                    b.HasKey("Email");
+
+                    b.ToTable("AppUser");
+                });
+
             modelBuilder.Entity("ClassBoots.Models.Group", b =>
                 {
                     b.Property<int>("ID")

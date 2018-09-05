@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ClassBoots.Models.AppUser>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GroupID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="rows">
+        <tr id="row" class="hidden">
+            <td class="Email"></td>
+            <td class="GroupID"></td>
+            <td class="FirstName"></td>
+            <td class="LastName"></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+
+@section Scripts
+    {
+    <script>
+        $.get('./api/AppUsers', function (data) {
+            $.each(data, function () {
+                var $row = $('#row').clone();
+                $row.attr('Email', '_' + this.Email);
+
+                $row.find('.Email').html(this.email);
+                $row.find('.GroupID').html(this.groupID);
+                $row.find('.FirstName').html(this.firstName);
+                $row.find('.LastName').html(this.lastName);
+
+                $row.removeClass('hidden');
+                $('#rows').append($row);
+            });
+            $('#row').remove();
+        });
+    </script>
+}

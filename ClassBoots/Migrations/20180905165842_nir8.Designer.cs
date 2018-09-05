@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ClassBoots.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180903163352_sdd")]
-    partial class sdd
+    [Migration("20180905165842_nir8")]
+    partial class nir8
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,24 @@ namespace ClassBoots.Migrations
                 .HasAnnotation("ProductVersion", "2.1.2-rtm-30932")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("ClassBoots.Models.AppUser", b =>
+                {
+                    b.Property<string>("Email")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("FirstName")
+                        .IsRequired();
+
+                    b.Property<int>("GroupID");
+
+                    b.Property<string>("LastName")
+                        .IsRequired();
+
+                    b.HasKey("Email");
+
+                    b.ToTable("AppUser");
+                });
 
             modelBuilder.Entity("ClassBoots.Models.Group", b =>
                 {

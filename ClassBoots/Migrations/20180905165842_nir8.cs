@@ -2,7 +2,7 @@
 
 namespace ClassBoots.Migrations
 {
-    public partial class init2 : Migration
+    public partial class nir8 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

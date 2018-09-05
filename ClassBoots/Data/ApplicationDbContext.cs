@@ -19,5 +19,6 @@ namespace ClassBoots.Data
         public DbSet<ClassBoots.Models.Lecture> Lecture { get; set; }
         public DbSet<ClassBoots.Models.Institution> Institution { get; set; }
         public DbSet<ClassBoots.Models.Group> Group { get; set; }
+        public DbSet<ClassBoots.Models.AppUser> AppUser { get; set; }
     }
 }
