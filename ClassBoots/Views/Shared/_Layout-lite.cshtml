@@ -187,6 +187,7 @@
         <script src="~/js/sidebarmenu.js"></script>
         <script src="~/assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
         <script src="~/js/custom.min.js"></script>
+        <script src="~/js/navigator.js"></script>
     </environment>
     <environment exclude="Development">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"
@@ -219,29 +220,10 @@
         <script src="~/js/custom.min.js"
                 asp-fallback-src="~/js/custom.min.js"
                 asp-fallback-test="window.jQuery"></script>
+        <script src="~/js/navigator.js"
+                asp-fallback-src="~/navigator.js"
+                asp-fallback-test="window.jQuery"></script>
     </environment>
-
-    <script>
-        $('#default-button').hide();
-
-        $.get('/api/Institutions', function (data) {
-            $.each(data, function () {
-                var $row = $('#default-button').clone();
-
-                $row.find('.btn-ref').find('.btn-img').attr('src', 'https://localhost:44389/assets/images/users/1.jpg')
-                $row.find('.btn-ref').append(this.name);
-                $row.click(function (e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    alert("button was clicked");
-                })
-                $row.show();
-                $('#sidebarnav').append($row);
-            });
-        });
-
-    </script>
-
 
     @RenderSection("Scripts", required: false)
 </body>

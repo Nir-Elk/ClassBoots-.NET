@@ -5,9 +5,11 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
-<ul id="sidebarnav">
-    <li id="default-button" style="display:none"><a class="waves-effect waves-dark btn-ref" aria-expanded="false"><img class="btn-img" src="" /><span class="hide-menu"></span></a></li>
-</ul>
+    <li id="default-button" style="display:none;"><a class="waves-effect waves-dark btn-ref" aria-expanded="false"><img class="btn-img" src="" /><span class="hide-menu"></span></a></li>
+    <i id="back-to-button" class="mdi mdi-arrow-left-bold-circle-outline text-white cursor-default" style="display:none; cursor:pointer;"><span class="text-white"></span></i>
+    <ul id="sidebarnav"></ul>
+
+
 }
 else
 {
