@@ -1,31 +1,47 @@
 $('#default-button').hide();
 var sideNav = $('#sidebarnav');
-var z = -1;
+
 var current = '';
 
-var changeToInst = function (countryId) {
-    if (current != '' || z == -1) {
+var changeToInst = function (parent) {
         $('#abovesidebar').html("");
-        z++;
         current = '';
         clear();
         $.get('/api/Institutions', function (data) {
-            $.each(data, function () {
-                renderItem(this, changeToSchools);
-            });
+            renderItems(data, changeToSchools);
+        });
+}
+
+var changeToSchools = function (parentId) {
+    if (current != 'schools') {
+
+        current = 'schools';
+        clear();
+        $.get('/api/Institutions/' + parentId + '/Schools', function (data) {
+            renderItems(data, changeToSubjects);
+            $('#abovesidebar').html(BackToBtn(() => changeToInst(null)));
         });
     }
 }
 
-var changeToSchools = function (ParentRow, ParentId) {
-    if (current != 'schools') {
-        z++;
-        current = 'schools';
+var changeToSubjects = function (parentId) {
+    if (current != 'subjects') {
+        current = 'subjects';
         clear();
-        $.get('/api/Institutions/' + ParentId + '/Schools', function (data) {
-            $('#abovesidebar').html(BackToBtn(changeToInst));
-            sideNav.append(ParentRow);
-            renderItems(data);
+        $.get('/api/Schools/' + parentId + '/Subjects', function (data) {
+            renderItems(data, changeToLectures);
+            $('#abovesidebar').html(BackToBtn(() => changeToSchools(parentId)));
+        });
+    }
+}
+
+var changeToLectures = function (parentId) {
+    if (current != 'lectures') {
+        current = 'lectures';
+        clear();
+        $.get('/api/Lectures/' + parentId + '/Videos', function (data) {
+            renderItems(data, null);
+            $('#abovesidebar').html(BackToBtn(() => changeToSubjects(parentId)));
         });
     }
 }
@@ -35,17 +51,14 @@ var appendRow = function (title, image) {
     $row.removeAttr('id');
     $row.find('.btn-ref').find('.btn-img').attr('src', image)
     $row.find('.btn-ref').append(title);
-    $row.attr('style', ' padding-left: ' + z*20 +'px;');
     return $row;
 }
 
-var BackToBtn = function (changeTo) {
+var BackToBtn = function (callback) {
     var $btn = $('#backtobutton').clone();
 
     $btn.click(function () {
-        z--;
-        z--;
-        changeTo();
+        callback();
     });
 
     $btn.show();
@@ -54,23 +67,20 @@ var BackToBtn = function (changeTo) {
 var clear = function () {
     sideNav.html("");
 }
-var renderItems = function (data) {
+var renderItems = function (data, changeTo) {
     $.each(data, function () {
-        renderItem(this);
+        var $row = appendRow(this.name, this.image);
+        var ParentId = this.id;
+        var ParentRow = $row;
+        $row.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            changeTo(ParentId);
+        });
+        $row.show();
+        sideNav.append($row);
     });
 
-}
-var renderItem = function(item, changeTo) {
-    var $row = appendRow(item.name, item.image);
-    var ParentId = item.id;
-    var ParentRow = $row;
-    $row.click(function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        changeTo(ParentRow, ParentId);
-    });
-    $row.show();
-    sideNav.append($row);
 }
 
 $(function() {
