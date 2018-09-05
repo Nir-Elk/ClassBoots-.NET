@@ -26,10 +26,21 @@ namespace ClassBoots.Controllers.API
             return _context.School.ToList();
         }
 
+        [HttpGet("{id}")]
+        public ActionResult<School> GetById(int id)
+        {
+            var item = _context.School.Find(id);
+            if (item == null)
+            {
+                return NotFound();
+            }
+            return item;
+        }
+
         [HttpGet("{id}/Subjects")]
         public ActionResult<List<Subject>> GetSubjects(int id)
         {
-            var item = _context.Subject.Where(o => o.SchoolID == id);
+            var item = _context.Subject.Where(o => o.SchoolID.Equals(id));
             if (item == null)
             {
                 return NotFound();

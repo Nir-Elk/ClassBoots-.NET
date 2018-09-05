@@ -36,5 +36,15 @@ namespace ClassBoots.Controllers.API
             }
             return item;
         }
+        [HttpGet("{id}/Lectures")]
+        public ActionResult<List<Lecture>> GetSubjects(int id)
+        {
+            var item = _context.Lecture.Where(o => o.LecturerID.Equals(id));
+            if (item == null)
+            {
+                return NotFound();
+            }
+            return item.ToList();
+        }
     }
 }

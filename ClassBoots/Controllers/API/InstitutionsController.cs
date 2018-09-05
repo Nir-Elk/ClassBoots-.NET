@@ -40,7 +40,7 @@ namespace ClassBoots.Controllers.API
         [HttpGet("{id}/Schools")]
         public ActionResult<List<School>> GetSchools(int id)
         {
-            var item = _context.School.Where(row => row.InstitutionID.Equals(id));
+            var item = _context.School.Where(o => o.InstitutionID.Equals(id));
 
             if (item == null)
             {
