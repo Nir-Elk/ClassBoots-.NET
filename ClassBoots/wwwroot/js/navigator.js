@@ -5,6 +5,7 @@ var current = '';
 
 var changeToInst = function (countryId) {
     if (current != '' || z == -1) {
+        $('#abovesidebar').html("");
         z++;
         current = '';
         clear();
@@ -22,7 +23,7 @@ var changeToSchools = function (ParentRow, ParentId) {
         current = 'schools';
         clear();
         $.get('/api/Institutions/' + ParentId + '/Schools', function (data) {
-            sideNav.append(appendBackToBtn(changeToInst));
+            $('#abovesidebar').html(BackToBtn(changeToInst));
             sideNav.append(ParentRow);
             renderItems(data);
         });
@@ -38,8 +39,8 @@ var appendRow = function (title, image) {
     return $row;
 }
 
-var appendBackToBtn = function (changeTo) {
-    var $btn = $('#back-to-button').clone();
+var BackToBtn = function (changeTo) {
+    var $btn = $('#backtobutton').clone();
 
     $btn.click(function () {
         z--;

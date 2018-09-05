@@ -6,7 +6,8 @@
 @if (SignInManager.IsSignedIn(User))
 {
     <li id="default-button" style="display:none;"><a class="waves-effect waves-dark btn-ref" aria-expanded="false"><img class="btn-img" src="" /><span class="hide-menu"></span></a></li>
-    <i id="back-to-button" class="mdi mdi-arrow-left-bold-circle-outline text-white cursor-default" style="display:none; cursor:pointer;"><span class="text-white"></span></i>
+    <i id="backtobutton" class="mdi mdi-arrow-left-bold-circle-outline text-white cursor-default backtobutton" style="display:none;"><span class="text-white"></span></i>
+    <div id="abovesidebar" class="text-center"></div>
     <ul id="sidebarnav"></ul>
 
 
@@ -19,4 +20,11 @@ else
     </ul>
 }
 
+<style>
+   
+    .backtobutton {
+        cursor: pointer;
+        font-size: 2em;
+    }
+</style>
 
