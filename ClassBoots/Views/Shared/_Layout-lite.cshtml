@@ -1,6 +1,10 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+    .page-wrapper { background-size: cover; background-image: url("http://steinhardt.nyu.edu/site/ataglance/files/2017/03/AsianStudent.jpg"); }
+
+    </style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
@@ -51,7 +55,7 @@
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="/">
                         <!-- Logo icon --><b>
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Light Logo icon -->
@@ -127,24 +131,24 @@
             <!-- Container fluid  -->
             <!-- ============================================================== -->
             <div class="container-fluid">
-                <div class="row page-titles">
-                    <partial name="_CookieConsentPartial" />
-                </div>
+
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
+                <!-- ==============================================================
+                        <div class="row page-titles">
+                            <partial name="_CookieConsentPartial" />
+                        </div>
+    <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
                 <!-- Row -->
                 <div class="row">
                     <!-- Column -->
                     <div class="col-lg-8 col-md-7">
-                        <div class="card">
-                            <div id="body" class="card-block">
-                                @RenderBody()
-                            </div>
+                        <div id="body">
+                            @RenderBody()
                         </div>
+
                     </div>
                 </div>
                 <!-- ============================================================== -->
@@ -224,28 +228,6 @@
                 asp-fallback-src="~/navigator.js"
                 asp-fallback-test="window.jQuery"></script>
     </environment>
-
-    <script>
-        $('#default-button').hide();
-
-        $.get('/api/Institutions', function (data) {
-            $.each(data, function () {
-                var $row = $('#default-button').clone();
-
-                $row.find('.btn-ref').find('.btn-img').attr('src', 'https://localhost:44389/assets/images/users/1.jpg')
-                $row.find('.btn-ref').append(this.name);
-                $row.click(function (e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    alert("button was clicked");
-                })
-                $row.show();
-                $('#sidebarnav').append($row);
-            });
-        });
-
-    </script>
-
 
     @RenderSection("Scripts", required: false)
 </body>
