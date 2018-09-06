@@ -42,16 +42,15 @@ for details on configuring this project to bundle and minify static web assets. 
     position: fixed;
     left: 0;
     right: 0;
-    z-index: -1;
+    z-index: 1;
     display: block;
     background-image: url('../images/AsianStudentResized.jpg');
     width: 100%;
     height: 100%;
     -webkit-filter: blur(2px) grayscale(35%);
     -moz-filter: blur(2px) grayscale(35%);
-    -o-filter: blur(2px) grayscale(35%);
     -ms-filter: blur(2px) grayscale(35%);
-    filter: blur(2px) grayscale(35%);
+    filter:  blur(2px) grayscale(35%);
 }
 
 .content {
@@ -71,4 +70,11 @@ section {
 .btn-img {
     width: 50px;
     height: 50px;
+    background-color: white;
+}
+
+.over-background {
+    z-index: 9999;
+    position: fixed;
+    width: 100%;
 }
