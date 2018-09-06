@@ -136,7 +136,7 @@ a.link:hover, a.link:focus {
 /*sidebar navigation
 *******************/
 .card-no-border .left-sidebar, .card-no-border .sidebar-nav {
-  background: #272c33;
+  background: #2d2d2f;
 }
 
 .mini-sidebar .sidebar-nav {
@@ -145,12 +145,12 @@ a.link:hover, a.link:focus {
 
 @media (min-width: 768px) {
   .mini-sidebar .sidebar-nav #sidebarnav > li > ul {
-    background: #181c22;
+    background: #212126;
   }
 }
 
 .sidebar-nav {
-  background: #272c33;
+  background: #2d2d2f;
 }
 
 .sidebar-nav ul li a {
@@ -201,5 +201,5 @@ a.link:hover, a.link:focus {
 }
 
 .card-no-border .sidebar-footer {
-  background: #181c22;
+  background: #212126;
 }

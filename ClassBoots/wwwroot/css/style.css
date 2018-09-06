@@ -29,6 +29,8 @@ File: scss
 /*Normal Color*/
 /*Extra Variable*/
 /*Preloader*/
+
+
 @import url(../scss/icons/font-awesome/css/font-awesome.min.css);
 @import url(../scss/icons/simple-line-icons/css/simple-line-icons.css);
 @import url(../scss/icons/weather-icons/css/weather-icons.min.css);
@@ -39,6 +41,7 @@ File: scss
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700");
 @import url(../css/spinners.css);
 @import url(../css/animate.css);
+    
 .preloader {
   width: 100%;
   height: 100%;
@@ -121,7 +124,7 @@ a:hover, a:focus {
 }
 
 a.link {
-  color: #455a64; }
+  color: #606060; }
   a.link:hover, a.link:focus {
     color: #009efb; }
 
@@ -145,7 +148,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #455a64;
+  color: #606060;
   font-family: "Poppins", sans-serif;
   font-weight: 400; }
 
@@ -2164,8 +2167,8 @@ File: scss
 
 .right-sidebar {
   position: fixed;
-  right: -240px;
-  width: 240px;
+  right: -300px;
+  width: 300px;
   display: none;
   z-index: 1100;
   background: #ffffff;
@@ -2201,7 +2204,7 @@ File: scss
 
 .shw-rside {
   right: 0px;
-  width: 240px;
+  width: 300px;
   display: block; }
 
 .chatonline img {
@@ -5410,7 +5413,7 @@ Main sidebar
 ******************/
 .left-sidebar {
   position: absolute;
-  width: 240px;
+  width: 300px;
   height: 100%;
   top: 0px;
   z-index: 20;
@@ -5517,7 +5520,7 @@ sidebar footer
   -webkit-transition: 0.2s ease-out;
   -o-transition: 0.2s ease-out;
   transition: 0.2s ease-out;
-  width: 240px;
+  width: 300px;
   background: #fff;
   border-top: 1px solid rgba(120, 130, 140, 0.13); }
   .sidebar-footer a {
@@ -5548,14 +5551,16 @@ sidebar navigation
         color: #607d8b;
         padding: 8px 35px 8px 15px;
         display: block;
-        font-size: 15px;
+        font-size: 1.2em;
         border-radius: 4px;
         white-space: nowrap; }
         .sidebar-nav ul li a.active, .sidebar-nav ul li a:hover {
           color: #26c6da; }
         .sidebar-nav ul li a.active {
           font-weight: 500;
-          color: #263238; }
+          color: #263238; 
+
+        }
       .sidebar-nav ul li ul {
         padding-left: 5px;
         padding-top: 10px; }
@@ -5703,7 +5708,7 @@ When click on sidebar toggler and also for tablet
   .mini-sidebar .left-sidebar {
     position: fixed; }
   .mini-sidebar .left-sidebar, .mini-sidebar .sidebar-footer {
-    left: -240px; }
+    left: -300px; }
   .mini-sidebar.show-sidebar .left-sidebar, .mini-sidebar.show-sidebar .sidebar-footer {
     left: 0px; } }
 
@@ -5866,7 +5871,7 @@ File: scss
     width: 100%; }
     .todo-list li .checkbox label {
       font-weight: 400;
-      color: #455a64; }
+      color: #606060; }
   .todo-list li:last-child {
     border-bottom: 0px; }
   .todo-list li .assignedto {
@@ -6598,9 +6603,9 @@ File: scss
  ============================================================== */
 @media (min-width: 1024px) {
   .page-wrapper {
-    margin-left: 240px; }
+    margin-left: 300px; }
   .footer {
-    left: 240px; } }
+    left: 300px; } }
 
 @media (max-width: 1023px) {
   .page-wrapper {
@@ -6622,7 +6627,7 @@ File: scss
  ============================================================== */
 @media (min-width: 768px) {
   .navbar-header {
-    width: 240px;
+    width: 300px;
     -webkit-flex-shrink: 0;
     -ms-flex-negative: 0;
     flex-shrink: 0; }

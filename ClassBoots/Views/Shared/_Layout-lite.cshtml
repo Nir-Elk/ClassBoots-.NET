@@ -1,10 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-    .page-wrapper { background-size: cover; background-image: url("http://steinhardt.nyu.edu/site/ataglance/files/2017/03/AsianStudent.jpg"); }
-
-    </style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
@@ -21,14 +17,15 @@
     <environment include="Development">
         <link rel="stylesheet" href="~/assets/plugins/bootstrap/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/style.css" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
         <link rel="stylesheet" href="~/css/colors/default-dark.css" id="theme" />
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/css/bootstrap.min.css"
               asp-fallback-href="~/assets/plugins/bootstrap/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
         <link rel="stylesheet" href="~/css/style.css" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
         <link rel="stylesheet" href="~/css/colors/default-dark.css" id="theme" />
     </environment>
 </head>
@@ -36,7 +33,7 @@
 <body class="fix-header fix-sidebar card-no-border">
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
+    <!-- ==============================================================
     <div class="preloader">
         <svg class="circular" viewBox="25 25 50 50">
             <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
@@ -135,10 +132,10 @@
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
                 <!-- ==============================================================
-                        <div class="row page-titles">
-                            <partial name="_CookieConsentPartial" />
-                        </div>
-    <!-- ============================================================== -->
+                                    <div class="row page-titles">
+                                        <partial name="_CookieConsentPartial" />
+                                    </div>
+                <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
                 <!-- Row -->
@@ -146,9 +143,9 @@
                     <!-- Column -->
                     <div class="col-lg-8 col-md-7">
                         <div id="body">
+                            <div class="background-image"></div>
                             @RenderBody()
                         </div>
-
                     </div>
                 </div>
                 <!-- ============================================================== -->

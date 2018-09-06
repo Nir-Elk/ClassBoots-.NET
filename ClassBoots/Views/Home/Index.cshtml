@@ -1,14 +1,43 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+
 }
-<div class="jumbotron jumbotron-fluid" style="opacity: 0.8;">
-    <div class="container">
-        <h1 class="display-4">Fluid jumbotron</h1>
-        <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+
+
+<div id="homepage1" class="content">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">First jumbotron</h1>
+            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+            <button  id="btn1"  class="btn btn-default">Click Me!</button>
+        </div>
     </div>
 </div>
+
+<div id="homepage2" class="content">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Second jumbotron</h1>
+            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent. This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+            <button id="btn2" class="btn btn-default">Click Me!</button>
+        </div>
+    </div>
+</div>
+
 @section Scripts { 
     <script>
-        $('#body').addClass('background-img');
+        $('#homepage2').hide();
+
+        $('#btn1').click(function () {
+            $('#homepage1').hide();
+            $('#homepage2').show();
+        });
+
+        $('#btn2').click(function () {
+            $('#homepage2').hide();
+            $('#homepage1').show();
+        });
+
+        //$('#body').addClass('background-img');
     </script>
 }

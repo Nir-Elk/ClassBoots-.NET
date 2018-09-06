@@ -12,7 +12,7 @@ Main sidebar
 
 .left-sidebar {
     position: absolute;
-    width: 240px;
+    width: $side-width;
     height: 100%;
     top: 0px;
     z-index: 20;
@@ -130,7 +130,7 @@ sidebar footer
     bottom: 0px;
     left: 0px;
     transition:0.2s ease-out;
-    width: 240px;
+    width: $side-width;
     background: $sidebar;
     border-top: 1px solid $border;
     a {
@@ -377,7 +377,7 @@ When click on sidebar toggler and also for tablet
     .mini-sidebar{
         .left-sidebar{position: fixed;}
         .left-sidebar, .sidebar-footer{
-            left:-240px;
+            left:-$side-width;
         }
         &.show-sidebar{
            .left-sidebar, .sidebar-footer{
