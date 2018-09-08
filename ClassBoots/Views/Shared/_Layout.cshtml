@@ -123,9 +123,10 @@
 
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
-                <!-- ==============================================================
+                <!-- ==============================================================-->
                                 <div class="row page-titles">
                                     <partial name="_CookieConsentPartial" />
+                                    <div id="path"></div>
                                 </div>
             <!-- ============================================================== -->
                 <!-- Start Page Content -->
@@ -183,6 +184,7 @@
         <script src="~/js/sidebarmenu.js"></script>
         <script src="~/assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
         <script src="~/js/custom.min.js"></script>
+        <script src="~/js/jquery.session.js"></script>
         <script src="~/js/navigator.js"></script>
     </environment>
     <environment exclude="Development">
@@ -195,42 +197,44 @@
         <script src="~/js/sidebarmenu.js"></script>
         <script src="~/assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
         <script src="~/js/custom.min.js"></script>
+        <script src="~/js/jquery.session.js"></script>
         <script src="~/js/navigator.js"></script>
+
         <!--
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"
-                asp-fallback-src="~/assets/plugins/jquery/jquery.min.js"
-                asp-fallback-test="window.jQuery">
-        </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/js/tether.min.js"
-                asp-fallback-src="~/assets/plugins/bootstrap/js/tether.min.js"
-                asp-fallback-test="window.jQuery">
-        </script>
-        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/bootstrap.min.js"
-                asp-fallback-src="~/assets/plugins/bootstrap/js/bootstrap.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
-        </script>
-        <script src="~/js/site.min.js" asp-append-version="true"
-                asp-fallback-src="~/js/site.min.js"
-                asp-fallback-test="window.jQuery"></script>
-        <script src="~/js/jquery.slimscroll.js"
-                asp-fallback-src="~/js/jquery.slimscroll.js"
-                asp-fallback-test="window.jQuery"></script>
-        <script src="~/js/waves.js"
-                asp-fallback-src="~/js/waves.js"
-                asp-fallback-test="window.jQuery"></script>
-        <script src="~/js/sidebarmenu.js"
-                asp-fallback-src="~/js/sidebarmenu.js"
-                asp-fallback-test="window.jQuery"></script>
-        <script src="~/assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"
-                asp-fallback-src="~/assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"
-                asp-fallback-test="window.jQuery"></script>
-        <script src="~/js/custom.min.js"
-                asp-fallback-src="~/js/custom.min.js"
-                asp-fallback-test="window.jQuery"></script>
-        <script src="~/js/navigator.js"
-                asp-fallback-src="~/navigator.js"
-                asp-fallback-test="window.jQuery"></script>
-                -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"
+            asp-fallback-src="~/assets/plugins/jquery/jquery.min.js"
+            asp-fallback-test="window.jQuery">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/js/tether.min.js"
+            asp-fallback-src="~/assets/plugins/bootstrap/js/tether.min.js"
+            asp-fallback-test="window.jQuery">
+    </script>
+    <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/bootstrap.min.js"
+            asp-fallback-src="~/assets/plugins/bootstrap/js/bootstrap.min.js"
+            asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+    </script>
+    <script src="~/js/site.min.js" asp-append-version="true"
+            asp-fallback-src="~/js/site.min.js"
+            asp-fallback-test="window.jQuery"></script>
+    <script src="~/js/jquery.slimscroll.js"
+            asp-fallback-src="~/js/jquery.slimscroll.js"
+            asp-fallback-test="window.jQuery"></script>
+    <script src="~/js/waves.js"
+            asp-fallback-src="~/js/waves.js"
+            asp-fallback-test="window.jQuery"></script>
+    <script src="~/js/sidebarmenu.js"
+            asp-fallback-src="~/js/sidebarmenu.js"
+            asp-fallback-test="window.jQuery"></script>
+    <script src="~/assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"
+            asp-fallback-src="~/assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"
+            asp-fallback-test="window.jQuery"></script>
+    <script src="~/js/custom.min.js"
+            asp-fallback-src="~/js/custom.min.js"
+            asp-fallback-test="window.jQuery"></script>
+    <script src="~/js/navigator.js"
+            asp-fallback-src="~/navigator.js"
+            asp-fallback-test="window.jQuery"></script>
+            -->
     </environment>
     @RenderSection("Scripts", required: false)
 </body>
