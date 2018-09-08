@@ -2,147 +2,119 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using ClassBoots.Data;
 using ClassBoots.Models;
 
 namespace ClassBoots.Controllers
 {
-    public class InstitutionsController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class InstitutionsController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ModelContext _context;
 
-        public InstitutionsController(ApplicationDbContext context)
+        public InstitutionsController(ModelContext context)
         {
             _context = context;
         }
 
-        // GET: Institutions
-        public async Task<IActionResult> Index()
+        // GET: api/Institutions
+        [HttpGet]
+        public IEnumerable<Institution> GetInstitution()
         {
-            return View(await _context.Institution.ToListAsync());
+            return _context.Institution;
         }
 
-        // GET: Institutions/Details/5
-        public async Task<IActionResult> Details(int? id)
+        // GET: api/Institutions/5
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetInstitution([FromRoute] int id)
         {
-            if (id == null)
+            if (!ModelState.IsValid)
             {
-                return NotFound();
-            }
-
-            var institution = await _context.Institution
-                .FirstOrDefaultAsync(m => m.ID == id);
-            if (institution == null)
-            {
-                return NotFound();
-            }
-
-            return View(institution);
-        }
-
-        // GET: Institutions/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Institutions/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,Adress,GeoLocation,Image")] Institution institution)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(institution);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(institution);
-        }
-
-        // GET: Institutions/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
+                return BadRequest(ModelState);
             }
 
             var institution = await _context.Institution.FindAsync(id);
+
             if (institution == null)
             {
                 return NotFound();
             }
-            return View(institution);
+
+            return Ok(institution);
         }
 
-        // POST: Institutions/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Adress,GeoLocation,Image")] Institution institution)
+        // PUT: api/Institutions/5
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutInstitution([FromRoute] int id, [FromBody] Institution institution)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             if (id != institution.ID)
             {
-                return NotFound();
+                return BadRequest();
             }
 
-            if (ModelState.IsValid)
+            _context.Entry(institution).State = EntityState.Modified;
+
+            try
             {
-                try
-                {
-                    _context.Update(institution);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!InstitutionExists(institution.ID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                await _context.SaveChangesAsync();
             }
-            return View(institution);
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!InstitutionExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
         }
 
-        // GET: Institutions/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        // POST: api/Institutions
+        [HttpPost]
+        public async Task<IActionResult> PostInstitution([FromBody] Institution institution)
         {
-            if (id == null)
+            if (!ModelState.IsValid)
             {
-                return NotFound();
+                return BadRequest(ModelState);
             }
 
-            var institution = await _context.Institution
-                .FirstOrDefaultAsync(m => m.ID == id);
+            _context.Institution.Add(institution);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetInstitution", new { id = institution.ID }, institution);
+        }
+
+        // DELETE: api/Institutions/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteInstitution([FromRoute] int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var institution = await _context.Institution.FindAsync(id);
             if (institution == null)
             {
                 return NotFound();
             }
 
-            return View(institution);
-        }
-
-        // POST: Institutions/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var institution = await _context.Institution.FindAsync(id);
             _context.Institution.Remove(institution);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+
+            return Ok(institution);
         }
 
         private bool InstitutionExists(int id)

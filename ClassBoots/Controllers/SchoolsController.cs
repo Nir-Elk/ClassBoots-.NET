@@ -2,147 +2,119 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using ClassBoots.Data;
 using ClassBoots.Models;
 
 namespace ClassBoots.Controllers
 {
-    public class SchoolsController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class SchoolsController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ModelContext _context;
 
-        public SchoolsController(ApplicationDbContext context)
+        public SchoolsController(ModelContext context)
         {
             _context = context;
         }
 
-        // GET: Schools
-        public async Task<IActionResult> Index()
+        // GET: api/Schools
+        [HttpGet]
+        public IEnumerable<School> GetSchool()
         {
-            return View(await _context.School.ToListAsync());
+            return _context.School;
         }
 
-        // GET: Schools/Details/5
-        public async Task<IActionResult> Details(int? id)
+        // GET: api/Schools/5
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetSchool([FromRoute] int id)
         {
-            if (id == null)
+            if (!ModelState.IsValid)
             {
-                return NotFound();
-            }
-
-            var school = await _context.School
-                .FirstOrDefaultAsync(m => m.ID == id);
-            if (school == null)
-            {
-                return NotFound();
-            }
-
-            return View(school);
-        }
-
-        // GET: Schools/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Schools/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,InstitutionID,Name")] School school)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(school);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(school);
-        }
-
-        // GET: Schools/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
+                return BadRequest(ModelState);
             }
 
             var school = await _context.School.FindAsync(id);
+
             if (school == null)
             {
                 return NotFound();
             }
-            return View(school);
+
+            return Ok(school);
         }
 
-        // POST: Schools/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,InstitutionID,Name")] School school)
+        // PUT: api/Schools/5
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutSchool([FromRoute] int id, [FromBody] School school)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             if (id != school.ID)
             {
-                return NotFound();
+                return BadRequest();
             }
 
-            if (ModelState.IsValid)
+            _context.Entry(school).State = EntityState.Modified;
+
+            try
             {
-                try
-                {
-                    _context.Update(school);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!SchoolExists(school.ID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                await _context.SaveChangesAsync();
             }
-            return View(school);
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!SchoolExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
         }
 
-        // GET: Schools/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        // POST: api/Schools
+        [HttpPost]
+        public async Task<IActionResult> PostSchool([FromBody] School school)
         {
-            if (id == null)
+            if (!ModelState.IsValid)
             {
-                return NotFound();
+                return BadRequest(ModelState);
             }
 
-            var school = await _context.School
-                .FirstOrDefaultAsync(m => m.ID == id);
+            _context.School.Add(school);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetSchool", new { id = school.ID }, school);
+        }
+
+        // DELETE: api/Schools/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteSchool([FromRoute] int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var school = await _context.School.FindAsync(id);
             if (school == null)
             {
                 return NotFound();
             }
 
-            return View(school);
-        }
-
-        // POST: Schools/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var school = await _context.School.FindAsync(id);
             _context.School.Remove(school);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+
+            return Ok(school);
         }
 
         private bool SchoolExists(int id)

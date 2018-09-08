@@ -2,147 +2,119 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using ClassBoots.Data;
 using ClassBoots.Models;
 
 namespace ClassBoots.Controllers
 {
-    public class VideosController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class VideosController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ModelContext _context;
 
-        public VideosController(ApplicationDbContext context)
+        public VideosController(ModelContext context)
         {
             _context = context;
         }
 
-        // GET: Videos
-        public async Task<IActionResult> Index()
+        // GET: api/Videos
+        [HttpGet]
+        public IEnumerable<Video> GetVideo()
         {
-            return View(await _context.Video.ToListAsync());
+            return _context.Video;
         }
 
-        // GET: Videos/Details/5
-        public async Task<IActionResult> Details(int? id)
+        // GET: api/Videos/5
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetVideo([FromRoute] int id)
         {
-            if (id == null)
+            if (!ModelState.IsValid)
             {
-                return NotFound();
-            }
-
-            var video = await _context.Video
-                .FirstOrDefaultAsync(m => m.ID == id);
-            if (video == null)
-            {
-                return NotFound();
-            }
-
-            return View(video);
-        }
-
-        // GET: Videos/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Videos/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,LectureID,Refference,Views,Position")] Video video)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(video);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(video);
-        }
-
-        // GET: Videos/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
+                return BadRequest(ModelState);
             }
 
             var video = await _context.Video.FindAsync(id);
+
             if (video == null)
             {
                 return NotFound();
             }
-            return View(video);
+
+            return Ok(video);
         }
 
-        // POST: Videos/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,LectureID,Refference,Views,Position")] Video video)
+        // PUT: api/Videos/5
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutVideo([FromRoute] int id, [FromBody] Video video)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             if (id != video.ID)
             {
-                return NotFound();
+                return BadRequest();
             }
 
-            if (ModelState.IsValid)
+            _context.Entry(video).State = EntityState.Modified;
+
+            try
             {
-                try
-                {
-                    _context.Update(video);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!VideoExists(video.ID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                await _context.SaveChangesAsync();
             }
-            return View(video);
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!VideoExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
         }
 
-        // GET: Videos/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        // POST: api/Videos
+        [HttpPost]
+        public async Task<IActionResult> PostVideo([FromBody] Video video)
         {
-            if (id == null)
+            if (!ModelState.IsValid)
             {
-                return NotFound();
+                return BadRequest(ModelState);
             }
 
-            var video = await _context.Video
-                .FirstOrDefaultAsync(m => m.ID == id);
+            _context.Video.Add(video);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetVideo", new { id = video.ID }, video);
+        }
+
+        // DELETE: api/Videos/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteVideo([FromRoute] int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var video = await _context.Video.FindAsync(id);
             if (video == null)
             {
                 return NotFound();
             }
 
-            return View(video);
-        }
-
-        // POST: Videos/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var video = await _context.Video.FindAsync(id);
             _context.Video.Remove(video);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+
+            return Ok(video);
         }
 
         private bool VideoExists(int id)

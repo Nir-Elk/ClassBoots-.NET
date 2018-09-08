@@ -7,6 +7,7 @@ File: scss
 /*============================================================== 
  For Laptop & above all (1650px) 
  ============================================================== */
+@import 'variable.scss';
 
 @media(min-width:1650px) {
     .widget-app-columns {
@@ -33,11 +34,11 @@ File: scss
 
 @media(min-width:1024px) {
    .page-wrapper{
-        margin-left:240px;
+        margin-left:$sidebar-width;
         
     }  
    .footer{
-            left: 240px;
+            left: $sidebar-width;
       } 
     
 }
@@ -65,7 +66,7 @@ File: scss
 
 @media(min-width:768px) {
     .navbar-header {
-        width: 240px;
+        width: $sidebar-width;
         flex-shrink:0;
         .navbar-brand {
             padding-top: 0px;

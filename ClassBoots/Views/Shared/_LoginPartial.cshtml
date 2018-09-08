@@ -1,34 +1,16 @@
-@using Microsoft.AspNetCore.Identity
-
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+﻿@using Microsoft.AspNetCore.Identity
+@using ClassBoots.Areas.Identity.Data
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
 
 @if (SignInManager.IsSignedIn(User))
 {
-    <li id="default-button" style="display:none;"><a class="waves-effect waves-dark btn-ref" aria-expanded="false"><img class="btn-img" src="" /><span class="hide-menu"></span></a></li>
-    <i id="backtobutton" class="mdi mdi-arrow-left-bold-circle-outline text-white cursor-default backtobutton" style="display:none;"><span class="text-white"></span></i>
 
-    <div id="sidebarouter">
-        <div id="sidebarstate">
-            <div id="abovesidebar" class="text-center"></div>
-            <ul id="sidebarnav"></ul>
-        </div>
-    </div>
+
 
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li><a asp-area="Identity" asp-page="/Account/Register">Register</a></li>
-        <li><a asp-area="Identity" asp-page="/Account/Login">Login</a></li>
-    </ul>
+
 }
-
-<style>
-
-    .backtobutton {
-        cursor: pointer;
-        font-size: 2em;
-    }
-</style>
 

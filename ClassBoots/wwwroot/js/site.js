@@ -14,12 +14,9 @@ var view = function (req) {
     });
 }
 
-$('logout').click(function (e) {
+$('#logout').click(function (e) {
     e.preventDefault();
-    $.post('action="/Identity/Account/Logout?returnUrl=%2F"')
+    $('#logoutForm').submit();
     e.stopPropagation();
 })
 
-document.getElementById("logout").onclick = function () {
-    document.getElementById("logoutForm").submit();
-}

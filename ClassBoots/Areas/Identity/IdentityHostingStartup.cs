@@ -1,5 +1,6 @@
 ﻿using System;
-using ClassBoots.Data;
+using ClassBoots.Areas.Identity.Data;
+using ClassBoots.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
@@ -15,6 +16,12 @@ namespace ClassBoots.Areas.Identity
         public void Configure(IWebHostBuilder builder)
         {
             builder.ConfigureServices((context, services) => {
+                services.AddDbContext<UserContext>(options =>
+                    options.UseSqlServer(
+                        context.Configuration.GetConnectionString("ClassBootsContextConnection")));
+
+                services.AddDefaultIdentity<User>()
+                    .AddEntityFrameworkStores<UserContext>();
             });
         }
     }

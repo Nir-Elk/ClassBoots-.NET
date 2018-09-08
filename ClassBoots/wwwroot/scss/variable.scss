@@ -8,8 +8,9 @@ File: scss
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
 
 $bodyfont:'Poppins', sans-serif;
-$headingfont:'Poppins', sans-serif; 
+$headingfont:'Poppins', sans-serif;
 
+$sidebar-width: 300px;
 
 /*Theme Colors*/
 
@@ -20,7 +21,7 @@ $sidebar-alt:#f2f6f8;
 $bodycolor: #eef5f9;
 $headingtext: #455a64;
 $bodytext: #67757c; 
-$sidebar-text: #fff;
+$sidebar-text: #607d8b;
 $sidebar-icons: #99abb4 ;
 
 $light-text: #a6b7bf;
@@ -49,10 +50,6 @@ $light-info: #cfecfe;
 $light-inverse: #f6f6f6;
 $light-megna: #e0f2f4; 
 
-/* Aviv Custom */
-$side-width: 450px;
-
-/* iLuz Custom */
 
 
 $danger-dark: #e6294b;

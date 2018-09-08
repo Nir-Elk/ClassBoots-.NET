@@ -1,4 +1,4 @@
-/*
+﻿/*
 Template Name: Material Pro Admin
 Author: Themedesigner
 Email: niravjoshi87@gmail.com
@@ -29,8 +29,8 @@ File: scss
 /*Normal Color*/
 /*Extra Variable*/
 /*Preloader*/
-
-
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700");
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700");
 @import url(../scss/icons/font-awesome/css/font-awesome.min.css);
 @import url(../scss/icons/simple-line-icons/css/simple-line-icons.css);
 @import url(../scss/icons/weather-icons/css/weather-icons.min.css);
@@ -39,9 +39,9 @@ File: scss
 @import url(../scss/icons/flag-icon-css/flag-icon.min.css);
 @import url(../scss/icons/material-design-iconic-font/css/materialdesignicons.min.css);
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700");
-@import url(../css/spinners.css);
-@import url(../css/animate.css);
-    
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700");
+@import url(spinners.css);
+@import url(animate.css);
 .preloader {
   width: 100%;
   height: 100%;
@@ -75,6 +75,30 @@ File: scss
 /******************* 
 Global Styles 
 *******************/
+/*
+Template Name: Material Pro Admin
+Author: Themedesigner
+Email: niravjoshi87@gmail.com
+File: scss
+*/
+/*Theme Colors*/
+/*bootstrap Color*/
+/*Light colors*/
+/*Normal Color*/
+/*Extra Variable*/
+/*Preloader*/
+.preloader {
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  position: fixed;
+  z-index: 99999;
+  background: #fff; }
+  .preloader .cssload-speeding-wheel {
+    position: absolute;
+    top: calc(50% - 3.5px);
+    left: calc(50% - 3.5px); }
+
 * {
   outline: none; }
 
@@ -86,45 +110,16 @@ body {
   color: #67757c;
   font-weight: 300; }
 
-#logoutForm{
-    display:none;
-}
-
 html {
-    position: relative;
-    min-height: 100%;
-    background: #ffffff;
-}
+  position: relative;
+  min-height: 100%;
+  background: #ffffff; }
 
 a:hover, a:focus {
   text-decoration: none; }
 
-
-.hidden {
-    visibility: hidden;
-}
-
-.hidden-fade {
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s 2s, opacity 2s linear;
-}
-
-.visible-fade {
-    visibility: visible;
-    opacity: 1;
-    transition: opacity 2s linear;
-}
-
-.btn-img {
-    width:25px;
-    height:25px;
-    border-radius: 100px;
-    margin-right: 10px;
-}
-
 a.link {
-  color: #606060; }
+  color: #455a64; }
   a.link:hover, a.link:focus {
     color: #009efb; }
 
@@ -148,7 +143,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #606060;
+  color: #455a64;
   font-family: "Poppins", sans-serif;
   font-weight: 400; }
 
@@ -787,11 +782,7 @@ Wave Effects
     -webkit-transition-property: -webkit-transform, opacity;
     -moz-transition-property: -moz-transform, opacity;
     -o-transition-property: -o-transform, opacity;
-    -webkit-transition-property: opacity, -webkit-transform;
-    transition-property: opacity, -webkit-transform;
-    -o-transition-property: transform, opacity;
     transition-property: transform, opacity;
-    transition-property: transform, opacity, -webkit-transform;
     -webkit-transform: scale(0);
     -moz-transform: scale(0);
     -ms-transform: scale(0);
@@ -950,8 +941,6 @@ Buttons
 .btn-outline {
   color: inherit;
   background-color: transparent;
-  -webkit-transition: all .5s;
-  -o-transition: all .5s;
   transition: all .5s; }
 
 .btn-rounded {
@@ -971,41 +960,31 @@ Buttons
 
 .btn-secondary,
 .btn-secondary.disabled {
-  -webkit-box-shadow: 0 2px 2px 0 rgba(169, 169, 169, 0.14), 0 3px 1px -2px rgba(169, 169, 169, 0.2), 0 1px 5px 0 rgba(169, 169, 169, 0.12);
   box-shadow: 0 2px 2px 0 rgba(169, 169, 169, 0.14), 0 3px 1px -2px rgba(169, 169, 169, 0.2), 0 1px 5px 0 rgba(169, 169, 169, 0.12);
-  -webkit-transition: 0.2s ease-in;
-  -o-transition: 0.2s ease-in;
   transition: 0.2s ease-in; }
   .btn-secondary:hover,
   .btn-secondary.disabled:hover {
-    -webkit-box-shadow: 0 14px 26px -12px rgba(169, 169, 169, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(169, 169, 169, 0.2);
     box-shadow: 0 14px 26px -12px rgba(169, 169, 169, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(169, 169, 169, 0.2); }
   .btn-secondary.active, .btn-secondary:focus,
   .btn-secondary.disabled.active,
   .btn-secondary.disabled:focus {
-    -webkit-box-shadow: 0 14px 26px -12px rgba(169, 169, 169, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(169, 169, 169, 0.2);
     box-shadow: 0 14px 26px -12px rgba(169, 169, 169, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(169, 169, 169, 0.2); }
 
 .btn-primary,
 .btn-primary.disabled {
   background: #7460ee;
   border: 1px solid #7460ee;
-  -webkit-box-shadow: 0 2px 2px 0 rgba(116, 96, 238, 0.14), 0 3px 1px -2px rgba(116, 96, 238, 0.2), 0 1px 5px 0 rgba(116, 96, 238, 0.12);
   box-shadow: 0 2px 2px 0 rgba(116, 96, 238, 0.14), 0 3px 1px -2px rgba(116, 96, 238, 0.2), 0 1px 5px 0 rgba(116, 96, 238, 0.12);
-  -webkit-transition: 0.2s ease-in;
-  -o-transition: 0.2s ease-in;
   transition: 0.2s ease-in; }
   .btn-primary:hover,
   .btn-primary.disabled:hover {
     background: #7460ee;
-    -webkit-box-shadow: 0 14px 26px -12px rgba(116, 96, 238, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(116, 96, 238, 0.2);
     box-shadow: 0 14px 26px -12px rgba(116, 96, 238, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(116, 96, 238, 0.2);
     border: 1px solid #7460ee; }
   .btn-primary.active, .btn-primary:focus,
   .btn-primary.disabled.active,
   .btn-primary.disabled:focus {
     background: #6352ce;
-    -webkit-box-shadow: 0 14px 26px -12px rgba(116, 96, 238, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(116, 96, 238, 0.2);
     box-shadow: 0 14px 26px -12px rgba(116, 96, 238, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(116, 96, 238, 0.2); }
 
 .btn-themecolor,
@@ -1027,88 +1006,68 @@ Buttons
 .btn-success.disabled {
   background: #26c6da;
   border: 1px solid #26c6da;
-  -webkit-box-shadow: 0 2px 2px 0 rgba(40, 190, 189, 0.14), 0 3px 1px -2px rgba(40, 190, 189, 0.2), 0 1px 5px 0 rgba(40, 190, 189, 0.12);
   box-shadow: 0 2px 2px 0 rgba(40, 190, 189, 0.14), 0 3px 1px -2px rgba(40, 190, 189, 0.2), 0 1px 5px 0 rgba(40, 190, 189, 0.12);
-  -webkit-transition: 0.2s ease-in;
-  -o-transition: 0.2s ease-in;
   transition: 0.2s ease-in; }
   .btn-success:hover,
   .btn-success.disabled:hover {
     background: #26c6da;
-    -webkit-box-shadow: 0 14px 26px -12px rgba(40, 190, 189, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(40, 190, 189, 0.2);
     box-shadow: 0 14px 26px -12px rgba(40, 190, 189, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(40, 190, 189, 0.2);
     border: 1px solid #26c6da; }
   .btn-success.active, .btn-success:focus,
   .btn-success.disabled.active,
   .btn-success.disabled:focus {
     background: #1eacbe;
-    -webkit-box-shadow: 0 14px 26px -12px rgba(40, 190, 189, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(40, 190, 189, 0.2);
     box-shadow: 0 14px 26px -12px rgba(40, 190, 189, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(40, 190, 189, 0.2); }
 
 .btn-info,
 .btn-info.disabled {
   background: #1e88e5;
   border: 1px solid #1e88e5;
-  -webkit-box-shadow: 0 2px 2px 0 rgba(66, 165, 245, 0.14), 0 3px 1px -2px rgba(66, 165, 245, 0.2), 0 1px 5px 0 rgba(66, 165, 245, 0.12);
   box-shadow: 0 2px 2px 0 rgba(66, 165, 245, 0.14), 0 3px 1px -2px rgba(66, 165, 245, 0.2), 0 1px 5px 0 rgba(66, 165, 245, 0.12);
-  -webkit-transition: 0.2s ease-in;
-  -o-transition: 0.2s ease-in;
   transition: 0.2s ease-in; }
   .btn-info:hover,
   .btn-info.disabled:hover {
     background: #1e88e5;
     border: 1px solid #1e88e5;
-    -webkit-box-shadow: 0 14px 26px -12px rgba(23, 105, 255, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(23, 105, 255, 0.2);
     box-shadow: 0 14px 26px -12px rgba(23, 105, 255, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(23, 105, 255, 0.2); }
   .btn-info.active, .btn-info:focus,
   .btn-info.disabled.active,
   .btn-info.disabled:focus {
     background: #028ee1;
-    -webkit-box-shadow: 0 14px 26px -12px rgba(23, 105, 255, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(23, 105, 255, 0.2);
     box-shadow: 0 14px 26px -12px rgba(23, 105, 255, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(23, 105, 255, 0.2); }
 
 .btn-warning,
 .btn-warning.disabled {
   background: #ffb22b;
-  -webkit-box-shadow: 0 2px 2px 0 rgba(248, 194, 0, 0.14), 0 3px 1px -2px rgba(248, 194, 0, 0.2), 0 1px 5px 0 rgba(248, 194, 0, 0.12);
   box-shadow: 0 2px 2px 0 rgba(248, 194, 0, 0.14), 0 3px 1px -2px rgba(248, 194, 0, 0.2), 0 1px 5px 0 rgba(248, 194, 0, 0.12);
   border: 1px solid #ffb22b;
-  -webkit-transition: 0.2s ease-in;
-  -o-transition: 0.2s ease-in;
   transition: 0.2s ease-in; }
   .btn-warning:hover,
   .btn-warning.disabled:hover {
     background: #ffb22b;
-    -webkit-box-shadow: 0 14px 26px -12px rgba(248, 194, 0, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(248, 194, 0, 0.2);
     box-shadow: 0 14px 26px -12px rgba(248, 194, 0, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(248, 194, 0, 0.2);
     border: 1px solid #ffb22b; }
   .btn-warning.active, .btn-warning:focus,
   .btn-warning.disabled.active,
   .btn-warning.disabled:focus {
     background: #e9ab2e;
-    -webkit-box-shadow: 0 14px 26px -12px rgba(248, 194, 0, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(248, 194, 0, 0.2);
     box-shadow: 0 14px 26px -12px rgba(248, 194, 0, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(248, 194, 0, 0.2); }
 
 .btn-danger,
 .btn-danger.disabled {
   background: #fc4b6c;
   border: 1px solid #fc4b6c;
-  -webkit-box-shadow: 0 2px 2px 0 rgba(239, 83, 80, 0.14), 0 3px 1px -2px rgba(239, 83, 80, 0.2), 0 1px 5px 0 rgba(239, 83, 80, 0.12);
   box-shadow: 0 2px 2px 0 rgba(239, 83, 80, 0.14), 0 3px 1px -2px rgba(239, 83, 80, 0.2), 0 1px 5px 0 rgba(239, 83, 80, 0.12);
-  -webkit-transition: 0.2s ease-in;
-  -o-transition: 0.2s ease-in;
   transition: 0.2s ease-in; }
   .btn-danger:hover,
   .btn-danger.disabled:hover {
     background: #fc4b6c;
-    -webkit-box-shadow: 0 14px 26px -12px rgba(239, 83, 80, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(239, 83, 80, 0.2);
     box-shadow: 0 14px 26px -12px rgba(239, 83, 80, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(239, 83, 80, 0.2);
     border: 1px solid #fc4b6c; }
   .btn-danger.active, .btn-danger:focus,
   .btn-danger.disabled.active,
   .btn-danger.disabled:focus {
     background: #e6294b;
-    -webkit-box-shadow: 0 14px 26px -12px rgba(239, 83, 80, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(239, 83, 80, 0.2);
     box-shadow: 0 14px 26px -12px rgba(239, 83, 80, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(239, 83, 80, 0.2); }
 
 .btn-inverse,
@@ -1145,111 +1104,81 @@ Buttons
 
 .btn-outline-secondary {
   background-color: #ffffff;
-  -webkit-box-shadow: 0 2px 2px 0 rgba(169, 169, 169, 0.14), 0 3px 1px -2px rgba(169, 169, 169, 0.2), 0 1px 5px 0 rgba(169, 169, 169, 0.12);
   box-shadow: 0 2px 2px 0 rgba(169, 169, 169, 0.14), 0 3px 1px -2px rgba(169, 169, 169, 0.2), 0 1px 5px 0 rgba(169, 169, 169, 0.12);
-  -webkit-transition: 0.2s ease-in;
-  -o-transition: 0.2s ease-in;
   transition: 0.2s ease-in; }
   .btn-outline-secondary:hover, .btn-outline-secondary:focus, .btn-outline-secondary.focus {
-    -webkit-box-shadow: 0 14px 26px -12px rgba(169, 169, 169, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(169, 169, 169, 0.2);
     box-shadow: 0 14px 26px -12px rgba(169, 169, 169, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(169, 169, 169, 0.2); }
   .btn-outline-secondary.active, .btn-outline-secondary:focus {
-    -webkit-box-shadow: 0 14px 26px -12px rgba(169, 169, 169, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(169, 169, 169, 0.2);
     box-shadow: 0 14px 26px -12px rgba(169, 169, 169, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(169, 169, 169, 0.2); }
 
 .btn-outline-primary {
   color: #7460ee;
   background-color: #ffffff;
   border-color: #7460ee;
-  -webkit-box-shadow: 0 2px 2px 0 rgba(116, 96, 238, 0.14), 0 3px 1px -2px rgba(116, 96, 238, 0.2), 0 1px 5px 0 rgba(116, 96, 238, 0.12);
   box-shadow: 0 2px 2px 0 rgba(116, 96, 238, 0.14), 0 3px 1px -2px rgba(116, 96, 238, 0.2), 0 1px 5px 0 rgba(116, 96, 238, 0.12);
-  -webkit-transition: 0.2s ease-in;
-  -o-transition: 0.2s ease-in;
   transition: 0.2s ease-in; }
   .btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary.focus {
     background: #7460ee;
-    -webkit-box-shadow: 0 14px 26px -12px rgba(116, 96, 238, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(116, 96, 238, 0.2);
     box-shadow: 0 14px 26px -12px rgba(116, 96, 238, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(116, 96, 238, 0.2);
     color: #ffffff;
     border-color: #7460ee; }
   .btn-outline-primary.active, .btn-outline-primary:focus {
-    -webkit-box-shadow: 0 14px 26px -12px rgba(116, 96, 238, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(116, 96, 238, 0.2);
     box-shadow: 0 14px 26px -12px rgba(116, 96, 238, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(116, 96, 238, 0.2); }
 
 .btn-outline-success {
   color: #26c6da;
   background-color: transparent;
   border-color: #26c6da;
-  -webkit-box-shadow: 0 2px 2px 0 rgba(40, 190, 189, 0.14), 0 3px 1px -2px rgba(40, 190, 189, 0.2), 0 1px 5px 0 rgba(40, 190, 189, 0.12);
   box-shadow: 0 2px 2px 0 rgba(40, 190, 189, 0.14), 0 3px 1px -2px rgba(40, 190, 189, 0.2), 0 1px 5px 0 rgba(40, 190, 189, 0.12);
-  -webkit-transition: 0.2s ease-in;
-  -o-transition: 0.2s ease-in;
   transition: 0.2s ease-in; }
   .btn-outline-success:hover, .btn-outline-success:focus, .btn-outline-success.focus {
     background: #26c6da;
     border-color: #26c6da;
     color: #ffffff;
-    -webkit-box-shadow: 0 14px 26px -12px rgba(40, 190, 189, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(40, 190, 189, 0.2);
     box-shadow: 0 14px 26px -12px rgba(40, 190, 189, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(40, 190, 189, 0.2); }
   .btn-outline-success.active, .btn-outline-success:focus {
-    -webkit-box-shadow: 0 14px 26px -12px rgba(40, 190, 189, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(40, 190, 189, 0.2);
     box-shadow: 0 14px 26px -12px rgba(40, 190, 189, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(40, 190, 189, 0.2); }
 
 .btn-outline-info {
   color: #1e88e5;
   background-color: transparent;
   border-color: #1e88e5;
-  -webkit-box-shadow: 0 2px 2px 0 rgba(66, 165, 245, 0.14), 0 3px 1px -2px rgba(66, 165, 245, 0.2), 0 1px 5px 0 rgba(66, 165, 245, 0.12);
   box-shadow: 0 2px 2px 0 rgba(66, 165, 245, 0.14), 0 3px 1px -2px rgba(66, 165, 245, 0.2), 0 1px 5px 0 rgba(66, 165, 245, 0.12);
-  -webkit-transition: 0.2s ease-in;
-  -o-transition: 0.2s ease-in;
   transition: 0.2s ease-in; }
   .btn-outline-info:hover, .btn-outline-info:focus, .btn-outline-info.focus {
     background: #1e88e5;
     border-color: #1e88e5;
     color: #ffffff;
-    -webkit-box-shadow: 0 14px 26px -12px rgba(23, 105, 255, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(23, 105, 255, 0.2);
     box-shadow: 0 14px 26px -12px rgba(23, 105, 255, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(23, 105, 255, 0.2); }
   .btn-outline-info.active, .btn-outline-info:focus {
-    -webkit-box-shadow: 0 14px 26px -12px rgba(23, 105, 255, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(23, 105, 255, 0.2);
     box-shadow: 0 14px 26px -12px rgba(23, 105, 255, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(23, 105, 255, 0.2); }
 
 .btn-outline-warning {
   color: #ffb22b;
   background-color: transparent;
   border-color: #ffb22b;
-  -webkit-box-shadow: 0 2px 2px 0 rgba(248, 194, 0, 0.14), 0 3px 1px -2px rgba(248, 194, 0, 0.2), 0 1px 5px 0 rgba(248, 194, 0, 0.12);
   box-shadow: 0 2px 2px 0 rgba(248, 194, 0, 0.14), 0 3px 1px -2px rgba(248, 194, 0, 0.2), 0 1px 5px 0 rgba(248, 194, 0, 0.12);
-  -webkit-transition: 0.2s ease-in;
-  -o-transition: 0.2s ease-in;
   transition: 0.2s ease-in; }
   .btn-outline-warning:hover, .btn-outline-warning:focus, .btn-outline-warning.focus {
     background: #ffb22b;
     border-color: #ffb22b;
     color: #ffffff;
-    -webkit-box-shadow: 0 14px 26px -12px rgba(248, 194, 0, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(248, 194, 0, 0.2);
     box-shadow: 0 14px 26px -12px rgba(248, 194, 0, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(248, 194, 0, 0.2); }
   .btn-outline-warning.active, .btn-outline-warning:focus {
-    -webkit-box-shadow: 0 14px 26px -12px rgba(248, 194, 0, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(248, 194, 0, 0.2);
     box-shadow: 0 14px 26px -12px rgba(248, 194, 0, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(248, 194, 0, 0.2); }
 
 .btn-outline-danger {
   color: #fc4b6c;
   background-color: transparent;
   border-color: #fc4b6c;
-  -webkit-box-shadow: 0 2px 2px 0 rgba(239, 83, 80, 0.14), 0 3px 1px -2px rgba(239, 83, 80, 0.2), 0 1px 5px 0 rgba(239, 83, 80, 0.12);
   box-shadow: 0 2px 2px 0 rgba(239, 83, 80, 0.14), 0 3px 1px -2px rgba(239, 83, 80, 0.2), 0 1px 5px 0 rgba(239, 83, 80, 0.12);
-  -webkit-transition: 0.2s ease-in;
-  -o-transition: 0.2s ease-in;
   transition: 0.2s ease-in; }
   .btn-outline-danger:hover, .btn-outline-danger:focus, .btn-outline-danger.focus {
     background: #fc4b6c;
     border-color: #fc4b6c;
     color: #ffffff;
-    -webkit-box-shadow: 0 14px 26px -12px rgba(239, 83, 80, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(239, 83, 80, 0.2);
     box-shadow: 0 14px 26px -12px rgba(239, 83, 80, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(239, 83, 80, 0.2); }
   .btn-outline-danger.active, .btn-outline-danger:focus {
-    -webkit-box-shadow: 0 14px 26px -12px rgba(239, 83, 80, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(239, 83, 80, 0.2);
     box-shadow: 0 14px 26px -12px rgba(239, 83, 80, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(239, 83, 80, 0.2); }
 
 .btn-outline-red {
@@ -1260,10 +1189,8 @@ Buttons
     background: #fb3a3a;
     border-color: #fb3a3a;
     color: #ffffff;
-    -webkit-box-shadow: 0 14px 26px -12px rgba(239, 83, 80, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(239, 83, 80, 0.2);
     box-shadow: 0 14px 26px -12px rgba(239, 83, 80, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(239, 83, 80, 0.2); }
   .btn-outline-red.active, .btn-outline-red:focus {
-    -webkit-box-shadow: 0 14px 26px -12px rgba(239, 83, 80, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(239, 83, 80, 0.2);
     box-shadow: 0 14px 26px -12px rgba(239, 83, 80, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(239, 83, 80, 0.2); }
 
 .btn-outline-inverse {
@@ -1661,10 +1588,7 @@ Radios
       position: absolute;
       top: 5px;
       transform: scale(0, 0);
-      transition: -webkit-transform 0.3s cubic-bezier(0.8, -0.33, 0.2, 1.33);
-      -o-transition: transform 0.3s cubic-bezier(0.8, -0.33, 0.2, 1.33);
       transition: transform 0.3s cubic-bezier(0.8, -0.33, 0.2, 1.33);
-      transition: transform 0.3s cubic-bezier(0.8, -0.33, 0.2, 1.33), -webkit-transform 0.3s cubic-bezier(0.8, -0.33, 0.2, 1.33);
       width: 7px; }
   .radio input[type="radio"] {
     cursor: pointer;
@@ -1849,7 +1773,6 @@ Form-control
   opacity: 0.7; }
 
 .custom-control-input:focus ~ .custom-control-indicator {
-  -webkit-box-shadow: none;
   box-shadow: none; }
 
 .custom-control-input:checked ~ .custom-control-indicator {
@@ -1878,7 +1801,6 @@ Layouts
 .card-no-border .card {
   border-color: #d7dfe3;
   border-radius: 4px;
-  -webkit-box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05); }
 
 .card-no-border .sidebar-footer {
@@ -1888,7 +1810,6 @@ Layouts
   background: #ffffff; }
 
 .card-no-border .shadow-none {
-  -webkit-box-shadow: none;
   box-shadow: none; }
 
 .card-outline-danger, .card-outline-info, .card-outline-warning, .card-outline-success, .card-outline-primary {
@@ -1946,7 +1867,6 @@ File: scss
   width: 100%;
   max-width: 1300px;
   margin: 0 auto;
-  -webkit-box-shadow: 0 0 60px rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 60px rgba(0, 0, 0, 0.1); }
   .boxed #main-wrapper .sidebar-footer {
     position: absolute; }
@@ -1954,7 +1874,7 @@ File: scss
     display: none; }
 
 .page-wrapper {
-  //background: #eef5f9;
+  background: #eef5f9;
   padding-bottom: 60px; }
 
 .container-fluid {
@@ -1966,7 +1886,6 @@ File: scss
 .topbar {
   position: relative;
   z-index: 50;
-  -webkit-box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.5);
   box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.5); }
   .topbar .top-navbar {
     min-height: 70px;
@@ -2053,7 +1972,6 @@ File: scss
   z-index: 110;
   width: 100%;
   top: -1px;
-  -webkit-box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.2);
   box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.2);
   display: none;
   left: 0px; }
@@ -2062,8 +1980,6 @@ File: scss
     padding: 25px 40px 25px 20px;
     border-radius: 0px;
     font-size: 17px;
-    -webkit-transition: 0.5s ease-in;
-    -o-transition: 0.5s ease-in;
     transition: 0.5s ease-in; }
   .search-box .app-search .srh-btn {
     position: absolute;
@@ -2092,7 +2008,6 @@ File: scss
   background: #ffffff;
   margin: 0 -30px 30px;
   padding: 15px;
-  -webkit-box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1);
   box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1); }
   .page-titles h3 {
     margin-bottom: 0px;
@@ -2129,10 +2044,8 @@ File: scss
 
 @keyframes rotate {
   from {
-    -webkit-transform: rotate(0deg);
     transform: rotate(0deg); }
   to {
-    -webkit-transform: rotate(360deg);
     transform: rotate(360deg); } }
 
 .right-side-toggle {
@@ -2143,11 +2056,7 @@ File: scss
   -webkit-transition-duration: 1s;
   -moz-transition-property: -moz-transform;
   -moz-transition-duration: 1s;
-  transition-property: -webkit-transform;
-  -o-transition-property: transform;
   transition-property: transform;
-  transition-property: transform, -webkit-transform;
-  -o-transition-duration: 1s;
   transition-duration: 1s;
   -webkit-animation-name: rotate;
   -webkit-animation-duration: 2s;
@@ -2167,18 +2076,15 @@ File: scss
 
 .right-sidebar {
   position: fixed;
-  right: -300px;
-  width: 300px;
+  right: -240px;
+  width: 240px;
   display: none;
   z-index: 1100;
   background: #ffffff;
   top: 0px;
   padding-bottom: 20px;
   height: 100%;
-  -webkit-box-shadow: 5px 1px 40px rgba(0, 0, 0, 0.1);
   box-shadow: 5px 1px 40px rgba(0, 0, 0, 0.1);
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
   transition: all 0.3s ease; }
   .right-sidebar .rpanel-title {
     display: block;
@@ -2204,7 +2110,7 @@ File: scss
 
 .shw-rside {
   right: 0px;
-  width: 300px;
+  width: 240px;
   display: block; }
 
 .chatonline img {
@@ -2279,8 +2185,6 @@ ul#themecolors {
   /* FF3.6-15 */
   background: -webkit-linear-gradient(left, #263238 0%, #263238 23%, #99abb4 23%, #99abb4 99%);
   /* Chrome10-25,Safari5.1-6 */
-  background: -webkit-gradient(linear, left top, right top, from(#263238), color-stop(23%, #263238), color-stop(23%, #99abb4), color-stop(99%, #99abb4));
-  background: -o-linear-gradient(left, #263238 0%, #263238 23%, #99abb4 23%, #99abb4 99%);
   background: linear-gradient(to right, #263238 0%, #263238 23%, #99abb4 23%, #99abb4 99%); }
 
 .green-dark-theme {
@@ -2290,9 +2194,6 @@ ul#themecolors {
   /* FF3.6-15 */
   background: -webkit-linear-gradient(left, #263238 0%, #263238 23%, #00c292 23%, #26c6da 99%);
   /* Chrome10-25,Safari5.1-6 */
-  background: -webkit-gradient(linear, left top, right top, from(#263238), color-stop(23%, #263238), color-stop(23%, #26c6da), color-stop(99%, #26c6da));
-  background: -webkit-linear-gradient(left, #263238 0%, #263238 23%, #26c6da 23%, #26c6da 99%);
-  background: -o-linear-gradient(left, #263238 0%, #263238 23%, #26c6da 23%, #26c6da 99%);
   background: linear-gradient(to right, #263238 0%, #263238 23%, #26c6da 23%, #26c6da 99%); }
 
 .yellow-dark-theme {
@@ -2302,8 +2203,6 @@ ul#themecolors {
   /* FF3.6-15 */
   background: -webkit-linear-gradient(left, #263238 0%, #263238 23%, #fc4b6c 23%, #fc4b6c 99%);
   /* Chrome10-25,Safari5.1-6 */
-  background: -webkit-gradient(linear, left top, right top, from(#263238), color-stop(23%, #263238), color-stop(23%, #fc4b6c), color-stop(99%, #fc4b6c));
-  background: -o-linear-gradient(left, #263238 0%, #263238 23%, #fc4b6c 23%, #fc4b6c 99%);
   background: linear-gradient(to right, #263238 0%, #263238 23%, #fc4b6c 23%, #fc4b6c 99%); }
 
 .blue-dark-theme {
@@ -2313,8 +2212,6 @@ ul#themecolors {
   /* FF3.6-15 */
   background: -webkit-linear-gradient(left, #263238 0%, #263238 23%, #1e88e5 23%, #1e88e5 99%);
   /* Chrome10-25,Safari5.1-6 */
-  background: -webkit-gradient(linear, left top, right top, from(#263238), color-stop(23%, #263238), color-stop(23%, #1e88e5), color-stop(99%, #1e88e5));
-  background: -o-linear-gradient(left, #263238 0%, #263238 23%, #1e88e5 23%, #1e88e5 99%);
   background: linear-gradient(to right, #263238 0%, #263238 23%, #1e88e5 23%, #1e88e5 99%); }
 
 .purple-dark-theme {
@@ -2324,8 +2221,6 @@ ul#themecolors {
   /* FF3.6-15 */
   background: -webkit-linear-gradient(left, #263238 0%, #263238 23%, #7460ee 23%, #7460ee 99%);
   /* Chrome10-25,Safari5.1-6 */
-  background: -webkit-gradient(linear, left top, right top, from(#263238), color-stop(23%, #263238), color-stop(23%, #7460ee), color-stop(99%, #7460ee));
-  background: -o-linear-gradient(left, #263238 0%, #263238 23%, #7460ee 23%, #7460ee 99%);
   background: linear-gradient(to right, #263238 0%, #263238 23%, #7460ee 23%, #7460ee 99%); }
 
 .megna-dark-theme {
@@ -2335,8 +2230,6 @@ ul#themecolors {
   /* FF3.6-15 */
   background: -webkit-linear-gradient(left, #263238 0%, #263238 23%, #00897b 23%, #00897b 99%);
   /* Chrome10-25,Safari5.1-6 */
-  background: -webkit-gradient(linear, left top, right top, from(#263238), color-stop(23%, #263238), color-stop(23%, #00897b), color-stop(99%, #00897b));
-  background: -o-linear-gradient(left, #263238 0%, #263238 23%, #00897b 23%, #00897b 99%);
   background: linear-gradient(to right, #263238 0%, #263238 23%, #00897b 23%, #00897b 99%); }
 
 .red-dark-theme {
@@ -2346,8 +2239,6 @@ ul#themecolors {
   /* FF3.6-15 */
   background: -webkit-linear-gradient(left, #263238 0%, #263238 23%, #fc4b6c 23%, #fc4b6c 99%);
   /* Chrome10-25,Safari5.1-6 */
-  background: -webkit-gradient(linear, left top, right top, from(#263238), color-stop(23%, #263238), color-stop(23%, #fc4b6c), color-stop(99%, #fc4b6c));
-  background: -o-linear-gradient(left, #263238 0%, #263238 23%, #fc4b6c 23%, #fc4b6c 99%);
   background: linear-gradient(to right, #263238 0%, #263238 23%, #fc4b6c 23%, #fc4b6c 99%); }
 
 /*******************
@@ -2452,7 +2343,6 @@ ul#themecolors {
 
 .collapsing {
   -webkit-transition: height .08s ease;
-  -o-transition: height .08s ease;
   transition: height .08s ease; }
 
 .card-info {
@@ -2525,8 +2415,6 @@ ul.list-icons {
     list-style: none;
     line-height: 30px;
     margin: 5px 0;
-    -webkit-transition: 0.2s ease-in;
-    -o-transition: 0.2s ease-in;
     transition: 0.2s ease-in; }
     ul.list-icons li a {
       color: #67757c; }
@@ -2595,8 +2483,6 @@ Easy pie chart
   right: 0;
   text-align: center;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
   transform: translateY(-50%); }
 
 .chart > span > img {
@@ -2608,8 +2494,6 @@ Easy pie chart
   top: 50%;
   width: 60%;
   height: 60%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   margin: 0 auto; }
 
@@ -2675,7 +2559,7 @@ Dashboard2 chart
   height: 280px; }
   .campaign .ct-series-a .ct-area {
     fill-opacity: 0.2;
-    fill: url(#gradient); }
+    fill: url(../scss/#gradient); }
   .campaign .ct-series-a .ct-line,
   .campaign .ct-series-a .ct-point {
     stroke: #26c6da;
@@ -2693,7 +2577,7 @@ Dashboard2 chart
 
 .campaign2 .ct-series-a .ct-area {
   fill-opacity: 0.2;
-  fill: url(#gradient); }
+  fill: url(../scss/#gradient); }
 
 .campaign2 .ct-series-a .ct-line,
 .campaign2 .ct-series-a .ct-point {
@@ -2926,20 +2810,14 @@ Form Material page
   background-repeat: no-repeat;
   background-size: 0 2px, 100% 1px;
   padding: 0;
-  -webkit-transition: background 0s ease-out 0s;
-  -o-transition: background 0s ease-out 0s;
   transition: background 0s ease-out 0s; }
 
 .form-material .form-control,
 .form-material .form-control.focus,
 .form-material .form-control:focus {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#009efb), to(#009efb)), -webkit-gradient(linear, left top, left bottom, from(#d9d9d9), to(#d9d9d9));
-  background-image: -webkit-linear-gradient(#009efb, #009efb), -webkit-linear-gradient(#d9d9d9, #d9d9d9);
-  background-image: -o-linear-gradient(#009efb, #009efb), -o-linear-gradient(#d9d9d9, #d9d9d9);
   background-image: linear-gradient(#009efb, #009efb), linear-gradient(#d9d9d9, #d9d9d9);
   border: 0 none;
   border-radius: 0;
-  -webkit-box-shadow: none;
   box-shadow: none;
   float: none; }
 
@@ -2947,8 +2825,6 @@ Form Material page
 .form-material .form-control:focus {
   background-size: 100% 2px, 100% 1px;
   outline: 0 none;
-  -webkit-transition-duration: 0.3s;
-  -o-transition-duration: 0.3s;
   transition-duration: 0.3s; }
 
 .form-control-line .form-group {
@@ -2997,7 +2873,6 @@ Form Material page
   position: absolute;
   cursor: auto;
   top: 5px;
-  -o-transition: 0.2s ease all;
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all; }
@@ -3020,7 +2895,6 @@ Form Material page
   bottom: 1px;
   position: absolute;
   background: #009efb;
-  -o-transition: 0.2s ease all;
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all; }
@@ -3534,7 +3408,6 @@ table.dataTable thead .sorting:after {
   padding-top: 0.25em; }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button {
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   display: inline-block;
   min-width: 1.5em;
@@ -3561,7 +3434,6 @@ table.dataTable thead .sorting:after {
   color: #67757c;
   border: 1px solid transparent;
   background: transparent;
-  -webkit-box-shadow: none;
   box-shadow: none; }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
@@ -3646,13 +3518,9 @@ Icon list fontawesom
   font-size: 18px;
   margin: 0 15px 0 10px;
   text-align: left;
-  -o-transition: all 0.2s;
   transition: all 0.2s;
-  -o-transition: font-size .2s;
   transition: font-size .2s;
   vertical-align: middle;
-  -webkit-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s; }
 
 .icon-list-demo .col-md-4,
@@ -3749,8 +3617,6 @@ Bootstrap Switch
   display: block;
   width: 200%;
   margin-left: -100%;
-  -webkit-transition: margin 0.3s ease-in 0s;
-  -o-transition: margin 0.3s ease-in 0s;
   transition: margin 0.3s ease-in 0s; }
 
 .onoffswitch-inner:before,
@@ -3763,7 +3629,6 @@ Bootstrap Switch
   line-height: 30px;
   font-size: 14px;
   color: white;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
 .onoffswitch-inner:before {
@@ -3790,8 +3655,6 @@ Bootstrap Switch
   right: 56px;
   border: 2px solid #26c6da;
   border-radius: 20px;
-  -webkit-transition: all 0.3s ease-in 0s;
-  -o-transition: all 0.3s ease-in 0s;
   transition: all 0.3s ease-in 0s; }
 
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
@@ -3911,8 +3774,6 @@ Progress bar
   display: inline-block;
   margin-bottom: 0;
   margin-right: 20px;
-  -webkit-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
   transform: rotate(180deg); }
 
 .progress-animated {
@@ -3921,7 +3782,6 @@ Progress bar
   -webkit-transition: 5s all;
   animation-duration: 5s;
   animation-name: myanimation;
-  -o-transition: 5s all;
   transition: 5s all; }
 
 @-webkit-keyframes myanimation {
@@ -4004,7 +3864,6 @@ User card page
       display: block;
       position: relative;
       -webkit-transition: all .4s linear;
-      -o-transition: all .4s linear;
       transition: all .4s linear;
       width: 100%;
       height: auto; }
@@ -4020,7 +3879,6 @@ User card page
       background-color: transparent;
       filter: alpha(opacity=0);
       -webkit-transition: all .2s ease-in-out;
-      -o-transition: all .2s ease-in-out;
       transition: all .2s ease-in-out;
       padding: 0;
       margin: auto;
@@ -4052,7 +3910,6 @@ User card page
     opacity: 0;
     background-color: rgba(0, 0, 0, 0.7);
     -webkit-transition: all .4s ease-in-out;
-    -o-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out; }
   .el-element-overlay .el-card-item .el-overlay-1:hover .el-overlay {
     opacity: 1;
@@ -4611,13 +4468,11 @@ Stylish tooltip
   opacity: 1;
   font-size: 18px;
   pointer-events: auto;
-  -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
   transform: translate3d(0, 0, 0) scale3d(1, 1, 1); }
 
 .mytooltip:hover .tooltip-content4, .mytooltip:hover .tooltip-text2 {
   pointer-events: auto;
   opacity: 1;
-  -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0); }
 
 .mytooltip {
@@ -4629,34 +4484,23 @@ Stylish tooltip
   .mytooltip:hover .tooltip-content {
     pointer-events: auto;
     opacity: 1;
-    -webkit-transform: translate3d(0, 0, 0) rotate3d(0, 0, 0, 0);
     transform: translate3d(0, 0, 0) rotate3d(0, 0, 0, 0); }
   .mytooltip:hover .tooltip-content3 {
     opacity: 1;
     pointer-events: auto;
-    -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1); }
   .mytooltip:hover .tooltip-item2 {
     color: #ffffff;
-    -webkit-transform: translate3d(0, -0.5em, 0);
     transform: translate3d(0, -0.5em, 0); }
   .mytooltip:hover .tooltip-content5 {
     opacity: 1;
     pointer-events: auto;
-    -webkit-transition-delay: 0s;
-    -o-transition-delay: 0s;
     transition-delay: 0s; }
   .mytooltip:hover .tooltip-text3 {
-    -webkit-transition-delay: 0s;
-    -o-transition-delay: 0s;
     transition-delay: 0s;
-    -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1); }
   .mytooltip:hover .tooltip-inner2 {
-    -webkit-transition-delay: 0.3s;
-    -o-transition-delay: 0.3s;
     transition-delay: 0.3s;
-    -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0); }
 
 .tooltip-item {
@@ -4674,8 +4518,6 @@ Stylish tooltip
   bottom: 100%;
   left: 50%;
   pointer-events: none;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
   transform: translateX(-50%); }
 
 .tooltip-content {
@@ -4688,7 +4530,6 @@ Stylish tooltip
   text-align: left;
   font-size: 14px;
   line-height: 30px;
-  -webkit-box-shadow: -5px -5px 15px rgba(48, 54, 61, 0.2);
   box-shadow: -5px -5px 15px rgba(48, 54, 61, 0.2);
   background: #2b2b2b;
   opacity: 0;
@@ -4704,18 +4545,9 @@ Stylish tooltip
 .tooltip-effect-5 .tooltip-content {
   width: 180px;
   margin-left: -90px;
-  -webkit-transform-origin: 50% calc(106%);
-  -ms-transform-origin: 50% calc(106%);
   transform-origin: 50% calc(106%);
-  -webkit-transform: rotate3d(0, 0, 1, 15deg);
   transform: rotate3d(0, 0, 1, 15deg);
-  -webkit-transition: opacity 0.2s, -webkit-transform 0.2s;
-  transition: opacity 0.2s, -webkit-transform 0.2s;
-  -o-transition: opacity 0.2s, transform 0.2s;
   transition: opacity 0.2s, transform 0.2s;
-  transition: opacity 0.2s, transform 0.2s, -webkit-transform 0.2s;
-  -webkit-transition-timing-function: ease, cubic-bezier(0.17, 0.67, 0.4, 1.39);
-  -o-transition-timing-function: ease, cubic-bezier(0.17, 0.67, 0.4, 1.39);
   transition-timing-function: ease, cubic-bezier(0.17, 0.67, 0.4, 1.39); }
 
 .tooltip-effect-5 .tooltip-text {
@@ -4763,27 +4595,14 @@ Stylish tooltip
     opacity: 0; }
 
 .tooltip-effect-6 .tooltip-content2 {
-  -webkit-transform: translate3d(0, 10px, 0) rotate3d(1, 1, 1, 45deg);
   transform: translate3d(0, 10px, 0) rotate3d(1, 1, 1, 45deg);
-  -webkit-transform-origin: 50% 100%;
-  -ms-transform-origin: 50% 100%;
   transform-origin: 50% 100%;
-  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-  transition: opacity 0.3s, -webkit-transform 0.3s;
-  -o-transition: opacity 0.3s, transform 0.3s;
-  transition: opacity 0.3s, transform 0.3s;
-  transition: opacity 0.3s, transform 0.3s, -webkit-transform 0.3s; }
+  transition: opacity 0.3s, transform 0.3s; }
   .tooltip-effect-6 .tooltip-content2 i {
-    -webkit-transform: scale3d(0, 0, 1);
     transform: scale3d(0, 0, 1);
-    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-    transition: opacity 0.3s, -webkit-transform 0.3s;
-    -o-transition: opacity 0.3s, transform 0.3s;
-    transition: opacity 0.3s, transform 0.3s;
-    transition: opacity 0.3s, transform 0.3s, -webkit-transform 0.3s; }
+    transition: opacity 0.3s, transform 0.3s; }
 
 .tooltip-effect-6:hover .tooltip-content2 i {
-  -webkit-transform: rotate3d(1, 1, 1, 0);
   transform: rotate3d(1, 1, 1, 0); }
 
 .tooltip-content2::after {
@@ -4814,18 +4633,9 @@ Stylish tooltip
   font-size: 14;
   line-height: 27px;
   pointer-events: none;
-  -webkit-transform: scale3d(0.1, 0.2, 1);
   transform: scale3d(0.1, 0.2, 1);
-  -webkit-transform-origin: 50% 120%;
-  -ms-transform-origin: 50% 120%;
   transform-origin: 50% 120%;
-  -webkit-transition: opacity 0.4s, -webkit-transform 0.4s;
-  transition: opacity 0.4s, -webkit-transform 0.4s;
-  -o-transition: opacity 0.4s, transform 0.4s;
   transition: opacity 0.4s, transform 0.4s;
-  transition: opacity 0.4s, transform 0.4s, -webkit-transform 0.4s;
-  -webkit-transition-timing-function: ease, cubic-bezier(0.6, 0, 0.4, 1);
-  -o-transition-timing-function: ease, cubic-bezier(0.6, 0, 0.4, 1);
   transition-timing-function: ease, cubic-bezier(0.6, 0, 0.4, 1); }
 
 .tooltip-content3::after {
@@ -4837,7 +4647,6 @@ Stylish tooltip
   margin-left: -8px;
   top: 100%;
   background: #00aeef;
-  -webkit-transform: translate3d(0, -60%, 0) rotate3d(0, 0, 1, 45deg);
   transform: translate3d(0, -60%, 0) rotate3d(0, 0, 1, 45deg); }
 
 .tooltip-item2 {
@@ -4847,11 +4656,7 @@ Stylish tooltip
   position: relative;
   display: inline-block;
   font-weight: 500;
-  -webkit-transition: background-color 0.3s, color 0.3s, -webkit-transform 0.3s;
-  transition: background-color 0.3s, color 0.3s, -webkit-transform 0.3s;
-  -o-transition: background-color 0.3s, color 0.3s, transform 0.3s;
-  transition: background-color 0.3s, color 0.3s, transform 0.3s;
-  transition: background-color 0.3s, color 0.3s, transform 0.3s, -webkit-transform 0.3s; }
+  transition: background-color 0.3s, color 0.3s, transform 0.3s; }
 
 .tooltip-content4 {
   position: absolute;
@@ -4871,25 +4676,15 @@ Stylish tooltip
   cursor: default;
   pointer-events: none;
   border-radius: 5px;
-  -webkit-transform: translate3d(0, -0.5em, 0);
   transform: translate3d(0, -0.5em, 0);
-  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-  transition: opacity 0.3s, -webkit-transform 0.3s;
-  -o-transition: opacity 0.3s, transform 0.3s;
-  transition: opacity 0.3s, transform 0.3s;
-  transition: opacity 0.3s, transform 0.3s, -webkit-transform 0.3s; }
+  transition: opacity 0.3s, transform 0.3s; }
   .tooltip-content4 a {
     color: #2b2b2b; }
 
 .tooltip-text2 {
   opacity: 0;
-  -webkit-transform: translate3d(0, 1.5em, 0);
   transform: translate3d(0, 1.5em, 0);
-  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-  transition: opacity 0.3s, -webkit-transform 0.3s;
-  -o-transition: opacity 0.3s, transform 0.3s;
-  transition: opacity 0.3s, transform 0.3s;
-  transition: opacity 0.3s, transform 0.3s, -webkit-transform 0.3s; }
+  transition: opacity 0.3s, transform 0.3s; }
 
 .tooltip-content5 {
   position: absolute;
@@ -4907,8 +4702,6 @@ Stylish tooltip
   margin: 0 0 20px -150px;
   cursor: default;
   pointer-events: none;
-  -webkit-transition: opacity 0.3s 0.3s;
-  -o-transition: opacity 0.3s 0.3s;
   transition: opacity 0.3s 0.3s; }
   .tooltip-content5 span {
     display: block; }
@@ -4916,24 +4709,14 @@ Stylish tooltip
 .tooltip-text3 {
   border-bottom: 10px solid #009efb;
   overflow: hidden;
-  -webkit-transform: scale3d(0, 1, 1);
   transform: scale3d(0, 1, 1);
-  -webkit-transition: -webkit-transform 0.3s 0.3s;
-  transition: -webkit-transform 0.3s 0.3s;
-  -o-transition: transform 0.3s 0.3s;
-  transition: transform 0.3s 0.3s;
-  transition: transform 0.3s 0.3s, -webkit-transform 0.3s 0.3s; }
+  transition: transform 0.3s 0.3s; }
 
 .tooltip-inner2 {
   background: #2b2b2b;
   padding: 40px;
-  -webkit-transform: translate3d(0, 100%, 0);
   transform: translate3d(0, 100%, 0);
-  -webkit-transition: -webkit-transform 0.3s;
-  transition: -webkit-transform 0.3s;
-  -o-transition: transform 0.3s;
-  transition: transform 0.3s;
-  transition: transform 0.3s, -webkit-transform 0.3s; }
+  transition: transform 0.3s; }
 
 .tooltip-content5::after {
   content: '';
@@ -4950,50 +4733,25 @@ Stylish tooltip
   margin-left: -10px; }
 
 .tooltip-effect-1 .tooltip-content {
-  -webkit-transform: translate3d(0, -10px, 0);
   transform: translate3d(0, -10px, 0);
-  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-  transition: opacity 0.3s, -webkit-transform 0.3s;
-  -o-transition: opacity 0.3s, transform 0.3s;
   transition: opacity 0.3s, transform 0.3s;
-  transition: opacity 0.3s, transform 0.3s, -webkit-transform 0.3s;
   color: #ffffff; }
 
 .tooltip-effect-2 .tooltip-content {
-  -webkit-transform-origin: 50% calc(110%);
-  -ms-transform-origin: 50% calc(110%);
   transform-origin: 50% calc(110%);
-  -webkit-transform: perspective(1000px) rotate3d(1, 0, 0, 45deg);
   transform: perspective(1000px) rotate3d(1, 0, 0, 45deg);
-  -webkit-transition: opacity 0.2s, -webkit-transform 0.2s;
-  transition: opacity 0.2s, -webkit-transform 0.2s;
-  -o-transition: opacity 0.2s, transform 0.2s;
-  transition: opacity 0.2s, transform 0.2s;
-  transition: opacity 0.2s, transform 0.2s, -webkit-transform 0.2s; }
+  transition: opacity 0.2s, transform 0.2s; }
 
 .tooltip-effect-3 .tooltip-content {
-  -webkit-transform: translate3d(0, 10px, 0) rotate3d(1, 1, 0, 25deg);
   transform: translate3d(0, 10px, 0) rotate3d(1, 1, 0, 25deg);
-  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-  transition: opacity 0.3s, -webkit-transform 0.3s;
-  -o-transition: opacity 0.3s, transform 0.3s;
-  transition: opacity 0.3s, transform 0.3s;
-  transition: opacity 0.3s, transform 0.3s, -webkit-transform 0.3s; }
+  transition: opacity 0.3s, transform 0.3s; }
 
 .tooltip-effect-4 .tooltip-content {
-  -webkit-transform-origin: 50% 100%;
-  -ms-transform-origin: 50% 100%;
   transform-origin: 50% 100%;
-  -webkit-transform: scale3d(0.7, 0.3, 1);
   transform: scale3d(0.7, 0.3, 1);
-  -webkit-transition: opacity 0.2s, -webkit-transform 0.2s;
-  transition: opacity 0.2s, -webkit-transform 0.2s;
-  -o-transition: opacity 0.2s, transform 0.2s;
-  transition: opacity 0.2s, transform 0.2s;
-  transition: opacity 0.2s, transform 0.2s, -webkit-transform 0.2s; }
+  transition: opacity 0.2s, transform 0.2s; }
 
 .tooltip.tooltip-effect-2:hover .tooltip-content {
-  -webkit-transform: perspective(1000px) rotate3d(1, 0, 0, 0deg);
   transform: perspective(1000px) rotate3d(1, 0, 0, 0deg); }
 
 a.mytooltip {
@@ -5001,58 +4759,26 @@ a.mytooltip {
   color: #009efb; }
 
 .tooltip-effect-7 .tooltip-content2 {
-  -webkit-transform: translate3d(0, 10px, 0);
   transform: translate3d(0, 10px, 0);
-  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-  transition: opacity 0.3s, -webkit-transform 0.3s;
-  -o-transition: opacity 0.3s, transform 0.3s;
-  transition: opacity 0.3s, transform 0.3s;
-  transition: opacity 0.3s, transform 0.3s, -webkit-transform 0.3s; }
+  transition: opacity 0.3s, transform 0.3s; }
   .tooltip-effect-7 .tooltip-content2 i {
-    -webkit-transform: translate3d(0, 15px, 0);
     transform: translate3d(0, 15px, 0);
-    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-    transition: opacity 0.3s, -webkit-transform 0.3s;
-    -o-transition: opacity 0.3s, transform 0.3s;
-    transition: opacity 0.3s, transform 0.3s;
-    transition: opacity 0.3s, transform 0.3s, -webkit-transform 0.3s; }
+    transition: opacity 0.3s, transform 0.3s; }
 
 .tooltip-effect-8 .tooltip-content2 {
-  -webkit-transform: translate3d(0, 10px, 0) rotate3d(0, 1, 0, 90deg);
   transform: translate3d(0, 10px, 0) rotate3d(0, 1, 0, 90deg);
-  -webkit-transform-origin: 50% 100%;
-  -ms-transform-origin: 50% 100%;
   transform-origin: 50% 100%;
-  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-  transition: opacity 0.3s, -webkit-transform 0.3s;
-  -o-transition: opacity 0.3s, transform 0.3s;
-  transition: opacity 0.3s, transform 0.3s;
-  transition: opacity 0.3s, transform 0.3s, -webkit-transform 0.3s; }
+  transition: opacity 0.3s, transform 0.3s; }
   .tooltip-effect-8 .tooltip-content2 i {
-    -webkit-transform: scale3d(0, 0, 1);
     transform: scale3d(0, 0, 1);
-    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-    transition: opacity 0.3s, -webkit-transform 0.3s;
-    -o-transition: opacity 0.3s, transform 0.3s;
-    transition: opacity 0.3s, transform 0.3s;
-    transition: opacity 0.3s, transform 0.3s, -webkit-transform 0.3s; }
+    transition: opacity 0.3s, transform 0.3s; }
 
 .tooltip-effect-9 .tooltip-content2 {
-  -webkit-transform: translate3d(0, -20px, 0);
   transform: translate3d(0, -20px, 0);
-  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-  transition: opacity 0.3s, -webkit-transform 0.3s;
-  -o-transition: opacity 0.3s, transform 0.3s;
-  transition: opacity 0.3s, transform 0.3s;
-  transition: opacity 0.3s, transform 0.3s, -webkit-transform 0.3s; }
+  transition: opacity 0.3s, transform 0.3s; }
   .tooltip-effect-9 .tooltip-content2 i {
-    -webkit-transform: translate3d(0, 20px, 0);
     transform: translate3d(0, 20px, 0);
-    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-    transition: opacity 0.3s, -webkit-transform 0.3s;
-    -o-transition: opacity 0.3s, transform 0.3s;
-    transition: opacity 0.3s, transform 0.3s;
-    transition: opacity 0.3s, transform 0.3s, -webkit-transform 0.3s; }
+    transition: opacity 0.3s, transform 0.3s; }
 
 /*******************
 Error Page
@@ -5340,7 +5066,6 @@ Email inbox Page
   padding: 2px 0 3px 0;
   overflow: hidden;
   vertical-align: middle;
-  -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   white-space: nowrap;
   display: inline-block; }
@@ -5411,6 +5136,30 @@ File: scss
 /*******************
 Main sidebar
 ******************/
+/*
+Template Name: Material Pro Admin
+Author: Themedesigner
+Email: niravjoshi87@gmail.com
+File: scss
+*/
+/*Theme Colors*/
+/*bootstrap Color*/
+/*Light colors*/
+/*Normal Color*/
+/*Extra Variable*/
+/*Preloader*/
+.preloader {
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  position: fixed;
+  z-index: 99999;
+  background: #fff; }
+  .preloader .cssload-speeding-wheel {
+    position: absolute;
+    top: calc(50% - 3.5px);
+    left: calc(50% - 3.5px); }
+
 .left-sidebar {
   position: absolute;
   width: 300px;
@@ -5419,11 +5168,11 @@ Main sidebar
   z-index: 20;
   padding-top: 70px;
   background: #fff;
-  -webkit-box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
   box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08); }
 
 .fix-sidebar .left-sidebar {
-  position: fixed; }
+  position: fixed;
+  z-index: 3; }
 
 /*******************
 use profile section
@@ -5450,19 +5199,16 @@ use profile section
 
 @-webkit-keyframes blow {
   0% {
-    -webkit-box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.1);
     opacity: 1;
     -webkit-transform: scale3d(1, 1, 0.5);
     transform: scale3d(1, 1, 0.5); }
   50% {
-    -webkit-box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
     opacity: 1;
     -webkit-transform: scale3d(1, 1, 0.5);
     transform: scale3d(1, 1, 0.5); }
   100% {
-    -webkit-box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.1);
     opacity: 0;
     -webkit-transform: scale3d(1, 1, 0.5);
@@ -5470,19 +5216,16 @@ use profile section
 
 @keyframes blow {
   0% {
-    -webkit-box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.1);
     opacity: 1;
     -webkit-transform: scale3d(1, 1, 0.5);
     transform: scale3d(1, 1, 0.5); }
   50% {
-    -webkit-box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
     opacity: 1;
     -webkit-transform: scale3d(1, 1, 0.5);
     transform: scale3d(1, 1, 0.5); }
   100% {
-    -webkit-box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.1);
     opacity: 0;
     -webkit-transform: scale3d(1, 1, 0.5);
@@ -5517,8 +5260,6 @@ sidebar footer
   z-index: 10;
   bottom: 0px;
   left: 0px;
-  -webkit-transition: 0.2s ease-out;
-  -o-transition: 0.2s ease-out;
   transition: 0.2s ease-out;
   width: 300px;
   background: #fff;
@@ -5551,16 +5292,14 @@ sidebar navigation
         color: #607d8b;
         padding: 8px 35px 8px 15px;
         display: block;
-        font-size: 1.2em;
+        font-size: 15px;
         border-radius: 4px;
         white-space: nowrap; }
         .sidebar-nav ul li a.active, .sidebar-nav ul li a:hover {
           color: #26c6da; }
         .sidebar-nav ul li a.active {
           font-weight: 500;
-          color: #263238; 
-
-        }
+          color: #263238; }
       .sidebar-nav ul li ul {
         padding-left: 5px;
         padding-top: 10px; }
@@ -5584,7 +5323,6 @@ sidebar navigation
     .sidebar-nav > ul > li.active > a {
       color: #ffffff;
       font-weight: 500;
-      -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); }
       .sidebar-nav > ul > li.active > a i {
         color: #26c6da; }
@@ -5785,7 +5523,6 @@ File: scss
         font-size: 12px;
         display: block;
         margin: 1px 0;
-        -o-text-overflow: ellipsis;
         text-overflow: ellipsis;
         overflow: hidden;
         color: #67757c;
@@ -5871,7 +5608,7 @@ File: scss
     width: 100%; }
     .todo-list li .checkbox label {
       font-weight: 400;
-      color: #606060; }
+      color: #455a64; }
   .todo-list li:last-child {
     border-bottom: 0px; }
   .todo-list li .assignedto {
@@ -6001,7 +5738,6 @@ File: scss
         font-size: 12px;
         display: block;
         margin: 1px 0;
-        -o-text-overflow: ellipsis;
         text-overflow: ellipsis;
         overflow: hidden;
         color: #67757c;
@@ -6265,9 +6001,6 @@ File: scss
     background: #4875b4; }
 
 .social-widget .soc-content {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   text-align: center; }
   .social-widget .soc-content div {
@@ -6374,7 +6107,6 @@ File: scss
     border-radius: 4px;
     margin-top: -45px;
     margin-bottom: 20px;
-    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); }
 
 /*Weather smal;*/
@@ -6391,7 +6123,6 @@ File: scss
   .little-profile .pro-img img {
     width: 128px;
     height: 128px;
-    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     border-radius: 100%; }
 
@@ -6581,10 +6312,32 @@ File: scss
 /*============================================================== 
  For Laptop & above all (1650px) 
  ============================================================== */
+/*
+Template Name: Material Pro Admin
+Author: Themedesigner
+Email: niravjoshi87@gmail.com
+File: scss
+*/
+/*Theme Colors*/
+/*bootstrap Color*/
+/*Light colors*/
+/*Normal Color*/
+/*Extra Variable*/
+/*Preloader*/
+.preloader {
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  position: fixed;
+  z-index: 99999;
+  background: #fff; }
+  .preloader .cssload-speeding-wheel {
+    position: absolute;
+    top: calc(50% - 3.5px);
+    left: calc(50% - 3.5px); }
+
 @media (min-width: 1650px) {
   .widget-app-columns {
-    -webkit-column-count: 3;
-    -moz-column-count: 3;
     column-count: 3; }
   .campaign {
     height: 365px !important; } }
@@ -6594,8 +6347,6 @@ File: scss
  ============================================================== */
 @media (max-width: 1370px) {
   .widget-app-columns {
-    -webkit-column-count: 2;
-    -moz-column-count: 2;
     column-count: 2; } }
 
 /*-- ============================================================== 
@@ -6610,14 +6361,10 @@ File: scss
 @media (max-width: 1023px) {
   .page-wrapper {
     margin-left: 60px;
-    -webkit-transition: 0.2s ease-in;
-    -o-transition: 0.2s ease-in;
     transition: 0.2s ease-in; }
   .footer {
     left: 60px; }
   .widget-app-columns {
-    -webkit-column-count: 1;
-    -moz-column-count: 1;
     column-count: 1; }
   .inbox-center a {
     width: 200px; } }
@@ -6628,8 +6375,6 @@ File: scss
 @media (min-width: 768px) {
   .navbar-header {
     width: 300px;
-    -webkit-flex-shrink: 0;
-    -ms-flex-negative: 0;
     flex-shrink: 0; }
     .navbar-header .navbar-brand {
       padding-top: 0px; }
@@ -6643,7 +6388,6 @@ File: scss
   .mini-sidebar .footer {
     left: 60px; }
   .flex-wrap {
-    -ms-flex-wrap: nowrap !important;
     flex-wrap: nowrap !important;
     -webkit-flex-wrap: nowrap !important; } }
 
@@ -6659,24 +6403,13 @@ File: scss
       padding-right: 15px;
       -webkit-box-orient: horizontal;
       -webkit-box-direction: normal;
-      -webkit-flex-direction: row;
-      -ms-flex-direction: row;
       flex-direction: row;
-      -webkit-flex-wrap: nowrap;
-      -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
       -webkit-align-items: center; }
       .topbar .top-navbar .navbar-collapse {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
         display: flex;
         width: 100%; }
       .topbar .top-navbar .navbar-nav {
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -webkit-flex-direction: row;
-        -ms-flex-direction: row;
         flex-direction: row; }
         .topbar .top-navbar .navbar-nav > .nav-item.show {
           position: static; }
@@ -6731,8 +6464,6 @@ File: scss
   .chat-main-box .chat-left-aside {
     left: -250px;
     position: absolute;
-    -webkit-transition: 0.5s ease-in;
-    -o-transition: 0.5s ease-in;
     transition: 0.5s ease-in;
     background: #ffffff; }
     .chat-main-box .chat-left-aside.open-pnl {
@@ -6772,7 +6503,6 @@ File: scss
   .right-aside {
     margin-left: 0px; }
   .flex-wrap {
-    -ms-flex-wrap: wrap !important;
     flex-wrap: wrap !important;
     -webkit-flex-wrap: wrap !important; }
   .chat-list li .chat-content {
@@ -6825,8 +6555,6 @@ File: scss
   height: 25px;
   line-height: 25px;
   font-size: 1rem;
-  -webkit-transition: .28s ease;
-  -o-transition: .28s ease;
   transition: .28s ease;
   /* webkit (konqueror) browsers */
   -webkit-user-select: none;
@@ -6844,8 +6572,6 @@ File: scss
   width: 16px;
   height: 16px;
   z-index: 0;
-  -webkit-transition: .28s ease;
-  -o-transition: .28s ease;
   transition: .28s ease; }
 
 /* Unchecked styles */
@@ -6864,13 +6590,11 @@ File: scss
 [type="radio"]:not(:checked) + label:after {
   z-index: -1;
   -webkit-transform: scale(0);
-  -ms-transform: scale(0);
   transform: scale(0); }
 
 /* Checked styles */
 [type="radio"]:checked + label:before {
   border: 2px solid transparent;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"]:checked + label:after,
@@ -6885,26 +6609,21 @@ File: scss
 
 [type="radio"]:checked + label:after {
   -webkit-transform: scale(1.02);
-  -ms-transform: scale(1.02);
   transform: scale(1.02); }
 
 /* Radio With gap */
 [type="radio"].with-gap:checked + label:after {
   -webkit-transform: scale(0.5);
-  -ms-transform: scale(0.5);
   transform: scale(0.5); }
 
 /* Focused styles */
 [type="radio"].tabbed:focus + label:before {
-  -webkit-box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 /* Disabled Radio With gap */
 [type="radio"].with-gap:disabled:checked + label:before {
   border: 2px solid rgba(0, 0, 0, 0.26);
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap:disabled:checked + label:after {
@@ -6916,7 +6635,6 @@ File: scss
 [type="radio"]:disabled:checked + label:before {
   background-color: transparent;
   border-color: rgba(0, 0, 0, 0.26);
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"]:disabled + label {
@@ -6978,14 +6696,11 @@ form p:last-child {
   border: 2px solid #5a5a5a;
   border-radius: 1px;
   margin-top: 2px;
-  -webkit-transition: .2s;
-  -o-transition: .2s;
   transition: .2s; }
 
 [type="checkbox"]:not(.filled-in) + label:after {
   border: 0;
   -webkit-transform: scale(0);
-  -ms-transform: scale(0);
   transform: scale(0); }
 
 [type="checkbox"]:not(:checked):disabled + label:before {
@@ -6994,11 +6709,9 @@ form p:last-child {
 
 [type="checkbox"].tabbed:focus + label:after {
   -webkit-transform: scale(1);
-  -ms-transform: scale(1);
   transform: scale(1);
   border: 0;
   border-radius: 50%;
-  -webkit-box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: rgba(0, 0, 0, 0.1); }
 
@@ -7012,12 +6725,10 @@ form p:last-child {
   border-right: 2px solid #26a69a;
   border-bottom: 2px solid #26a69a;
   -webkit-transform: rotate(40deg);
-  -ms-transform: rotate(40deg);
   transform: rotate(40deg);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-transform-origin: 100% 100%;
-  -ms-transform-origin: 100% 100%;
   transform-origin: 100% 100%; }
 
 [type="checkbox"]:checked:disabled + label:before {
@@ -7035,12 +6746,10 @@ form p:last-child {
   border-right: 2px solid #26a69a;
   border-bottom: none;
   -webkit-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
   transform: rotate(90deg);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-transform-origin: 100% 100%;
-  -ms-transform-origin: 100% 100%;
   transform-origin: 100% 100%; }
 
 [type="checkbox"]:indeterminate:disabled + label:before {
@@ -7056,8 +6765,6 @@ form p:last-child {
   left: 0;
   position: absolute;
   /* .1s delay is for check animation */
-  -webkit-transition: border .25s, background-color .25s, width .20s .1s, height .20s .1s, top .20s .1s, left .20s .1s;
-  -o-transition: border .25s, background-color .25s, width .20s .1s, height .20s .1s, top .20s .1s, left .20s .1s;
   transition: border .25s, background-color .25s, width .20s .1s, height .20s .1s, top .20s .1s, left .20s .1s;
   z-index: 1; }
 
@@ -7068,10 +6775,8 @@ form p:last-child {
   left: 6px;
   top: 10px;
   -webkit-transform: rotateZ(37deg);
-  -ms-transform: rotate(37deg);
   transform: rotateZ(37deg);
   -webkit-transform-origin: 20% 40%;
-  -ms-transform-origin: 100% 100%;
   transform-origin: 100% 100%; }
 
 [type="checkbox"].filled-in:not(:checked) + label:after {
@@ -7092,10 +6797,8 @@ form p:last-child {
   border-right: 2px solid #fff;
   border-bottom: 2px solid #fff;
   -webkit-transform: rotateZ(37deg);
-  -ms-transform: rotate(37deg);
   transform: rotateZ(37deg);
   -webkit-transform-origin: 100% 100%;
-  -ms-transform-origin: 100% 100%;
   transform-origin: 100% 100%; }
 
 [type="checkbox"].filled-in:checked + label:after {
@@ -7164,8 +6867,6 @@ form p:last-child {
   background-color: #818181;
   border-radius: 15px;
   margin-right: 10px;
-  -webkit-transition: background 0.3s ease;
-  -o-transition: background 0.3s ease;
   transition: background 0.3s ease;
   vertical-align: middle;
   margin: 0 16px; }
@@ -7178,24 +6879,17 @@ form p:last-child {
   height: 21px;
   background-color: #F1F1F1;
   border-radius: 21px;
-  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4);
   box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4);
   left: -5px;
   top: -3px;
-  -webkit-transition: left 0.3s ease, background .3s ease, -webkit-box-shadow 0.1s ease;
-  transition: left 0.3s ease, background .3s ease, -webkit-box-shadow 0.1s ease;
-  -o-transition: left 0.3s ease, background .3s ease, box-shadow 0.1s ease;
-  transition: left 0.3s ease, background .3s ease, box-shadow 0.1s ease;
-  transition: left 0.3s ease, background .3s ease, box-shadow 0.1s ease, -webkit-box-shadow 0.1s ease; }
+  transition: left 0.3s ease, background .3s ease, box-shadow 0.1s ease; }
 
 input[type=checkbox]:checked:not(:disabled) ~ .lever:active::after,
 input[type=checkbox]:checked:not(:disabled).tabbed:focus ~ .lever::after {
-  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(38, 166, 154, 0.1);
   box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(38, 166, 154, 0.1); }
 
 input[type=checkbox]:not(:disabled) ~ .lever:active:after,
 input[type=checkbox]:not(:disabled).tabbed:focus ~ .lever::after {
-  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 0, 0, 0.08);
   box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 0, 0, 0.08); }
 
 .switch input[type=checkbox][disabled] + .lever {
@@ -7207,52 +6901,34 @@ input[type=checkbox]:not(:disabled).tabbed:focus ~ .lever::after {
 
 .scale-up {
   -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
   -webkit-transform: scale(0);
-  -ms-transform: scale(0);
   transform: scale(0);
   display: inline-block;
-  -webkit-transform-origin: right 0px;
-  -ms-transform-origin: right 0px;
   transform-origin: right 0px; }
 
 .scale-up-left {
   -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
   -webkit-transform: scale(0);
-  -ms-transform: scale(0);
   transform: scale(0);
   display: inline-block;
-  -webkit-transform-origin: left 0px;
-  -ms-transform-origin: left 0px;
   transform-origin: left 0px; }
 
 .show > .scale-up {
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
   transform: scale(1);
-  -webkit-transform-origin: right 0px;
-  -ms-transform-origin: right 0px;
   transform-origin: right 0px; }
 
 .show > .scale-up-left {
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
   transform: scale(1);
-  -webkit-transform-origin: left 0px;
-  -ms-transform-origin: left 0px;
   transform-origin: left 0px; }
 
 /*panels*/
 .card {
-  -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
   border-radius: 4px; }
 
 .well, pre {
-  -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1); }
 
 .page-titles .justify-content-end:last-child .d-flex {
@@ -7265,31 +6941,17 @@ input[type=checkbox]:not(:disabled).tabbed:focus ~ .lever::after {
   padding: 25px; }
 
 /*Radio button*/
-@-webkit-keyframes ripple {
-  0% {
-    -webkit-box-shadow: 0px 0px 0px 1px transparent;
-    box-shadow: 0px 0px 0px 1px transparent; }
-  50% {
-    -webkit-box-shadow: 0px 0px 0px 15px rgba(0, 0, 0, 0.1);
-    box-shadow: 0px 0px 0px 15px rgba(0, 0, 0, 0.1); }
-  100% {
-    -webkit-box-shadow: 0px 0px 0px 15px transparent;
-    box-shadow: 0px 0px 0px 15px transparent; } }
 @keyframes ripple {
   0% {
-    -webkit-box-shadow: 0px 0px 0px 1px transparent;
     box-shadow: 0px 0px 0px 1px transparent; }
   50% {
-    -webkit-box-shadow: 0px 0px 0px 15px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 0px 0px 15px rgba(0, 0, 0, 0.1); }
   100% {
-    -webkit-box-shadow: 0px 0px 0px 15px transparent;
     box-shadow: 0px 0px 0px 15px transparent; } }
 
 /*Bootstrap Select*/
 .bootstrap-select.btn-group .dropdown-menu {
   margin-top: -40px;
-  -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1); }
 
 .demo-checkbox label, .demo-radio-button label {
@@ -7508,358 +7170,295 @@ input[type=checkbox]:not(:disabled).tabbed:focus ~ .lever::after {
 [type="radio"].radio-col-red:checked + label:after {
   background-color: #fb3a3a;
   border-color: #fb3a3a;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].radio-col-pink:checked + label:after {
   background-color: #E91E63;
   border-color: #E91E63;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].radio-col-purple:checked + label:after {
   background-color: #7460ee;
   border-color: #7460ee;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].radio-col-deep-purple:checked + label:after {
   background-color: #673AB7;
   border-color: #673AB7;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].radio-col-indigo:checked + label:after {
   background-color: #3F51B5;
   border-color: #3F51B5;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].radio-col-blue:checked + label:after {
   background-color: #02bec9;
   border-color: #02bec9;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].radio-col-light-blue:checked + label:after {
   background-color: #03A9F4;
   border-color: #03A9F4;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].radio-col-cyan:checked + label:after {
   background-color: #00BCD4;
   border-color: #00BCD4;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].radio-col-teal:checked + label:after {
   background-color: #009688;
   border-color: #009688;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].radio-col-green:checked + label:after {
   background-color: #26c6da;
   border-color: #26c6da;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].radio-col-light-green:checked + label:after {
   background-color: #8BC34A;
   border-color: #8BC34A;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].radio-col-lime:checked + label:after {
   background-color: #CDDC39;
   border-color: #CDDC39;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].radio-col-yellow:checked + label:after {
   background-color: #ffe821;
   border-color: #ffe821;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].radio-col-amber:checked + label:after {
   background-color: #FFC107;
   border-color: #FFC107;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].radio-col-orange:checked + label:after {
   background-color: #FF9800;
   border-color: #FF9800;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].radio-col-deep-orange:checked + label:after {
   background-color: #FF5722;
   border-color: #FF5722;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].radio-col-brown:checked + label:after {
   background-color: #795548;
   border-color: #795548;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].radio-col-grey:checked + label:after {
   background-color: #9E9E9E;
   border-color: #9E9E9E;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].radio-col-blue-grey:checked + label:after {
   background-color: #607D8B;
   border-color: #607D8B;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].radio-col-black:checked + label:after {
   background-color: #000000;
   border-color: #000000;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].radio-col-white:checked + label:after {
   background-color: #ffffff;
   border-color: #ffffff;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-red:checked + label:before {
   border: 2px solid #fb3a3a;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-red:checked + label:after {
   background-color: #fb3a3a;
   border: 2px solid #fb3a3a;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-pink:checked + label:before {
   border: 2px solid #E91E63;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-pink:checked + label:after {
   background-color: #E91E63;
   border: 2px solid #E91E63;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-purple:checked + label:before {
   border: 2px solid #7460ee;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-purple:checked + label:after {
   background-color: #7460ee;
   border: 2px solid #7460ee;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-deep-purple:checked + label:before {
   border: 2px solid #673AB7;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-deep-purple:checked + label:after {
   background-color: #673AB7;
   border: 2px solid #673AB7;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-indigo:checked + label:before {
   border: 2px solid #3F51B5;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-indigo:checked + label:after {
   background-color: #3F51B5;
   border: 2px solid #3F51B5;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-blue:checked + label:before {
   border: 2px solid #02bec9;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-blue:checked + label:after {
   background-color: #02bec9;
   border: 2px solid #02bec9;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-light-blue:checked + label:before {
   border: 2px solid #03A9F4;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-light-blue:checked + label:after {
   background-color: #03A9F4;
   border: 2px solid #03A9F4;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-cyan:checked + label:before {
   border: 2px solid #00BCD4;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-cyan:checked + label:after {
   background-color: #00BCD4;
   border: 2px solid #00BCD4;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-teal:checked + label:before {
   border: 2px solid #009688;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-teal:checked + label:after {
   background-color: #009688;
   border: 2px solid #009688;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-green:checked + label:before {
   border: 2px solid #26c6da;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-green:checked + label:after {
   background-color: #26c6da;
   border: 2px solid #26c6da;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-light-green:checked + label:before {
   border: 2px solid #8BC34A;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-light-green:checked + label:after {
   background-color: #8BC34A;
   border: 2px solid #8BC34A;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-lime:checked + label:before {
   border: 2px solid #CDDC39;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-lime:checked + label:after {
   background-color: #CDDC39;
   border: 2px solid #CDDC39;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-yellow:checked + label:before {
   border: 2px solid #ffe821;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-yellow:checked + label:after {
   background-color: #ffe821;
   border: 2px solid #ffe821;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-amber:checked + label:before {
   border: 2px solid #FFC107;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-amber:checked + label:after {
   background-color: #FFC107;
   border: 2px solid #FFC107;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-orange:checked + label:before {
   border: 2px solid #FF9800;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-orange:checked + label:after {
   background-color: #FF9800;
   border: 2px solid #FF9800;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-deep-orange:checked + label:before {
   border: 2px solid #FF5722;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-deep-orange:checked + label:after {
   background-color: #FF5722;
   border: 2px solid #FF5722;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-brown:checked + label:before {
   border: 2px solid #795548;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-brown:checked + label:after {
   background-color: #795548;
   border: 2px solid #795548;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-grey:checked + label:before {
   border: 2px solid #9E9E9E;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-grey:checked + label:after {
   background-color: #9E9E9E;
   border: 2px solid #9E9E9E;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-blue-grey:checked + label:before {
   border: 2px solid #607D8B;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-blue-grey:checked + label:after {
   background-color: #607D8B;
   border: 2px solid #607D8B;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-black:checked + label:before {
   border: 2px solid #000000;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-black:checked + label:after {
   background-color: #000000;
   border: 2px solid #000000;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-white:checked + label:before {
   border: 2px solid #ffffff;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 [type="radio"].with-gap.radio-col-white:checked + label:after {
   background-color: #ffffff;
   border: 2px solid #ffffff;
-  -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
 
 .switch label {
@@ -7868,149 +7467,129 @@ input[type=checkbox]:not(:disabled).tabbed:focus ~ .lever::after {
   .switch label .lever {
     margin: 0 14px; }
   .switch label input[type=checkbox]:checked:not(:disabled) ~ .lever.switch-col-red:active:after {
-    -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(251, 58, 58, 0.1);
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(251, 58, 58, 0.1); }
   .switch label input[type=checkbox]:checked + .lever.switch-col-red {
     background-color: rgba(251, 58, 58, 0.5); }
     .switch label input[type=checkbox]:checked + .lever.switch-col-red:after {
       background-color: #fb3a3a; }
   .switch label input[type=checkbox]:checked:not(:disabled) ~ .lever.switch-col-pink:active:after {
-    -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(233, 30, 99, 0.1);
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(233, 30, 99, 0.1); }
   .switch label input[type=checkbox]:checked + .lever.switch-col-pink {
     background-color: rgba(233, 30, 99, 0.5); }
     .switch label input[type=checkbox]:checked + .lever.switch-col-pink:after {
       background-color: #E91E63; }
   .switch label input[type=checkbox]:checked:not(:disabled) ~ .lever.switch-col-purple:active:after {
-    -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(116, 96, 238, 0.1);
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(116, 96, 238, 0.1); }
   .switch label input[type=checkbox]:checked + .lever.switch-col-purple {
     background-color: rgba(116, 96, 238, 0.5); }
     .switch label input[type=checkbox]:checked + .lever.switch-col-purple:after {
       background-color: #7460ee; }
   .switch label input[type=checkbox]:checked:not(:disabled) ~ .lever.switch-col-deep-purple:active:after {
-    -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(103, 58, 183, 0.1);
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(103, 58, 183, 0.1); }
   .switch label input[type=checkbox]:checked + .lever.switch-col-deep-purple {
     background-color: rgba(103, 58, 183, 0.5); }
     .switch label input[type=checkbox]:checked + .lever.switch-col-deep-purple:after {
       background-color: #673AB7; }
   .switch label input[type=checkbox]:checked:not(:disabled) ~ .lever.switch-col-indigo:active:after {
-    -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(63, 81, 181, 0.1);
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(63, 81, 181, 0.1); }
   .switch label input[type=checkbox]:checked + .lever.switch-col-indigo {
     background-color: rgba(63, 81, 181, 0.5); }
     .switch label input[type=checkbox]:checked + .lever.switch-col-indigo:after {
       background-color: #3F51B5; }
   .switch label input[type=checkbox]:checked:not(:disabled) ~ .lever.switch-col-blue:active:after {
-    -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(2, 190, 201, 0.1);
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(2, 190, 201, 0.1); }
   .switch label input[type=checkbox]:checked + .lever.switch-col-blue {
     background-color: rgba(2, 190, 201, 0.5); }
     .switch label input[type=checkbox]:checked + .lever.switch-col-blue:after {
       background-color: #02bec9; }
   .switch label input[type=checkbox]:checked:not(:disabled) ~ .lever.switch-col-light-blue:active:after {
-    -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(3, 169, 244, 0.1);
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(3, 169, 244, 0.1); }
   .switch label input[type=checkbox]:checked + .lever.switch-col-light-blue {
     background-color: rgba(3, 169, 244, 0.5); }
     .switch label input[type=checkbox]:checked + .lever.switch-col-light-blue:after {
       background-color: #03A9F4; }
   .switch label input[type=checkbox]:checked:not(:disabled) ~ .lever.switch-col-cyan:active:after {
-    -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 188, 212, 0.1);
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 188, 212, 0.1); }
   .switch label input[type=checkbox]:checked + .lever.switch-col-cyan {
     background-color: rgba(0, 188, 212, 0.5); }
     .switch label input[type=checkbox]:checked + .lever.switch-col-cyan:after {
       background-color: #00BCD4; }
   .switch label input[type=checkbox]:checked:not(:disabled) ~ .lever.switch-col-teal:active:after {
-    -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 150, 136, 0.1);
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 150, 136, 0.1); }
   .switch label input[type=checkbox]:checked + .lever.switch-col-teal {
     background-color: rgba(0, 150, 136, 0.5); }
     .switch label input[type=checkbox]:checked + .lever.switch-col-teal:after {
       background-color: #009688; }
   .switch label input[type=checkbox]:checked:not(:disabled) ~ .lever.switch-col-green:active:after {
-    -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(38, 198, 218, 0.1);
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(38, 198, 218, 0.1); }
   .switch label input[type=checkbox]:checked + .lever.switch-col-green {
     background-color: rgba(38, 198, 218, 0.5); }
     .switch label input[type=checkbox]:checked + .lever.switch-col-green:after {
       background-color: #26c6da; }
   .switch label input[type=checkbox]:checked:not(:disabled) ~ .lever.switch-col-light-green:active:after {
-    -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(139, 195, 74, 0.1);
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(139, 195, 74, 0.1); }
   .switch label input[type=checkbox]:checked + .lever.switch-col-light-green {
     background-color: rgba(139, 195, 74, 0.5); }
     .switch label input[type=checkbox]:checked + .lever.switch-col-light-green:after {
       background-color: #8BC34A; }
   .switch label input[type=checkbox]:checked:not(:disabled) ~ .lever.switch-col-lime:active:after {
-    -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(205, 220, 57, 0.1);
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(205, 220, 57, 0.1); }
   .switch label input[type=checkbox]:checked + .lever.switch-col-lime {
     background-color: rgba(205, 220, 57, 0.5); }
     .switch label input[type=checkbox]:checked + .lever.switch-col-lime:after {
       background-color: #CDDC39; }
   .switch label input[type=checkbox]:checked:not(:disabled) ~ .lever.switch-col-yellow:active:after {
-    -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(255, 232, 33, 0.1);
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(255, 232, 33, 0.1); }
   .switch label input[type=checkbox]:checked + .lever.switch-col-yellow {
     background-color: rgba(255, 232, 33, 0.5); }
     .switch label input[type=checkbox]:checked + .lever.switch-col-yellow:after {
       background-color: #ffe821; }
   .switch label input[type=checkbox]:checked:not(:disabled) ~ .lever.switch-col-amber:active:after {
-    -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(255, 193, 7, 0.1);
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(255, 193, 7, 0.1); }
   .switch label input[type=checkbox]:checked + .lever.switch-col-amber {
     background-color: rgba(255, 193, 7, 0.5); }
     .switch label input[type=checkbox]:checked + .lever.switch-col-amber:after {
       background-color: #FFC107; }
   .switch label input[type=checkbox]:checked:not(:disabled) ~ .lever.switch-col-orange:active:after {
-    -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(255, 152, 0, 0.1);
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(255, 152, 0, 0.1); }
   .switch label input[type=checkbox]:checked + .lever.switch-col-orange {
     background-color: rgba(255, 152, 0, 0.5); }
     .switch label input[type=checkbox]:checked + .lever.switch-col-orange:after {
       background-color: #FF9800; }
   .switch label input[type=checkbox]:checked:not(:disabled) ~ .lever.switch-col-deep-orange:active:after {
-    -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(255, 87, 34, 0.1);
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(255, 87, 34, 0.1); }
   .switch label input[type=checkbox]:checked + .lever.switch-col-deep-orange {
     background-color: rgba(255, 87, 34, 0.5); }
     .switch label input[type=checkbox]:checked + .lever.switch-col-deep-orange:after {
       background-color: #FF5722; }
   .switch label input[type=checkbox]:checked:not(:disabled) ~ .lever.switch-col-brown:active:after {
-    -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(121, 85, 72, 0.1);
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(121, 85, 72, 0.1); }
   .switch label input[type=checkbox]:checked + .lever.switch-col-brown {
     background-color: rgba(121, 85, 72, 0.5); }
     .switch label input[type=checkbox]:checked + .lever.switch-col-brown:after {
       background-color: #795548; }
   .switch label input[type=checkbox]:checked:not(:disabled) ~ .lever.switch-col-grey:active:after {
-    -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(158, 158, 158, 0.1);
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(158, 158, 158, 0.1); }
   .switch label input[type=checkbox]:checked + .lever.switch-col-grey {
     background-color: rgba(158, 158, 158, 0.5); }
     .switch label input[type=checkbox]:checked + .lever.switch-col-grey:after {
       background-color: #9E9E9E; }
   .switch label input[type=checkbox]:checked:not(:disabled) ~ .lever.switch-col-blue-grey:active:after {
-    -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(96, 125, 139, 0.1);
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(96, 125, 139, 0.1); }
   .switch label input[type=checkbox]:checked + .lever.switch-col-blue-grey {
     background-color: rgba(96, 125, 139, 0.5); }
     .switch label input[type=checkbox]:checked + .lever.switch-col-blue-grey:after {
       background-color: #607D8B; }
   .switch label input[type=checkbox]:checked:not(:disabled) ~ .lever.switch-col-black:active:after {
-    -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 0, 0, 0.1);
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 0, 0, 0.1); }
   .switch label input[type=checkbox]:checked + .lever.switch-col-black {
     background-color: rgba(0, 0, 0, 0.5); }
     .switch label input[type=checkbox]:checked + .lever.switch-col-black:after {
       background-color: #000000; }
   .switch label input[type=checkbox]:checked:not(:disabled) ~ .lever.switch-col-white:active:after {
-    -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(255, 255, 255, 0.1);
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(255, 255, 255, 0.1); }
   .switch label input[type=checkbox]:checked + .lever.switch-col-white {
     background-color: rgba(255, 255, 255, 0.5); }
     .switch label input[type=checkbox]:checked + .lever.switch-col-white:after {
       background-color: #ffffff; }
+

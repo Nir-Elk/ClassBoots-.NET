@@ -9,10 +9,10 @@ File: scss
 /*******************
 Main sidebar
 ******************/
-
+@import 'variable.scss';
 .left-sidebar {
     position: absolute;
-    width: $side-width;
+    width: $sidebar-width;
     height: 100%;
     top: 0px;
     z-index: 20;
@@ -23,6 +23,7 @@ Main sidebar
 
 .fix-sidebar .left-sidebar{
     position: fixed;
+    z-index: 3;
 }
 /*******************
 use profile section
@@ -130,7 +131,7 @@ sidebar footer
     bottom: 0px;
     left: 0px;
     transition:0.2s ease-out;
-    width: $side-width;
+    width: $sidebar-width;
     background: $sidebar;
     border-top: 1px solid $border;
     a {
@@ -377,7 +378,7 @@ When click on sidebar toggler and also for tablet
     .mini-sidebar{
         .left-sidebar{position: fixed;}
         .left-sidebar, .sidebar-footer{
-            left:-$side-width;
+            left:-$sidebar-width;
         }
         &.show-sidebar{
            .left-sidebar, .sidebar-footer{
