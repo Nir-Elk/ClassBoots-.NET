@@ -3,20 +3,18 @@ using ClassBoots.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace ClassBoots.Migrations
+namespace ClassBoots.Migrations.Model
 {
     [DbContext(typeof(ModelContext))]
-    [Migration("20180908125839_ModeSchem")]
-    partial class ModeSchem
+    partial class ModelContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.2-rtm-30932")
+                .HasAnnotation("ProductVersion", "2.1.1-rtm-30846")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -26,7 +24,7 @@ namespace ClassBoots.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Adress");
+                    b.Property<string>("Address");
 
                     b.Property<string>("GeoLocation");
 
@@ -53,9 +51,9 @@ namespace ClassBoots.Migrations
 
                     b.Property<int>("LecturerID");
 
-                    b.Property<int>("SubjectID");
+                    b.Property<string>("Name");
 
-                    b.Property<string>("Title");
+                    b.Property<int>("SubjectID");
 
                     b.HasKey("ID");
 
@@ -102,11 +100,13 @@ namespace ClassBoots.Migrations
 
                     b.Property<int>("LectureID");
 
+                    b.Property<string>("Name");
+
                     b.Property<string>("OwnerID");
 
                     b.Property<int>("Position");
 
-                    b.Property<string>("Refference");
+                    b.Property<string>("URL");
 
                     b.Property<int>("Views");
 

@@ -44,15 +44,24 @@ $(function () {
             if (data.length == 0) {
                 area.append("No items here.<br>Be the first to add items :)")
             } else {
+                let len = url.split('/').length - 3;
                 $.each(data, function () {
                     let newMenuItem = emptyMenuItem.clone();
                     let nextPath = url + '/' + this.id;
+
+                    if (len == 4) {
+                        console.log("im here");
+                        nextPath = "/videos/details/" + this.id;
+                    } else {
+                        newMenuItem.click(function (e) {
+                            e.preventDefault();
+                            menuClickHandler(nextPath);
+                        });
+                    }
+
                     newMenuItem.find('a').attr('href', nextPath);
                     newMenuItem.find('a').append(this.name);
-                    newMenuItem.click(function (e) {
-                        e.preventDefault();
-                        menuClickHandler(nextPath);
-                    });
+
                     newMenuItem.show();
                     area.append(newMenuItem);
                 });

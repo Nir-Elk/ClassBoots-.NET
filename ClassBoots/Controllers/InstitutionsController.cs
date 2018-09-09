@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace ClassBoots.Controllers
 {
+    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class InstitutionsController : ControllerBase

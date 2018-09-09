@@ -36,7 +36,23 @@ namespace ClassBoots.Controllers
             return _context.School.Where(s => s.InstitutionID == institution_id).ToList();
         }
 
+        [HttpGet("{institution_id}/{school_id}")]
+        public IEnumerable<Subject> GetSubjects([FromRoute] int school_id)
+        {
+            return _context.Subject.Where(s => s.SchoolID == school_id).ToList();
+        }
 
+        [HttpGet("{institution_id}/{school_id}/{subject_id}")]
+        public IEnumerable<Lecture> GetLectures([FromRoute] int subject_id)
+        {
+            return _context.Lecture.Where(s => s.SubjectID == subject_id).ToList();
+        }
+
+        [HttpGet("{institution_id}/{school_id}/{subject_id}/{lecture_id}")]
+        public IEnumerable<Video> GetVideos([FromRoute] int lecture_id)
+        {
+            return _context.Video.Where(s => s.LectureID == lecture_id).ToList();
+        }
 
 
     }
