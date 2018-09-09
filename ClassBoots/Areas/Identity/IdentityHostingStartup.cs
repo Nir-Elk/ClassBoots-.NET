@@ -21,7 +21,8 @@ namespace ClassBoots.Areas.Identity
                         context.Configuration.GetConnectionString("ClassBootsContextConnection")));
 
                 services.AddDefaultIdentity<User>()
-                    .AddEntityFrameworkStores<UserContext>();
+                    .AddRoles<IdentityRole>()
+                      .AddEntityFrameworkStores<UserContext>();
             });
         }
     }

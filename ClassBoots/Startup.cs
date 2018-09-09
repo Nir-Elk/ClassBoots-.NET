@@ -12,7 +12,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using ClassBoots.Models;
-using ClassBoots.Areas.Identity.Data;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ClassBoots
 {
@@ -38,15 +39,23 @@ namespace ClassBoots
             });
 
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc(config =>
+            {
+                var policy = new AuthorizationPolicyBuilder()
+                                 .RequireAuthenticatedUser()
+                                 .Build();
+                config.Filters.Add(new AuthorizeFilter(policy));
+            })
+   .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
 
             services.AddDbContext<ModelContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("ModelContext")));
 
             services.AddAuthentication().AddGoogle(googleOptions =>
             {
-                googleOptions.ClientId = "823435120787-l04052src5miam0j01bo6vm3j07nubkc.apps.googleusercontent.com";
-                googleOptions.ClientSecret = "N17rMa2M8cL112rh8mkCRNhI";
+                googleOptions.ClientId = Configuration["google:client_id"];
+                googleOptions.ClientSecret = Configuration["google:client_secret"];
             });
 
 

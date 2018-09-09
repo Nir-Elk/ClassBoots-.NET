@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace ClassBoots.Migrations.Model
+namespace ClassBoots.Migrations
 {
-    public partial class ModelSchem : Migration
+    public partial class ModeSchem : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -79,7 +79,8 @@ namespace ClassBoots.Migrations.Model
                     LectureID = table.Column<int>(nullable: false),
                     Refference = table.Column<string>(nullable: true),
                     Views = table.Column<int>(nullable: false),
-                    Position = table.Column<int>(nullable: false)
+                    Position = table.Column<int>(nullable: false),
+                    OwnerID = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

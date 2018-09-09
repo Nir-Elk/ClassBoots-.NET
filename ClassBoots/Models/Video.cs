@@ -14,5 +14,6 @@ namespace ClassBoots.Models
         public string Refference { get; set; }
         public int Views { get; set; }
         public int Position { get; set; }
+        public string OwnerID { get; set; }
     }
 }
