@@ -6,17 +6,17 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace ClassBoots.Migrations.Model
+namespace ClassBoots.Migrations
 {
     [DbContext(typeof(ModelContext))]
-    [Migration("20180909104906_ModelScheme")]
+    [Migration("20180910074245_ModelScheme")]
     partial class ModelScheme
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.1-rtm-30846")
+                .HasAnnotation("ProductVersion", "2.1.2-rtm-30932")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -26,7 +26,7 @@ namespace ClassBoots.Migrations.Model
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Adress");
+                    b.Property<string>("Address");
 
                     b.Property<string>("GeoLocation");
 
@@ -53,9 +53,9 @@ namespace ClassBoots.Migrations.Model
 
                     b.Property<int>("LecturerID");
 
-                    b.Property<int>("SubjectID");
+                    b.Property<string>("Name");
 
-                    b.Property<string>("Title");
+                    b.Property<int>("SubjectID");
 
                     b.HasKey("ID");
 
@@ -102,11 +102,13 @@ namespace ClassBoots.Migrations.Model
 
                     b.Property<int>("LectureID");
 
+                    b.Property<string>("Name");
+
                     b.Property<string>("OwnerID");
 
                     b.Property<int>("Position");
 
-                    b.Property<string>("Refference");
+                    b.Property<string>("URL");
 
                     b.Property<int>("Views");
 

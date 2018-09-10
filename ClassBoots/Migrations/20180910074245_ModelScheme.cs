@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace ClassBoots.Migrations.Model
+namespace ClassBoots.Migrations
 {
     public partial class ModelScheme : Migration
     {
@@ -14,7 +14,7 @@ namespace ClassBoots.Migrations.Model
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(nullable: true),
-                    Adress = table.Column<string>(nullable: true),
+                    Address = table.Column<string>(nullable: true),
                     GeoLocation = table.Column<string>(nullable: true),
                     Image = table.Column<string>(nullable: true)
                 },
@@ -31,7 +31,7 @@ namespace ClassBoots.Migrations.Model
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     LecturerID = table.Column<int>(nullable: false),
                     SubjectID = table.Column<int>(nullable: false),
-                    Title = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     Image = table.Column<string>(nullable: true),
                     Date = table.Column<string>(nullable: true)
@@ -76,8 +76,9 @@ namespace ClassBoots.Migrations.Model
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(nullable: true),
                     LectureID = table.Column<int>(nullable: false),
-                    Refference = table.Column<string>(nullable: true),
+                    URL = table.Column<string>(nullable: true),
                     Views = table.Column<int>(nullable: false),
                     Position = table.Column<int>(nullable: false),
                     OwnerID = table.Column<string>(nullable: true)

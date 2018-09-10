@@ -1,0 +1,46 @@
+{
+  "Institutions": [
+    {
+      "Name": "Colman",
+      "Adress": "Elie Wiesel St 2, Rishon Le-Zion",
+      "GeoLocation": "31.969839, 34.772755",
+      "Image": "https://www.colman.ac.il/sites/all/themes/component/images/logo-images/03.png"
+    },
+    {
+      "Name": "IDC Herzliya",
+      "Adress": "Kanfei Nesharim St, Hertsliya, 4610101",
+      "GeoLocation": "32.176200, 34.836142",
+      "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/0/0f/IDC_logo_White.svg/1200px-IDC_logo_White.svg.png"
+    },
+    {
+      "Name": "Shenkar",
+      "Adress": "Anna Frank 12 Ramat-Gan",
+      "GeoLocation": "32.090651, 34.803050",
+      "Image": "https://commondatastorage.googleapis.com/easy/images/PICS/3954767.jpg"
+    },
+    {
+      "Name": "Technion",
+      "Adress": "Haifa, 3200003",
+      "GeoLocation": "32.776769, 35.023095",
+      "Image": "https://coursera-university-assets.s3.amazonaws.com/f1/53e1bebedf976723c2c4bfb283c46d/TechnionIsrael_Institute_of_Technology_Symbol.png"
+    },
+    {
+      "Name": "Ben Gurion",
+      "Adress": "Beersheba, Ben-Gurion 1",
+      "GeoLocation": "31.262273, 34.801258",
+      "Image": "https://seeklogo.com/images/U/university-ben-gurion-logo-8008DDF1FB-seeklogo.com.gif"
+    }
+  ],
+  "Schools": [
+
+  ],
+  "Subjects": [
+
+  ],
+  "Lectures": [
+
+  ],
+  "Videos": [
+
+  ]
+}
