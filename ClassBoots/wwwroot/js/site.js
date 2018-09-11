@@ -15,6 +15,7 @@ var view = function (req) {
 }
 
 $('#logout').click(function (e) {
+    $.session.clear();
     e.preventDefault();
     $('#logoutForm').submit();
     e.stopPropagation();

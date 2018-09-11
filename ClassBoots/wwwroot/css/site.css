@@ -39,7 +39,7 @@ for details on configuring this project to bundle and minify static web assets. 
 }
 
 .background-image {
-    /*position: fixed;
+    position: fixed;
     left: 0;
     right: 0;
     z-index: 1;
@@ -50,21 +50,21 @@ for details on configuring this project to bundle and minify static web assets. 
     -webkit-filter: blur(2px) grayscale(35%);
     -moz-filter: blur(2px) grayscale(35%);
     -ms-filter: blur(2px) grayscale(35%);
-    filter:  blur(2px) grayscale(35%);*/
+    filter:  blur(2px) grayscale(35%);
 }
 
 .content {
-    /*opacity: 0.9;
+    opacity: 0.9;
     position: fixed;
-    z-index: 9999;*/
+    z-index: 9999;
 }
 section {
     padding:0 50px 0 50px;
 }
 
 .content:hover {
-     /*position: fixed;
-     z-index: 9999;*/
+     position: fixed;
+     z-index: 9999;
 }
 
 .btn-img {
@@ -74,7 +74,15 @@ section {
 }
 
 .over-background {
-    /*z-index: 2;
+    z-index: 2;
     position: fixed;
-    width: 100%;*/
+    width: 100%;
+}
+
+
+
+
+#sidebarnav-options {
+    text-align: center;
+    margin-top: -20px;
 }

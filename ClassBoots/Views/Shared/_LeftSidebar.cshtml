@@ -1,6 +1,7 @@
 ﻿<!-- Defaults -->
 <li id="menuitem"><a class="waves-effect waves-dark" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu"></span></a></li>
 <li id="previousbtn"><a class="waves-effect waves-dark" aria-expanded="false"><i class="mdi mdi-arrow-left-bold-circle"></i><span class="hide-menu"></span></a></li>
+<button id="circlebtn" type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark">+</button>
 
 <aside class="left-sidebar">
     <!-- Sidebar scroll-->
@@ -9,11 +10,14 @@
         <nav class="sidebar-nav">
             <ul id="sidebarnav"></ul>
         </nav>
+
         <!-- End Sidebar navigation -->
     </div>
     <!-- End Sidebar scroll-->
     <!-- Bottom points-->
     <div class="sidebar-footer">
+        <div id="sidebarnav-options">
+        </div>
         <partial name="_Login-nav" />
     </div>
     <!-- End Bottom points-->

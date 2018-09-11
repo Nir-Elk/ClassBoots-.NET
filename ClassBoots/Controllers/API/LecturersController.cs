@@ -8,61 +8,61 @@ using Microsoft.EntityFrameworkCore;
 using ClassBoots.Models;
 using Microsoft.AspNetCore.Authorization;
 
-namespace ClassBoots.Controllers
+namespace ClassBoots.Controllers.API
 {
     [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
-    public class VideosController : ControllerBase
+    public class LecturersController : ControllerBase
     {
         private readonly ModelContext _context;
 
-        public VideosController(ModelContext context)
+        public LecturersController(ModelContext context)
         {
             _context = context;
         }
 
-        // GET: api/Videos
+        // GET: api/Lecturers
         [HttpGet]
-        public IEnumerable<Video> GetVideo()
+        public IEnumerable<Lecturer> GetLecturer()
         {
-            return _context.Video;
+            return _context.Lecturer;
         }
 
-        // GET: api/Videos/5
+        // GET: api/Lecturers/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetVideo([FromRoute] int id)
+        public async Task<IActionResult> GetLecturer([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var video = await _context.Video.FindAsync(id);
+            var lecturer = await _context.Lecturer.FindAsync(id);
 
-            if (video == null)
+            if (lecturer == null)
             {
                 return NotFound();
             }
 
-            return Ok(video);
+            return Ok(lecturer);
         }
 
-        // PUT: api/Videos/5
+        // PUT: api/Lecturers/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutVideo([FromRoute] int id, [FromBody] Video video)
+        public async Task<IActionResult> PutLecturer([FromRoute] int id, [FromBody] Lecturer lecturer)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != video.ID)
+            if (id != lecturer.ID)
             {
                 return BadRequest();
             }
 
-            _context.Entry(video).State = EntityState.Modified;
+            _context.Entry(lecturer).State = EntityState.Modified;
 
             try
             {
@@ -70,7 +70,7 @@ namespace ClassBoots.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!VideoExists(id))
+                if (!LecturerExists(id))
                 {
                     return NotFound();
                 }
@@ -83,45 +83,45 @@ namespace ClassBoots.Controllers
             return NoContent();
         }
 
-        // POST: api/Videos
+        // POST: api/Lecturers
         [HttpPost]
-        public async Task<IActionResult> PostVideo([FromBody] Video video)
+        public async Task<IActionResult> PostLecturer([FromBody] Lecturer lecturer)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            _context.Video.Add(video);
+            _context.Lecturer.Add(lecturer);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetVideo", new { id = video.ID }, video);
+            return CreatedAtAction("GetLecturer", new { id = lecturer.ID }, lecturer);
         }
 
-        // DELETE: api/Videos/5
+        // DELETE: api/Lecturers/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteVideo([FromRoute] int id)
+        public async Task<IActionResult> DeleteLecturer([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var video = await _context.Video.FindAsync(id);
-            if (video == null)
+            var lecturer = await _context.Lecturer.FindAsync(id);
+            if (lecturer == null)
             {
                 return NotFound();
             }
 
-            _context.Video.Remove(video);
+            _context.Lecturer.Remove(lecturer);
             await _context.SaveChangesAsync();
 
-            return Ok(video);
+            return Ok(lecturer);
         }
 
-        private bool VideoExists(int id)
+        private bool LecturerExists(int id)
         {
-            return _context.Video.Any(e => e.ID == id);
+            return _context.Lecturer.Any(e => e.ID == id);
         }
     }
 }

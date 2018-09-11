@@ -23,5 +23,7 @@ namespace ClassBoots.Models
         public DbSet<ClassBoots.Models.Subject> Subject { get; set; }
 
         public DbSet<ClassBoots.Models.Video> Video { get; set; }
+
+        public DbSet<ClassBoots.Models.Lecturer> Lecturer { get; set; }
     }
 }

@@ -3,14 +3,16 @@ using ClassBoots.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ClassBoots.Migrations
 {
     [DbContext(typeof(ModelContext))]
-    partial class ModelContextModelSnapshot : ModelSnapshot
+    [Migration("20180911133734_ModelScheme3")]
+    partial class ModelScheme3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,26 +55,11 @@ namespace ClassBoots.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<string>("OwnerID");
-
                     b.Property<int>("SubjectID");
 
                     b.HasKey("ID");
 
                     b.ToTable("Lecture");
-                });
-
-            modelBuilder.Entity("ClassBoots.Models.Lecturer", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Name");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Lecturer");
                 });
 
             modelBuilder.Entity("ClassBoots.Models.School", b =>

@@ -2,6 +2,7 @@
 using ClassBoots.Areas.Identity.Data;
 using ClassBoots.Models;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
@@ -23,6 +24,7 @@ namespace ClassBoots.Areas.Identity
                 services.AddDefaultIdentity<User>()
                     //.AddRoles<IdentityRole>()
                       .AddEntityFrameworkStores<UserContext>();
+                services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             });
         }
     }
