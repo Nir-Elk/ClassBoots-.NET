@@ -1,3 +1,4 @@
+
 /* avivsegal@gmail.com */
 $(function () {
     var area = $('#sidebarnav');
@@ -5,10 +6,18 @@ $(function () {
     var emptyPreviousBtn = $('#previousbtn');
     var criclebtn = $('#circlebtn');
     var options = $('#sidebarnav-options');
+    var loginPartial = $('#_Loginform')
     criclebtn.hide();
     emptyMenuItem.hide();
     emptyPreviousBtn.hide();
 
+
+    if (loginPartial) {
+        console.log('iluz');
+        $.get('Identity/Account/Loginbox', function (data) {
+            loginPartial.html(data);
+      });
+    }
 
     //$.session.clear();  /* Uncommet to destroy session. */
     if (!$.session.get('path')) {

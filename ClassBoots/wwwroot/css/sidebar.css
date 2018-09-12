@@ -166,11 +166,11 @@ sidebar navigation
         padding: 10px 35px 10px 15px;
         display: block;
         font-size: 1.3em;
-        text-align: center;
+        padding-left: 30px;
         border-radius: 4px;
         white-space: nowrap; }
         .sidebar-nav ul li a.active, .sidebar-nav ul li a:hover {
-          background-color: #0a0a0a;
+          background-color: #212126;
           color: #26c6da; }
         .sidebar-nav ul li a.active {
           font-weight: 500;
