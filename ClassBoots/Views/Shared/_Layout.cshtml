@@ -57,18 +57,7 @@
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="/">
-                        <!-- Logo icon --><b>
-                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                            <!-- Light Logo icon -->
-                            <img src="~/assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
-                        </b>
-                        <!--End Logo icon -->
-                        <!-- Logo text --><span>
-                            <!-- Light Logo text -->
-                            <img src="~/assets/images/logo-light-text.png" class="light-logo" alt="homepage" />
-                        </span>
-                    </a>
+                    <a href="/" alt="ClassBoots Home Page"> <div class="logo-classboots  light-logo"></div></a>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Logo -->
@@ -137,12 +126,8 @@
                     <div class="col-lg-8 col-md-7">
                         <div id="body">
                             <div class="background-image"></div>
-                            <div class="content">
-                                <div class="jumbotron jumbotron-fluid">
-                                    <div id="body-content" class="container">
-                                        @RenderBody()
-                                    </div>
-                                </div>
+                            <div id="body-content"class="content">
+                                    @RenderBody()
                             </div>
                         </div>
                     </div>

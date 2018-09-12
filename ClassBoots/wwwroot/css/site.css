@@ -53,8 +53,7 @@ for details on configuring this project to bundle and minify static web assets. 
     filter:  blur(2px) grayscale(35%);
 }
 
-.content {
-    opacity: 0.9;
+.content{
     position: fixed;
     z-index: 9999;
 }
@@ -78,6 +77,9 @@ section {
     position: fixed;
     width: 100%;
 }
+.opacity {
+    opacity: 0.9;
+}
 
 
 
@@ -85,4 +87,11 @@ section {
 #sidebarnav-options {
     text-align: center;
     margin-top: -20px;
+}
+
+.logo-classboots {
+    background-image: url(/images/classboots-logo.svg);
+    width:  300px;
+    height: 72px;
+    background-repeat: no-repeat;
 }

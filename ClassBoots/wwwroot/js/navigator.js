@@ -84,7 +84,7 @@ $(function () {
         }
         $.get(url, function (data) {
             if (data.length == 0) {
-                area.append("No items here.<br>Be the first to add items :)")
+                area.append("No items here.<br>Be the first to add items.")
                 $.session.set('path',url + '/');
             } else {
                 let len = url.split('/').length - 3;

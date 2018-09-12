@@ -165,17 +165,20 @@ sidebar navigation
         padding: 0px;
         li {
             list-style: none;
-            
+
+
             
             a {
                 color: $sidebar-text;
-                padding: 8px 35px 8px 15px;
+                padding: 10px 35px 10px 15px;
                 display: block;
-                font-size: 15px;
+                font-size: 1.3em;
+                text-align: center;
                 border-radius: $radius;
                 white-space: nowrap;
                 &.active,
                 &:hover {
+                    background-color:$almost-black;
                     color: $themecolor-alt;
                 }
                 &.active {
