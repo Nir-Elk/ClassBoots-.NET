@@ -48,6 +48,17 @@ namespace ClassBoots.Controllers
 
             return Ok(video);
         }
+
+
+        // GET: api/Videos/5
+        [HttpGet("Search/{keyword}")]
+        public Object Search([FromRoute] string keyword)
+        {
+            return (from item in _context.Video
+                    where item.Name.Contains(keyword)
+                    select item).ToList();
+
+        }
         // PUT: api/Videos/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutVideo([FromRoute] int id, [FromBody] Video video)

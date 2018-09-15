@@ -75,7 +75,7 @@
                         <li class="nav-item hidden-sm-down search-box">
                             <a class="nav-link hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
                             <form class="app-search">
-                                <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i class="ti-close"></i></a>
+                                <input id="searchIn"type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i class="ti-close"></i></a>
                             </form>
                         </li>
                     </ul>
@@ -112,11 +112,12 @@
 
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
-                <!-- ==============================================================
-                                    <div class="row page-titles">
-                                        <partial name="_CookieConsentPartial" />
-                                        <div id="path"></div>
-                                    </div>
+                <!-- ============================================================== -->
+                <div class="row page-titles">
+                    <partial name="_CookieConsentPartial" />
+                    <div id="path"></div>
+                    <div id="results">You can start search</div>
+                </div>
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
@@ -233,6 +234,19 @@
                 asp-fallback-test="window.jQuery"></script>
                 -->
     </environment>
+    <script>
+
+        $('#searchIn').on('input', function () {
+            var keyword = $('#searchIn').val();
+            $.get('/api/Videos/Search/' + keyword, function (data) {
+                $('#results').html('');
+                $.each(data, function () {
+                    $('#results').append(JSON.stringify(this) + '<br>');
+                });
+            });
+        });
+        
+    </script>
     @RenderSection("Scripts", required: false)
 
 </body>

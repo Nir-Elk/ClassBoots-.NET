@@ -46,7 +46,11 @@ namespace ClassBoots
                                  .Build();
                 config.Filters.Add(new AuthorizeFilter(policy));
             })
-   .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            .AddRazorPagesOptions(options =>
+            {
+                //options.Conventions.AuthorizePage("/About");
+            })
+            .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
 
             services.AddDbContext<ModelContext>(options =>
