@@ -98,7 +98,7 @@ $(function () {
         $.get(url, function (data) {
             if (data.length == 0) {
                 area.append("No items here.<br>Be the first to add items.")
-                $.session.set('path',url + '/');
+                $.session.set('path',url);
             } else {
                 let len = url.split('/').length - 3;
                 $.each(data, function () {
@@ -143,53 +143,50 @@ $(function () {
 
     /* Search */
 
+    // Prevent enter key
+    $('#searchIn').keypress(function (event) {
+        if (event.keyCode === 10 || event.keyCode === 13) {
+            event.preventDefault();
+        }
+    });
 
+    var clearSearch = function() {
+        $('#searchform').hide();
+        $('#searchIn').val('')
+        $('#results').html('');
+    }
 
+    $('#results').hide();
     $('#searchIn').on('input', function () {
+        $('#results').hide();
         var keyword = $('#searchIn').val();
         $('#results').html('');
         $.get('/api/Videos/Search/' + keyword, function (data) {
             $('#searchform').attr('action', 'home/search/' + keyword)
             $('#results').html('');
-            $.each(data, function () {
-                var newResultLine = resultLine.clone();
-                newResultLine.removeAttr('id');
-                newResultLine.find('a').attr('href', 'something here!');
-                newResultLine.find('a').append(this.name);
-                newResultLine.show();
-                let id = this.id;
-                newResultLine.click(function (e) {
-                    e.preventDefault();
-                    $.get('Video/Details/' + id, function (data) {
-                        view(data);
+            if (data.length == 0) {
+                $('#results').hide();
+            } else {
+                $('#results').show();
+                $.each(data, function () {
+                    var newResultLine = resultLine.clone();
+                    newResultLine.removeAttr('id');
+                    newResultLine.find('a').attr('href', 'something here!');
+                    newResultLine.find('a').append(this.name);
+                    newResultLine.show();
+                    let id = this.id;
+                    newResultLine.click(function (e) {
+                        e.preventDefault();
+                        $.get('Video/Details/' + id, function (data) {
+                            view(data);
+                        });
+                        clearSearch();
                     });
+                    $('#results').append(newResultLine);
                 });
-                $('#results').append(newResultLine);
-            });
+            }
         });
     });
     
-    $('#searchInFull').on('input', function () {
-        var keyword = $('#searchInFull').val();
-        $('#resultsfull').html('');
-        $.get('/api/Videos/Search/' + keyword, function (data) {
-            $('#resultsfull').html('');
-            $.each(data, function () {
-                var newResultLine = resultLine.clone();
-                newResultLine.removeAttr('id');
-                newResultLine.find('a').attr('href', 'something here!');
-                newResultLine.find('a').append(this.name);
-                newResultLine.show();
-                let id = this.id;
-                newResultLine.click(function (e) {
-                    e.preventDefault();
-                    $.get('Video/Details/' + id, function (data) {
-                        view(data);
-                    });
-                });
-                $('#resultsfull').append(newResultLine);
-            });
-        });
-    });
 
 });

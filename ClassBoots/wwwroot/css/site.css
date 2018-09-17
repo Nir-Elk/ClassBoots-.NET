@@ -55,15 +55,10 @@ for details on configuring this project to bundle and minify static web assets. 
 
 .content{
     position: fixed;
-    z-index: 9999;
+    z-index: 2;
 }
 section {
     padding:0 50px 0 50px;
-}
-
-.content:hover {
-     position: fixed;
-     z-index: 9999;
 }
 
 .btn-img {
@@ -97,7 +92,7 @@ section {
 }
 .footer {
     background-color: rgba(255,255,255,0.5);
-    z-index: 9999;
+    z-index: 2;
 }
 
 .home-circle {
@@ -119,19 +114,37 @@ section {
     border-bottom: 2px solid aqua;
 }
 
-#results {
+.results {
     background-color: rgba(255,255,255,1);
-    min-height: 100px;
     font-size: 1.3em;
-    z-index: 99999;
+    z-index: 3;
 }
 
 #resultsfull {
     font-size: 1.3em;
-    z-index: 99999;
+    z-index: 3;
     margin-top: 30px;
 }
 
 #searchline {
     margin-top: 30px;
+}
+
+.filter-btn {
+    width: 100%;
+    margin: 0px;
+}
+
+#searchIn {
+    border:none;
+}
+
+.result-line {
+    cursor:pointer;
+}
+.result-line:hover {
+    background-color: lightskyblue;
+}
+.result-line:hover > a {
+    color:white;
 }

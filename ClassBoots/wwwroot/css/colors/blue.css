@@ -23,7 +23,7 @@ File: scss
   top: 0px;
   position: fixed;
   z-index: 99999;
-  background: #fff; }
+  background: rgba(0,0,0,0.5); }
   .preloader .cssload-speeding-wheel {
     position: absolute;
     top: calc(50% - 3.5px);

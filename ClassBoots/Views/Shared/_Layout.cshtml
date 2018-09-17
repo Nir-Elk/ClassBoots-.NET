@@ -38,8 +38,9 @@
 <body class="fix-header fix-sidebar card-no-border">
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
-    <!-- ==============================================================
+    <!-- ============================================================== -->
     <div class="preloader">
+        
         <svg class="circular" viewBox="25 25 50 50">
             <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
         </svg>
@@ -75,10 +76,22 @@
                         <li class="nav-item hidden-sm-down search-box">
                             <a class="nav-link hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
                             <form id="searchform" class="app-search">
-                                <input id="searchIn" type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i class="ti-close"></i></a>
-                                <ul id="results" class="list-group">
-                                    <li id="resultLine" class="list-group-item"><a></a></li>
-                                </ul>
+                                <input id="searchIn" type="text" class="form-control" placeholder="Search here.." autocomplete="off"><a class="srh-btn"><i class="ti-close"></i></a>
+
+                                <div class="results">
+                                      <button class="btn btn-info filter-btn"type="button" data-toggle="collapse" data-target="#filters" aria-expanded="false" aria-controls="filters">
+                                        Filters
+                                      </button>
+                                    <div class="collapse" id="filters">
+                                      <div class="">
+                                          Filters
+                                      </div>
+                                    </div>
+                                    <ul id="results" class="list-group">
+                                        <li id="resultLine" class="list-group-item result-line"><a></a></li>
+                                    </ul>
+                                </div>
+                                
                             </form>
 
                             <!--<form class="app-search">
