@@ -26,6 +26,7 @@ namespace ClassBoots.Controllers
         [HttpGet]
         public IEnumerable<Institution> GetInstitution()
         {
+
             return _context.Institution;
         }
 
