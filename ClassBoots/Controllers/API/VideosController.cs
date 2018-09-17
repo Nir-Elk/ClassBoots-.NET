@@ -49,6 +49,35 @@ namespace ClassBoots.Controllers
             return Ok(video);
         }
 
+        // GET: api/Videos/5/getPathss
+        [HttpGet("{id}/getpath")]
+        public Path GetPath([FromRoute] int id)
+        {
+            Path path = new Path();
+            var query = from video in _context.Video
+                        join lecture in _context.Lecture on video.LectureID equals lecture.ID
+                        join subject in _context.Subject on lecture.SubjectID equals subject.ID
+                        join school in _context.School on subject.SchoolID equals school.ID
+                        join institution in _context.Institution on school.InstitutionID equals institution.ID
+                        where video.ID == id
+                        select new
+                        {
+                            videoName = video.Name,
+                            lectureName = lecture.Name,
+                            subjectName = subject.Name,
+                            schoolName = school.Name,
+                            institutionName = institution.Name,
+                        };
+
+
+            var result = query.ToList().First();
+            path.video = result.videoName;
+            path.lecture = result.lectureName;
+            path.subject = result.subjectName;
+            path.school = result.schoolName;
+            path.institution = result.institutionName;
+            return path;
+        }
 
         // GET: api/Videos/5
         [HttpGet("Search/{keyword}")]

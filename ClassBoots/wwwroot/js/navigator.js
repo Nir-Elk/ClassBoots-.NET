@@ -156,8 +156,10 @@ $(function () {
         $('#results').html('');
     }
 
+
     $('#results').hide();
-    $('#searchIn').on('input', function () {
+    $('#searchIn').on('keyup', function (e) {
+        e.stopImmediatePropagation()
         $('#results').hide();
         var keyword = $('#searchIn').val();
         $('#results').html('');
@@ -168,21 +170,28 @@ $(function () {
                 $('#results').hide();
             } else {
                 $('#results').show();
+                $('#results').html('');
                 $.each(data, function () {
-                    var newResultLine = resultLine.clone();
-                    newResultLine.removeAttr('id');
-                    newResultLine.find('a').attr('href', 'something here!');
-                    newResultLine.find('a').append(this.name);
-                    newResultLine.show();
                     let id = this.id;
-                    newResultLine.click(function (e) {
-                        e.preventDefault();
-                        $.get('Video/Details/' + id, function (data) {
-                            view(data);
+                    $.get('api/videos/' + id + '/getpath', function (data) {
+                        let newResultLine = resultLine.clone();
+                        newResultLine.attr('id', 'resultLine_' + id);
+                        newResultLine.find('.videolink').append(data.video);
+                        newResultLine.find('.lecturelink').append(data.lecture);
+                        newResultLine.find('.subjectlink').append(data.subject);
+                        newResultLine.find('.schoollink').append(data.school);
+                        newResultLine.find('.institutionlink').append(data.institution);
+                        newResultLine.show();
+                        newResultLine.click(function (e) {
+                            e.preventDefault();
+                            $.get('Video/Details/' + id, function (data) {
+                                view(data);
+                            });
+                            clearSearch();
                         });
-                        clearSearch();
+                        $('#results').append(newResultLine);
                     });
-                    $('#results').append(newResultLine);
+
                 });
             }
         });

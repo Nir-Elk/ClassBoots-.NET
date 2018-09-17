@@ -185,7 +185,7 @@
   "Videos": [
     {
       "LectureID": 1,
-      "Name": "Lecture 1",
+      "Name": "Video 1",
       "URL": "https://www.youtube.com/watch?v=RAsN9OVI-vQ&start_radio=1&list=RDRAsN9OVI-vQ",
       "Views": 0,
       "Position": 0,
@@ -193,7 +193,7 @@
     },
     {
       "LectureID": 2,
-      "Name": "Lecture 2",
+      "Name": "Video 2",
       "URL": "https://www.youtube.com/watch?v=RAsN9OVI-vQ&start_radio=1&list=RDRAsN9OVI-vQ",
       "Views": 0,
       "Position": 0,
@@ -201,7 +201,7 @@
     },
     {
       "LectureID": 3,
-      "Name": "Lecture 3",
+      "Name": "Video 3",
       "URL": "https://www.youtube.com/watch?v=RAsN9OVI-vQ&start_radio=1&list=RDRAsN9OVI-vQ",
       "Views": 0,
       "Position": 0,
@@ -209,7 +209,7 @@
     },
     {
       "LectureID": 4,
-      "Name": "Lecture 4",
+      "Name": "Video 4",
       "URL": "https://www.youtube.com/watch?v=RAsN9OVI-vQ&start_radio=1&list=RDRAsN9OVI-vQ",
       "Views": 0,
       "Position": 0,
