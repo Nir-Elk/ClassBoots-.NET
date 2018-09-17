@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ClassBoots.Migrations
 {
-    public partial class ModelScheme : Migration
+    public partial class modelsc : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -34,11 +34,25 @@ namespace ClassBoots.Migrations
                     Name = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     Image = table.Column<string>(nullable: true),
-                    Date = table.Column<string>(nullable: true)
+                    Date = table.Column<string>(nullable: true),
+                    OwnerID = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Lecture", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Lecturer",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Lecturer", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -96,6 +110,9 @@ namespace ClassBoots.Migrations
 
             migrationBuilder.DropTable(
                 name: "Lecture");
+
+            migrationBuilder.DropTable(
+                name: "Lecturer");
 
             migrationBuilder.DropTable(
                 name: "School");

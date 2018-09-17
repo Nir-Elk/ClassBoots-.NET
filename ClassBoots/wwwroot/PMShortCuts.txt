@@ -1,0 +1,6 @@
+add-migration -context modelcontext model
+add-migration -context usercontext user
+drop-database -context modelcontext
+drop-database -context usercontext
+update-database -context usercontext
+update-database -context modelcontext

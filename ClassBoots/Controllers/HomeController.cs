@@ -23,6 +23,12 @@ namespace ClassBoots.Controllers
 
             return View();
         }
+        public IActionResult Search()
+        {
+            ViewData["Message"] = "Search your ask:";
+
+            return View();
+        }
 
         public IActionResult Contact()
         {

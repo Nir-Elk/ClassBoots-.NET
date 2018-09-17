@@ -118,3 +118,20 @@ section {
 ._Loginbox {
     border-bottom: 2px solid aqua;
 }
+
+#results {
+    background-color: rgba(255,255,255,1);
+    min-height: 100px;
+    font-size: 1.3em;
+    z-index: 99999;
+}
+
+#resultsfull {
+    font-size: 1.3em;
+    z-index: 99999;
+    margin-top: 30px;
+}
+
+#searchline {
+    margin-top: 30px;
+}

@@ -9,14 +9,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ClassBoots.Migrations
 {
     [DbContext(typeof(ModelContext))]
-    [Migration("20180911175515_ModelScheme5")]
-    partial class ModelScheme5
+    [Migration("20180916122616_modelsc")]
+    partial class modelsc
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.2-rtm-30932")
+                .HasAnnotation("ProductVersion", "2.1.1-rtm-30846")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -70,7 +70,7 @@ namespace ClassBoots.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Name");
+                    b.Property<string>("Name");
 
                     b.HasKey("ID");
 

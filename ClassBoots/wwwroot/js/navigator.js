@@ -1,5 +1,7 @@
 
 /* avivsegal@gmail.com */
+
+
 $(function () {
     var area = $('#sidebarnav');
     var emptyMenuItem = $('#menuitem');
@@ -7,10 +9,12 @@ $(function () {
     var criclebtn = $('#circlebtn');
     var options = $('#sidebarnav-options');
     var loginPartial = $('#_Loginform')
+    var resultLine = $('#resultLine');
+
+    resultLine.hide();
     criclebtn.hide();
     emptyMenuItem.hide();
     emptyPreviousBtn.hide();
-
 
     if (loginPartial) {
         console.log('iluz');
@@ -109,7 +113,7 @@ $(function () {
                                 view(data);
                             }).fail(function () {
                                 view('<h1 class="alert alert-danger">Login first madafaka!</h1>');
-                                })
+                            });
 
                         });
                     } else {
@@ -130,9 +134,62 @@ $(function () {
         }).fail(function (e) {
             area.append('There is an error ): <br>'
                 + JSON.stringify(JSON.parse(JSON.stringify(e)), null, 2)
-                + '<br>Please Context for any help:<br>' + '<b>avivsegal@gmail.com</b>');
+                + '<br>Please content for any help:<br>' + '<b>avivsegal@gmail.com</b>');
         });
     }
 
     renderMenu();
+
+
+    /* Search */
+
+
+
+    $('#searchIn').on('input', function () {
+        var keyword = $('#searchIn').val();
+        $('#results').html('');
+        $.get('/api/Videos/Search/' + keyword, function (data) {
+            $('#searchform').attr('action', 'home/search/' + keyword)
+            $('#results').html('');
+            $.each(data, function () {
+                var newResultLine = resultLine.clone();
+                newResultLine.removeAttr('id');
+                newResultLine.find('a').attr('href', 'something here!');
+                newResultLine.find('a').append(this.name);
+                newResultLine.show();
+                let id = this.id;
+                newResultLine.click(function (e) {
+                    e.preventDefault();
+                    $.get('Video/Details/' + id, function (data) {
+                        view(data);
+                    });
+                });
+                $('#results').append(newResultLine);
+            });
+        });
+    });
+    
+    $('#searchInFull').on('input', function () {
+        var keyword = $('#searchInFull').val();
+        $('#resultsfull').html('');
+        $.get('/api/Videos/Search/' + keyword, function (data) {
+            $('#resultsfull').html('');
+            $.each(data, function () {
+                var newResultLine = resultLine.clone();
+                newResultLine.removeAttr('id');
+                newResultLine.find('a').attr('href', 'something here!');
+                newResultLine.find('a').append(this.name);
+                newResultLine.show();
+                let id = this.id;
+                newResultLine.click(function (e) {
+                    e.preventDefault();
+                    $.get('Video/Details/' + id, function (data) {
+                        view(data);
+                    });
+                });
+                $('#resultsfull').append(newResultLine);
+            });
+        });
+    });
+
 });
