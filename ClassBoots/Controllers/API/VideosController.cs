@@ -89,10 +89,10 @@ namespace ClassBoots.Controllers
                 .Join(_context.Subject, vl => vl.l.SubjectID, s => s.ID, (vl, s) => new { vl, s })
                 .Join(_context.School, vls => vls.s.SchoolID, s => s.ID, (vls, s) => new { vls, s })
                 .Join(_context.Institution, vlss => vlss.s.InstitutionID, i => i.ID, (vlss, i) => new { vlss, i })
-                .Where(vlssi => vlssi.vlss.vls.vl.v.Name.Contains(keyword))
-                .Where(vlssi => json.ContainsKey("subject") ? vlssi.vlss.vls.s.Name.Equals(json.GetValue("subject")) : true)
-                .Where(vlssi => json.ContainsKey("school") ? vlssi.vlss.s.Name.Equals(json.GetValue("school")) : true)
-                .Where(vlssi => json.ContainsKey("institution") ? vlssi.i.Name.Equals(json.GetValue("institution")) : true)
+                .Where(vlssi => vlssi.vlss.vls.vl.v.Name.Contains(keyword) &&
+                                vlssi.vlss.vls.s.Name.Contains(json.GetValue("subject").ToString()) &&
+                                vlssi.vlss.s.Name.Contains(json.GetValue("school").ToString()) &&
+                                vlssi.i.Name.Contains(json.GetValue("institution").ToString()))
                 .Select(vlssi => new Path(vlssi.i, vlssi.vlss.s, vlssi.vlss.vls.s, vlssi.vlss.vls.vl.l, vlssi.vlss.vls.vl.v)).ToList();
             return result;
 
@@ -104,7 +104,6 @@ namespace ClassBoots.Controllers
             //             join institution in _context.Institution on school.InstitutionID equals institution.ID
             //             where item.Name.Contains(keyword)
             //             select item;
-
         }
         // PUT: api/Videos/5
         [HttpPut("{id}")]
