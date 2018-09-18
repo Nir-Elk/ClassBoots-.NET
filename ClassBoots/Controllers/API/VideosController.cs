@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using ClassBoots.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Newtonsoft.Json.Linq;
 
 namespace ClassBoots.Controllers
 {
@@ -80,12 +81,27 @@ namespace ClassBoots.Controllers
         }
 
         // GET: api/Videos/5
-        [HttpGet("Search/{keyword}")]
-        public Object Search([FromRoute] string keyword)
+        [HttpGet("Search/{keyword}/{filters?}")]
+        public Object Search([FromRoute] string keyword,[FromRoute] string filters = null)
         {
-            return (from item in _context.Video
-                    where item.Name.Contains(keyword)
-                    select item).ToList();
+            string results = "";
+            JObject json = JObject.Parse(filters);
+            foreach(var filter in json)
+            {
+                results += filter.Key + filter.Value;
+            }
+
+
+
+
+
+
+
+
+            //return (from item in _context.Video
+            //        where item.Name.Contains(keyword)
+            //        select item).ToList();
+            return results ;
 
         }
         // PUT: api/Videos/5
