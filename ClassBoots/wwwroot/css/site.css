@@ -148,3 +148,12 @@ section {
 .result-line:hover > a {
     color:white;
 }
+
+.videolink {
+    margin: 0px 20px 0px 20px;
+    font-size:1.2em;
+}
+
+.sm-text {
+    font-size:1.1em;
+}

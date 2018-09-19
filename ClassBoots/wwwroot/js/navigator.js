@@ -112,7 +112,7 @@ $(function () {
                             $.get('Video/Details/' + video.id, function (data) {
                                 view(data);
                             }).fail(function () {
-                                view('<h1 class="alert alert-danger">Login first madafaka!</h1>');
+                                view('<h1 class="alert alert-danger">Please Log-in.</h1>');
                             });
 
                         });
@@ -143,6 +143,27 @@ $(function () {
 
     /* Search */
 
+    // Choose filters
+    $.get('api/Institutions', function (data) {
+        var resultItems = $("#filterinstitution")
+        $.each(data, function () {
+            resultItems.append('<option value="' + this.name + '">' + this.name + '</option >');
+        });
+    });
+    $.get('api/Schools', function (data) {
+        var resultItems = $("#filterschool")
+        $.each(data, function () {
+            resultItems.append('<option value="' + this.name + '">' + this.name + '</option >');
+        });
+    });
+    $.get('api/Subjects', function (data) {
+        var resultItems = $("#filtersubject")
+        $.each(data, function () {
+            resultItems.append('<option value="' + this.name + '">' + this.name + '</option >');
+        });
+    });
+
+
     // Prevent enter key
     $('#searchIn').keypress(function (event) {
         if (event.keyCode === 10 || event.keyCode === 13) {
@@ -150,43 +171,65 @@ $(function () {
         }
     });
 
+
+    // Search code
     var clearSearch = function() {
         $('#searchform').hide();
         $('#searchIn').val('')
         $('#results').html('');
     }
-    $('#searchIn').on('input', function () {
-        $('#results').clone();
-            $('#results').html('');
-            $('#results').hide();
-            var keyword = $('#searchIn').val();
-            $.get('/api/Videos/Search/' + keyword + '/{"institution":"colman","school":"Design","subject":"Mavo to ART"}', function (data) {
-                $('#searchform').attr('action', 'home/search/' + keyword);
-                console.log('bokertov')
-                if (data.length == 0) {
-                    $('#results').html('');
-                }
-                else {
-                    $('#results').show();
-                    $.each(data, function () {
-                        let resultItem = resultLine.clone();
-                        resultItem.attr('id', 'resultLine_' + this.id);
-                        resultItem.find('.videolink').append(this.video.name);
-                        resultItem.find('.lecturelink').append(this.lecture.name);
-                        resultItem.find('.subjectlink').append(this.subject.name);
-                        resultItem.find('.schoollink').append(this.school.name);
-                        resultItem.find('.institutionlink').append(this.institution.name);
-                        resultItem.show();
-                        resultItem.click(function (e) {
-                            e.preventDefault();
-                            $.get('Video/Details/' + id, function (data) {
-                                view(data);
-                            });
-                            clearSearch();
+
+    //Parameters
+    var institutionFilter = '';
+    var schoolFilter = '';
+    var subjectFilter = '';
+    var renderResults = function () {
+        $('#results').html('');
+        $('#results').hide();
+        var keyword = $('#searchIn').val();
+        $.get('/api/Videos/Search/' + keyword + '/{"institution":"' + institutionFilter + '","school":"' + schoolFilter + '","subject":"' + subjectFilter +'"}', function (data) {
+            $('#searchform').attr('action', 'home/search/' + keyword);
+            console.log('bokertov')
+            if (data.length == 0) {
+                $('#results').html('');
+            }
+            else {
+                $('#results').show();
+                $.each(data, function () {
+                    let id = this.video.id;
+                    let resultItem = resultLine.clone();
+                    resultItem.attr('id', 'resultLine_' + this.id);
+                    resultItem.find('.videolink').append(this.video.name);
+                    resultItem.find('.lecturelink').append(this.lecture.name);
+                    resultItem.find('.subjectlink').append(this.subject.name);
+                    resultItem.find('.schoollink').append(this.school.name);
+                    resultItem.find('.institutionlink').append(this.institution.name);
+                    resultItem.show();
+                    resultItem.click(function (e) {
+                        e.preventDefault();
+                        $.get('Video/Details/' + id, function (d) {
+                            view(d);
                         });
-                        $('#results').append(resultItem);
+                        clearSearch();
                     });
-                }
-            });
+                    $('#results').append(resultItem);
+                });
+            }
+        });
+    }
+    $("#filterinstitution").change(function (e) {
+        institutionFilter = $("#filterinstitution").val();
+        renderResults();
+    });
+    $("#filterschool").change(function (e) {
+        schoolFilter = $("#filterschool").val();
+        renderResults();
+    });
+    $("#filtersubject").change(function (e) {
+        subjectFilter = $("#filtersubject").val();
+        renderResults();
+    });
+    $('#searchIn').on('input', function () {
+        renderResults();
     });
 });
