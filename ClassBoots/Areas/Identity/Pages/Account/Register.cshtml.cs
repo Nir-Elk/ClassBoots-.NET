@@ -56,6 +56,10 @@ namespace ClassBoots.Areas.Identity.Pages.Account
             [DataType(DataType.Date)]
             public DateTime DOB { get; set; }
 
+            [DataType(DataType.Text)]
+            [Display(Name = "Role")]
+            public string Role { get; set; }
+
             [Required]
             [EmailAddress]
             [Display(Name = "Email")]
@@ -88,7 +92,8 @@ namespace ClassBoots.Areas.Identity.Pages.Account
                     UserName = Input.Email,
                     Email = Input.Email,
                     Name = Input.Name,
-                    DOB = Input.DOB
+                    DOB = Input.DOB,
+                    Role = Input.Role
                 };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)

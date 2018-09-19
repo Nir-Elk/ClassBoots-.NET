@@ -8,10 +8,16 @@
 @if (SignInManager.IsSignedIn(User))
 {
     <li class="nav-item dropdown">
-        <a id="nameArea" class="nav-link dropdown-toggle text-muted waves-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage" aria-haspopup="true" aria-expanded="false">@UserManager.GetUserName(User)</a>
+        <a id="nameArea" class="nav-link dropdown-toggle text-muted waves-effect waves-dark personal-name" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage" aria-haspopup="true" aria-expanded="false"><img src="~/assets/images/users/1.jpg" alt="user" class="profile-pic m-r-10" />@UserManager.GetUserName(User)</a>
+
+        <div>
+            Role: @(User.FindFirst("Role").Value)!
+        </div>
     </li>
 }
 else
 {
-        <a class="loginoptions" asp-area="Identity" asp-page="/Account/Login">Login</a>
+
+        <a style="margin:0 10px 0 10px;" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        <a style="margin:0 10px 0 10px;" asp-area="Identity" asp-page="/Account/Login">Login</a>
 }
