@@ -66,6 +66,8 @@ namespace ClassBoots
                 facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
             });
 
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
 
         }
 
