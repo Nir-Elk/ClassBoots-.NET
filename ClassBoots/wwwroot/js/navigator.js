@@ -159,7 +159,6 @@ $(function () {
 
     $('#results').hide();
     $('#searchIn').on('keyup', function (e) {
-        e.stopImmediatePropagation()
         $('#results').hide();
         var keyword = $('#searchIn').val();
         $('#results').html('');
