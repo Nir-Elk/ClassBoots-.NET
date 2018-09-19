@@ -155,43 +155,38 @@ $(function () {
         $('#searchIn').val('')
         $('#results').html('');
     }
-    $('#results').hide();
-    $('#searchIn').on('input', function (e) {
+    $('#searchIn').on('input', function () {
+        $('#results').clone();
+            $('#results').html('');
             $('#results').hide();
             var keyword = $('#searchIn').val();
-            $('#results').html('');
-            $.get('/api/Videos/Search/' + keyword, function (data) {
-                $('#searchform').attr('action', 'home/search/' + keyword)
-                $('#results').html('');
+            $.get('/api/Videos/Search/' + keyword + '/{"institution":"colman","school":"Design","subject":"Mavo to ART"}', function (data) {
+                $('#searchform').attr('action', 'home/search/' + keyword);
+                console.log('bokertov')
                 if (data.length == 0) {
-                    $('#results').hide();
-                } else {
-                    $('#results').show();
                     $('#results').html('');
+                }
+                else {
+                    $('#results').show();
                     $.each(data, function () {
-                        let id = this.id;
-                        $.get('api/videos/' + id + '/getpath', function (data) {
-                            let newResultLine = resultLine.clone();
-                            newResultLine.attr('id', 'resultLine_' + id);
-                            newResultLine.find('.videolink').append(data.video);
-                            newResultLine.find('.lecturelink').append(data.lecture);
-                            newResultLine.find('.subjectlink').append(data.subject);
-                            newResultLine.find('.schoollink').append(data.school);
-                            newResultLine.find('.institutionlink').append(data.institution);
-                            newResultLine.show();
-                            newResultLine.click(function (e) {
-                                e.preventDefault();
-                                $.get('Video/Details/' + id, function (data) {
-                                    view(data);
-                                });
-                                clearSearch();
+                        let resultItem = resultLine.clone();
+                        resultItem.attr('id', 'resultLine_' + this.id);
+                        resultItem.find('.videolink').append(this.video.name);
+                        resultItem.find('.lecturelink').append(this.lecture.name);
+                        resultItem.find('.subjectlink').append(this.subject.name);
+                        resultItem.find('.schoollink').append(this.school.name);
+                        resultItem.find('.institutionlink').append(this.institution.name);
+                        resultItem.show();
+                        resultItem.click(function (e) {
+                            e.preventDefault();
+                            $.get('Video/Details/' + id, function (data) {
+                                view(data);
                             });
-                            $('#results').append(newResultLine);
+                            clearSearch();
                         });
+                        $('#results').append(resultItem);
                     });
                 }
             });
     });
-    
-
 });
