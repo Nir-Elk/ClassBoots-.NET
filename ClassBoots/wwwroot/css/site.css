@@ -190,3 +190,9 @@ section {
     color:#fff;
     padding: 15px 15px 15px 15px;
 }
+
+.accessdenied {
+    font-size:1.3em;
+    text-align:center;
+    color:darkred;
+}
