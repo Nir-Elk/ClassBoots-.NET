@@ -92,8 +92,8 @@ namespace ClassBoots.Areas.Identity.Pages.Account
                     UserName = Input.Email,
                     Email = Input.Email,
                     Name = Input.Name,
-                    DOB = Input.DOB,
-                    Role = Input.Role
+                    DOB = Input.DOB
+             //       Role = Input.Role
                 };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)

@@ -20,7 +20,7 @@ public class MyUserClaimsPrincipalFactory : UserClaimsPrincipalFactory<User, Ide
     protected override async Task<ClaimsIdentity> GenerateClaimsAsync(User user)
     {
         var identity = await base.GenerateClaimsAsync(user);
-        identity.AddClaim(new Claim("Role", user.Role ?? ""));
+       // identity.AddClaim(new Claim("Role", user.Role ?? ""));
         return identity;
     }
 }
