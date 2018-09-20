@@ -90,17 +90,24 @@ section {
 }
 .indexpage {
     background-image: url(/images/index_logo.svg);
-    width: 1000px;
-    height: 550px;
+    min-height: 400px;
     background-repeat: no-repeat;
+    text-align: right;
+    padding-top: 100px;
 }
 .welcometext {
-    padding: 100px 0px 0px 550px;
-    font-size:2em;
+    background: -moz-linear-gradient(-45deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    margin-right: 60px;
+    font-size: 2em;
+    float: right;
 }
 .slogentext {
-    padding: 0px 0px 300px 750px;
+    background-color: rgba(255,255,255,0.6);
     font-size: 1.2em;
+    float: right;
 }
 .footer {
     background-color: rgba(255,255,255,0.5);
