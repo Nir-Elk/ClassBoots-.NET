@@ -159,18 +159,15 @@ sidebar navigation
 
 .sidebar-nav {
     background: $sidebar;
-    padding: 15px;
+    padding: 10px 0px 10px 0px;
     ul {
         margin: 0px;
         padding: 0px;
         li {
             list-style: none;
-
-
-            
             a {
                 color: $sidebar-text;
-                padding: 10px 35px 10px 15px;
+                padding: 10px 35px 10px 0px;
                 display: block;
                 font-size: 1.3em;
                 padding-left: 30px;

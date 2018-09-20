@@ -4,9 +4,6 @@
 @{
     ViewData["Title"] = "Log in";
 }
-<div class="jumbotron jumbotron-fluid opacity">
-    <div id="body-content" class="container">
-
         <h2>@ViewData["Title"]</h2>
 
         <div class="row">
@@ -69,7 +66,7 @@
                                     <p>
                                         @foreach (var provider in Model.ExternalLogins)
                                         {
-                                            <button type="submit" class="btn btn-default" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                            <button id="loginbtn" type="submit" class="btn btn-default" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
                                         }
                                     </p>
                                 </div>

@@ -40,15 +40,21 @@ namespace ClassBoots.Areas.Identity.Pages.Account.Manage
 
         public class InputModel
         {
-            [Required]
+
             [DataType(DataType.Text)]
             [Display(Name = "Full name")]
             public string Name { get; set; }
 
-            [Required]
+
             [Display(Name = "Birth Date")]
             [DataType(DataType.Date)]
             public DateTime DOB { get; set; }
+
+
+            [Display(Name = "Role")]
+            [DataType(DataType.Text)]
+            public string Role { get; set; }
+
 
             [Required]
             [EmailAddress]
@@ -77,7 +83,7 @@ namespace ClassBoots.Areas.Identity.Pages.Account.Manage
             {
                 Name = user.Name,
                 DOB = user.DOB,
-
+                Role = user.Role,
                 Email = email,
                 PhoneNumber = phoneNumber
             };
@@ -108,6 +114,11 @@ namespace ClassBoots.Areas.Identity.Pages.Account.Manage
             if (Input.DOB != user.DOB)
             {
                 user.DOB = Input.DOB;
+            }
+
+            if (Input.Role != user.Role)
+            {
+                user.Role = Input.Role;
             }
 
 

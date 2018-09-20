@@ -60,7 +60,13 @@ namespace ClassBoots
             {
                 googleOptions.ClientId = Configuration["google:client_id"];
                 googleOptions.ClientSecret = Configuration["google:client_secret"];
+            }).AddFacebook(facebookOptions =>
+            {
+                facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
+                facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
             });
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 
         }

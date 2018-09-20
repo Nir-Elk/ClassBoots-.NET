@@ -124,6 +124,7 @@ $(function () {
                     }
 
                     newMenuItem.find('a').attr('href', nextPath);
+                    newMenuItem.find('a').find('img').attr('src', this.image);
                     newMenuItem.find('a').append(this.name);
 
                     newMenuItem.show();
