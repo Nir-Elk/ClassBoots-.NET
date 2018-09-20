@@ -30,10 +30,15 @@
                 }
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Input.Role"></label>
-                <input asp-for="Input.Role" disabled class="form-control" />
-            </div>
+            @{
+                if (User.FindFirst("Role").Value == "Admin")
+                {
+                    <div class="form-group">
+                        <label asp-for="Input.Role"></label>
+                        <input asp-for="Input.Role" disabled class="form-control" />
+                    </div>
+                }
+            }
             <div class="form-group">
                 <label asp-for="Input.Name"></label>
                 <input asp-for="Input.Name" class="form-control" />
