@@ -95,11 +95,11 @@ section {
     background-repeat: no-repeat;
 }
 .welcometext {
-    padding: 100px 0px 0px 600px;
+    padding: 100px 0px 0px 550px;
     font-size:2em;
 }
 .slogentext {
-    padding: 0px 0px 300px 800px;
+    padding: 0px 0px 300px 750px;
     font-size: 1.2em;
 }
 .footer {
@@ -183,4 +183,10 @@ section {
     margin: 15px 15px 15px 15px;
     font-size:1.3em;
     color:white;
+}
+
+.loginlink {
+    font-size:1.3em;
+    color:#fff;
+    padding: 15px 15px 15px 15px;
 }

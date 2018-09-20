@@ -17,7 +17,6 @@ $(function () {
     emptyPreviousBtn.hide();
 
     if (loginPartial) {
-        console.log('iluz');
         $.get('Identity/Account/Loginbox', function (data) {
             loginPartial.html(data);
       });
