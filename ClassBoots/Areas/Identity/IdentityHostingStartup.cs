@@ -22,9 +22,11 @@ namespace ClassBoots.Areas.Identity
                         context.Configuration.GetConnectionString("ClassBootsContextConnection")));
 
                 services.AddDefaultIdentity<User>()
-                    //.AddRoles<IdentityRole>()
+                    .AddRoles<IdentityRole>()
                       .AddEntityFrameworkStores<UserContext>();
                 services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+                services.AddScoped<IUserClaimsPrincipalFactory<User>, MyUserClaimsPrincipalFactory>();
             });
         }
     }

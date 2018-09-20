@@ -90,6 +90,20 @@ section {
     height: 72px;
     background-repeat: no-repeat;
 }
+.indexpage {
+    background-image: url(/images/index_logo.svg);
+    width: 1000px;
+    height: 550px;
+    background-repeat: no-repeat;
+}
+.welcometext {
+    padding: 100px 0px 0px 600px;
+    font-size:2em;
+}
+.slogentext {
+    padding: 0px 0px 300px 800px;
+    font-size: 1.2em;
+}
 .footer {
     background-color: rgba(255,255,255,0.5);
     z-index: 2;
@@ -146,5 +160,28 @@ section {
     background-color: lightskyblue;
 }
 .result-line:hover > a {
+    color:white;
+}
+
+.videolink {
+    margin: 0px 20px 0px 20px;
+    font-size:1.2em;
+}
+
+.sm-text {
+    font-size:1.1em;
+}
+
+.little-margin {
+    margin-right: 20px;
+}
+
+.bg-white {
+    background-color:#fff;
+}
+
+.loginoptions {
+    margin: 15px 15px 15px 15px;
+    font-size:1.3em;
     color:white;
 }

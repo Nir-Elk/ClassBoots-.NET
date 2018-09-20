@@ -5285,7 +5285,7 @@ sidebar navigation
 
 .sidebar-nav {
   background: #fff;
-  padding: 15px; }
+  padding: 10px 0px 10px 0px; }
   .sidebar-nav ul {
     margin: 0px;
     padding: 0px; }
@@ -5293,7 +5293,7 @@ sidebar navigation
       list-style: none; }
       .sidebar-nav ul li a {
         color: #607d8b;
-        padding: 10px 35px 10px 15px;
+        padding: 10px 35px 10px 0px;
         display: block;
         font-size: 1.3em;
         padding-left: 30px;

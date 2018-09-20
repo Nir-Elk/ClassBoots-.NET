@@ -7,10 +7,22 @@ namespace ClassBoots.Models
 {
     public class Path
     {
-        public string institution { get; set; }
-        public string school { get; set; }
-        public string subject { get; set; }
-        public string lecture { get; set; }
-        public string video { get; set; }
+        public Institution institution { get; set; }
+        public School school { get; set; }
+        public Subject subject { get; set; }
+        public Lecture lecture { get; set; }
+        public Video video { get; set; }
+
+        public Path(Institution institution, School school, Subject subject, Lecture lecture, Video video)
+        {
+            this.institution = institution;
+            this.school = school;
+            this.subject = subject;
+            this.lecture = lecture;
+            this.video = video;
+        }
+
+        public Path() { }
     }
+
 }

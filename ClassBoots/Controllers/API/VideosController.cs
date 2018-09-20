@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using ClassBoots.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Newtonsoft.Json.Linq;
 
 namespace ClassBoots.Controllers
 {
@@ -49,44 +50,60 @@ namespace ClassBoots.Controllers
             return Ok(video);
         }
 
-        // GET: api/Videos/5/getPathss
-        [HttpGet("{id}/getpath")]
-        public Path GetPath([FromRoute] int id)
+        //// GET: api/Videos/5/getPathss
+        //[HttpGet("{id}/getpath")]
+        //public Path GetPath([FromRoute] int id)
+        //{
+        //    Path path = new Path();
+        //    var query = from video in _context.Video
+        //                join lecture in _context.Lecture on video.LectureID equals lecture.ID
+        //                join subject in _context.Subject on lecture.SubjectID equals subject.ID
+        //                join school in _context.School on subject.SchoolID equals school.ID
+        //                join institution in _context.Institution on school.InstitutionID equals institution.ID
+        //                where video.ID == id
+        //                select new
+        //                {
+        //                    videoName = video.Name,
+        //                    lectureName = lecture.Name,
+        //                    subjectName = subject.Name,
+        //                    schoolName = school.Name,
+        //                    institutionName = institution.Name,
+        //                };
+
+
+        //    var result = query.ToList().First();
+        //    path.video = result.videoName;
+        //    path.lecture = result.lectureName;
+        //    path.subject = result.subjectName;
+        //    path.school = result.schoolName;
+        //    path.institution = result.institutionName;
+        //    return path;
+        //}
+
+        // GET: Search & Filters by - Nir & Amit code, aviv not included.
+        [HttpGet("Search/{keyword}/{filters?}")]
+        public Object Search([FromRoute] string keyword, [FromRoute] string filters = "{}")
         {
-            Path path = new Path();
-            var query = from video in _context.Video
-                        join lecture in _context.Lecture on video.LectureID equals lecture.ID
-                        join subject in _context.Subject on lecture.SubjectID equals subject.ID
-                        join school in _context.School on subject.SchoolID equals school.ID
-                        join institution in _context.Institution on school.InstitutionID equals institution.ID
-                        where video.ID == id
-                        select new
-                        {
-                            videoName = video.Name,
-                            lectureName = lecture.Name,
-                            subjectName = subject.Name,
-                            schoolName = school.Name,
-                            institutionName = institution.Name,
-                        };
+            JObject json = JObject.Parse(filters);
+            var result = _context.Video.Join(_context.Lecture, v => v.LectureID, l => l.ID, (v, l) => new { v, l })
+                .Join(_context.Subject, vl => vl.l.SubjectID, s => s.ID, (vl, s) => new { vl, s })
+                .Join(_context.School, vls => vls.s.SchoolID, s => s.ID, (vls, s) => new { vls, s })
+                .Join(_context.Institution, vlss => vlss.s.InstitutionID, i => i.ID, (vlss, i) => new { vlss, i })
+                .Where(vlssi => vlssi.vlss.vls.vl.v.Name.Contains(keyword) &&
+                                vlssi.vlss.vls.s.Name.Contains(json.GetValue("subject").ToString()) &&
+                                vlssi.vlss.s.Name.Contains(json.GetValue("school").ToString()) &&
+                                vlssi.i.Name.Contains(json.GetValue("institution").ToString()))
+                .Select(vlssi => new Path(vlssi.i, vlssi.vlss.s, vlssi.vlss.vls.s, vlssi.vlss.vls.vl.l, vlssi.vlss.vls.vl.v)).ToList();
+            return result;
 
-
-            var result = query.ToList().First();
-            path.video = result.videoName;
-            path.lecture = result.lectureName;
-            path.subject = result.subjectName;
-            path.school = result.schoolName;
-            path.institution = result.institutionName;
-            return path;
-        }
-
-        // GET: api/Videos/5
-        [HttpGet("Search/{keyword}")]
-        public Object Search([FromRoute] string keyword)
-        {
-            return (from item in _context.Video
-                    where item.Name.Contains(keyword)
-                    select item).ToList();
-
+            //Aviv bad code -> very very bad after first looking..
+            //var result = from item in _context.Video
+            //             join lecture in _context.Lecture on item.LectureID equals lecture.ID
+            //             join subject in _context.Subject on lecture.SubjectID equals subject.ID
+            //             join school in _context.School on subject.SchoolID equals school.ID
+            //             join institution in _context.Institution on school.InstitutionID equals institution.ID
+            //             where item.Name.Contains(keyword)
+            //             select item;
         }
         // PUT: api/Videos/5
         [HttpPut("{id}")]
