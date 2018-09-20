@@ -115,7 +115,7 @@ namespace ClassBoots.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
-                var user = new User { UserName = Input.Email, Email = Input.Email };
+                var user = new User { UserName = Input.Email, Email = Input.Email,Role = "User" };
                 var result = await _userManager.CreateAsync(user);
                 if (result.Succeeded)
                 {

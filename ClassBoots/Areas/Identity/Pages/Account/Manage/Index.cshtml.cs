@@ -50,11 +50,9 @@ namespace ClassBoots.Areas.Identity.Pages.Account.Manage
             [DataType(DataType.Date)]
             public DateTime DOB { get; set; }
 
-
             [Display(Name = "Role")]
             [DataType(DataType.Text)]
             public string Role { get; set; }
-
 
             [Required]
             [EmailAddress]
@@ -84,6 +82,7 @@ namespace ClassBoots.Areas.Identity.Pages.Account.Manage
                 Name = user.Name,
                 DOB = user.DOB,
                 Role = user.Role,
+
                 Email = email,
                 PhoneNumber = phoneNumber
             };
@@ -115,12 +114,6 @@ namespace ClassBoots.Areas.Identity.Pages.Account.Manage
             {
                 user.DOB = Input.DOB;
             }
-
-            if (Input.Role != user.Role)
-            {
-                user.Role = Input.Role;
-            }
-
 
             var email = await _userManager.GetEmailAsync(user);
             if (Input.Email != email)

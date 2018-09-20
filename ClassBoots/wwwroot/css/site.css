@@ -4,6 +4,7 @@ for details on configuring this project to bundle and minify static web assets. 
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
+    min-height: 100%;
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -53,8 +54,8 @@ for details on configuring this project to bundle and minify static web assets. 
     filter:  blur(2px) grayscale(35%);
 }
 
-.content{
-    position: fixed;
+.content {
+    /*position: fixed;*/
     z-index: 2;
 }
 section {
@@ -75,9 +76,6 @@ section {
 .opacity {
     background-color:rgba(255,255,255,0.8);
 }
-
-
-
 
 #sidebarnav-options {
     text-align: center;
@@ -107,6 +105,7 @@ section {
 .footer {
     background-color: rgba(255,255,255,0.5);
     z-index: 2;
+
 }
 
 .home-circle {
