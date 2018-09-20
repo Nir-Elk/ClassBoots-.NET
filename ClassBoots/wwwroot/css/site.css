@@ -9,6 +9,9 @@ for details on configuring this project to bundle and minify static web assets. 
     padding-right: 15px;
 }
 
+#body-content {
+    text-align: left;
+}
 /* Carousel */
 .carousel-caption p {
     font-size: 20px;
@@ -196,4 +199,8 @@ section {
     font-size:1.3em;
     color:#fff;
     padding: 15px 15px 15px 15px;
+}
+
+.container {
+    margin: unset;
 }
