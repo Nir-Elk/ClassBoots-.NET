@@ -16,5 +16,7 @@ namespace ClassBoots.Areas.Identity.Data
 
         [PersonalData]
         public string Role { get; set; }
+
+
     }
 }

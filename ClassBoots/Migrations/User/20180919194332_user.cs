@@ -42,8 +42,7 @@ namespace ClassBoots.Migrations.User
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
                     Name = table.Column<string>(nullable: true),
-                    DOB = table.Column<DateTime>(nullable: false),
-                    Role = table.Column<string>(nullable: true)
+                    DOB = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
