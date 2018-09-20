@@ -14,6 +14,9 @@ namespace ClassBoots.Areas.Identity.Data
         [PersonalData]
         public DateTime DOB { get; set; }
 
-    
+        [PersonalData]
+        public string Role { get; set; }
+
+
     }
 }
