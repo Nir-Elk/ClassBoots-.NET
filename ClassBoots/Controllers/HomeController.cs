@@ -23,12 +23,6 @@ namespace ClassBoots.Controllers
 
             return View();
         }
-        public IActionResult Search()
-        {
-            ViewData["Message"] = "Search your ask:";
-
-            return View();
-        }
 
         public IActionResult Contact()
         {
@@ -38,6 +32,10 @@ namespace ClassBoots.Controllers
         }
 
         public IActionResult Privacy()
+        {
+            return View();
+        }
+        public IActionResult TermsAndConditions()
         {
             return View();
         }
