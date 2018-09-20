@@ -47,8 +47,8 @@ $(function () {
         newPrevBtn.find('a').attr('href', prev);
         newPrevBtn.removeAttr('id');
         newPrevBtn.click(function (e) {
-            e.preventDefault();
             menuClickHandler(prev);
+            return e.preventDefault();
         });
         newPrevBtn.show();
         return newPrevBtn;
@@ -107,18 +107,18 @@ $(function () {
                     if (len == 4) {
                         let video = this;
                         newMenuItem.click(function (e) {
-                            e.preventDefault();
-                            $.get('Video/Details/' + video.id, function (data) {
+                            history.pushState('/Video/' + video.id, event.target.textContent, '/Video/View/' + video.id);
+                            $.get('/Video/Details/' + video.id, function (data) {
                                 view(data);
                             }).fail(function () {
                                 view('<h1 class="alert alert-danger">Please Log-in.</h1>');
-                            });
-
+                                });
+                            return e.preventDefault();
                         });
                     } else {
                         newMenuItem.click(function (e) {
-                            e.preventDefault();
                             menuClickHandler(nextPath);
+                            return e.preventDefault();
                         });
                     }
 
@@ -144,19 +144,19 @@ $(function () {
     /* Search */
 
     // Choose filters
-    $.get('api/Institutions', function (data) {
+    $.get('/api/Institutions', function (data) {
         var resultItems = $("#filterinstitution")
         $.each(data, function () {
             resultItems.append('<option value="' + this.name + '">' + this.name + '</option >');
         });
     });
-    $.get('api/Schools', function (data) {
+    $.get('/api/Schools', function (data) {
         var resultItems = $("#filterschool")
         $.each(data, function () {
             resultItems.append('<option value="' + this.name + '">' + this.name + '</option >');
         });
     });
-    $.get('api/Subjects', function (data) {
+    $.get('/api/Subjects', function (data) {
         var resultItems = $("#filtersubject")
         $.each(data, function () {
             resultItems.append('<option value="' + this.name + '">' + this.name + '</option >');
@@ -207,7 +207,7 @@ $(function () {
                     resultItem.show();
                     resultItem.click(function (e) {
                         e.preventDefault();
-                        $.get('Video/Details/' + id, function (d) {
+                        $.get('/Video/Details/' + id, function (d) {
                             view(d);
                         });
                         clearSearch();
