@@ -54,11 +54,9 @@ for details on configuring this project to bundle and minify static web assets. 
     filter:  blur(2px) grayscale(35%);
 }
 
-.content{
-    position: fixed;
+.content {
+    /*position: fixed;*/
     z-index: 2;
-    height: 90%;
-    width: 90%;
 }
 section {
     padding:0 50px 0 50px;

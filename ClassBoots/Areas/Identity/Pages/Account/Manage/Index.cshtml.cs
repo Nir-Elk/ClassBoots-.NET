@@ -115,12 +115,6 @@ namespace ClassBoots.Areas.Identity.Pages.Account.Manage
                 user.DOB = Input.DOB;
             }
 
-            if (Input.Role != user.Role)
-            {
-                user.Role = Input.Role;
-            }
-
-
             var email = await _userManager.GetEmailAsync(user);
             if (Input.Email != email)
             {

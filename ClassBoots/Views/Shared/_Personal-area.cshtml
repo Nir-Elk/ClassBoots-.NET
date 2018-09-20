@@ -11,7 +11,7 @@
         <a id="nameArea" class="nav-link dropdown-toggle text-muted waves-effect waves-dark personal-name" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage" aria-haspopup="true" aria-expanded="false"><img src="~/assets/images/users/1.jpg" alt="user" class="profile-pic m-r-10" />@UserManager.GetUserName(User)</a>
 
         <div>
-            @*Role: @(User.FindFirst("Role").Value)!*@
+            Role: @(User.FindFirst("Role").Value)!
         </div>
     </li>
 }

@@ -46,21 +46,6 @@ namespace ClassBoots.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-
-            [Required]
-            [DataType(DataType.Text)]
-            [Display(Name = "Full name")]
-            public string Name { get; set; }
-
-            [Required]
-            [Display(Name = "Birth Date")]
-            [DataType(DataType.Date)]
-            public DateTime DOB { get; set; }
-
-            [DataType(DataType.Text)]
-            [Display(Name = "Role")]
-            public string Role { get; set; }
-
             [Required]
             [EmailAddress]
             [Display(Name = "Email")]
@@ -92,9 +77,7 @@ namespace ClassBoots.Areas.Identity.Pages.Account
                 var user = new User {
                     UserName = Input.Email,
                     Email = Input.Email,
-                    Name = Input.Name,
-                    DOB = Input.DOB,
-                    Role = Input.Role
+                    Role = "User"
                 };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)

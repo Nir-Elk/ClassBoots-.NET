@@ -14,7 +14,6 @@ using Microsoft.EntityFrameworkCore;
 using ClassBoots.Models;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Authorization;
-using ClassBoots.Areas.Identity.Data;
 
 namespace ClassBoots
 {
@@ -40,8 +39,6 @@ namespace ClassBoots
             });
 
 
-
-
             services.AddMvc(config =>
             {
                 var policy = new AuthorizationPolicyBuilder()
@@ -59,19 +56,16 @@ namespace ClassBoots
             services.AddDbContext<ModelContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("ModelContext")));
 
+            services.AddAuthentication().AddGoogle(googleOptions =>
+            {
+                googleOptions.ClientId = Configuration["google:client_id"];
+                googleOptions.ClientSecret = Configuration["google:client_secret"];
+            }).AddFacebook(facebookOptions =>
+            {
+                facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
+                facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+            });
 
-            //services.AddDefaultIdentity<User>().AddEntityFrameworkStores<UserContext>();
-
-            /*  services.AddAuthentication().AddGoogle(googleOptions =>
-              {
-                  googleOptions.ClientId = Configuration["google:client_id"];
-                  googleOptions.ClientSecret = Configuration["google:client_secret"];
-              }).AddFacebook(facebookOptions =>
-              {
-                  facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
-                  facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
-              });
-              */
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 

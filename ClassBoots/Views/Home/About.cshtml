@@ -1,46 +1,7 @@
-﻿@using ClassBoots.Controllers;
-
-@{
+﻿@{
     ViewData["Title"] = "About";
 }
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
 
-<div id="map" style="height:100%;width:80%; min-height:15em; min-width:15em;"></div>
-<script>
-        var map;
-        function initMap() {
-            map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 8,
-                center: new google.maps.LatLng(32.111767, 34.801361),
-                mapTypeId: 'terrain'
-            });
-
-     
-
-            @foreach (GeoData inst in (ViewData["institutes"] as List<GeoData>))
-
-            {
-                <text>
-                    var pos = { lat: @(inst.Lat) , lng: @(inst.Long)};
-                    var marker = new google.maps.Marker({ position: pos, map: map, title: "@(inst.Title)", content: "@(inst.Title)"});
-                </text>
-            }
-
-
-            }
-
-        // Loop through the results array and place a marker for each
-        // set of coordinates.
-        window.eqfeed_callback = function (results) {
-            for (var i = 0; i < results.features.length; i++) {
-                var coords = results.features[i].geometry.coordinates;
-                var latLng = new google.maps.LatLng(coords[1], coords[0]);
-                var marker = new google.maps.Marker({
-                    position: latLng,
-                    map: map
-                });
-            }
-        }
-</script>
-<script async defer
-        src=@ViewData["mapURL"]>
-</script>
+<p>Use this area to provide additional information.</p>
