@@ -22,6 +22,7 @@
   <ItemGroup>
     <Folder Include="Areas\Identity\Services\" />
     <Folder Include="Data\" />
+    <Folder Include="Views\Administrator\" />
   </ItemGroup>
 
   <ItemGroup>

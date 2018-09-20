@@ -47,20 +47,6 @@ namespace ClassBoots.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
-            [DataType(DataType.Text)]
-            [Display(Name = "Full name")]
-            public string Name { get; set; }
-
-            [Required]
-            [Display(Name = "Birth Date")]
-            [DataType(DataType.Date)]
-            public DateTime DOB { get; set; }
-
-            [DataType(DataType.Text)]
-            [Display(Name = "Role")]
-            public string Role { get; set; }
-
-            [Required]
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
@@ -93,7 +79,7 @@ namespace ClassBoots.Areas.Identity.Pages.Account
                     Email = Input.Email,
                     Name = Input.Name,
                     DOB = Input.DOB
-             //       Role = Input.Role
+                    Role = Input.Role
                 };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
