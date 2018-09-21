@@ -22,25 +22,35 @@ namespace ClassBoots.Controllers
         // GET: Lecture
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Lecture.ToListAsync());
-        }
-
-        // GET: Lecture/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
+            if (User.FindFirst("Role").Value == "Admin")
             {
-                return NotFound();
+                return View(await _context.Lecture.ToListAsync());
+            }
+            else
+                return NotFound("Access Dinied");
             }
 
+            // GET: Lecture/Details/5
+            public async Task<IActionResult> Details(int? id)
+            {
             var lecture = await _context.Lecture
-                .FirstOrDefaultAsync(m => m.ID == id);
-            if (lecture == null)
+                                        .FirstOrDefaultAsync(m => m.ID == id);
+            if (User.FindFirst("Role").Value == "Admin" || lecture.OwnerID == User.FindFirst(ClaimTypes.Name).Value)
             {
-                return NotFound();
-            }
+                    if (id == null)
+                {
+                    return NotFound();
+                }
+                if (lecture == null)
+                {
+                    return NotFound();
+                }
 
-            return View(lecture);
+                return View(lecture);
+            }
+            else
+                return NotFound("Access Dinied");
+
         }
 
         // GET: Lecture/Create
@@ -56,7 +66,10 @@ namespace ClassBoots.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,LecturerID,SubjectID,Name,Description,Image,Date,OwnerID")] Lecture lecture)
         {
-            if (ModelState.IsValid)
+            if (User.FindFirst("Role").Value != "")
+            {
+
+                if (ModelState.IsValid)
             {
                 lecture.OwnerID = User.FindFirst(ClaimTypes.Name).Value;
                 _context.Add(lecture);
@@ -64,22 +77,31 @@ namespace ClassBoots.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(lecture);
+            }
+            else
+                return NotFound("Access Dinied");
+
         }
 
         // GET: Lecture/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
             var lecture = await _context.Lecture.FindAsync(id);
-            if (lecture == null)
+            if (User.FindFirst("Role").Value == "Admin" || lecture.OwnerID == User.FindFirst(ClaimTypes.Name).Value)
             {
-                return NotFound();
+                if (id == null)
+                {
+                    return NotFound();
+                }
+                if (lecture == null)
+                {
+                    return NotFound();
+                }
+                return View(lecture);
             }
-            return View(lecture);
+            else
+                return NotFound("Access Dinied");
+    
         }
 
         // POST: Lecture/Edit/5
@@ -89,7 +111,9 @@ namespace ClassBoots.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ID,LecturerID,SubjectID,Name,Description,Image,Date,OwnerID")] Lecture lecture)
         {
-            if (id != lecture.ID)
+            if (User.FindFirst("Role").Value == "Admin" || lecture.OwnerID == User.FindFirst(ClaimTypes.Name).Value)
+            {
+                if (id != lecture.ID)
             {
                 return NotFound();
             }
@@ -115,24 +139,35 @@ namespace ClassBoots.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(lecture);
+            }
+            else
+                return NotFound("Access Dinied");
+
         }
 
         // GET: Lecture/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
+ 
             var lecture = await _context.Lecture
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (lecture == null)
+            if (User.FindFirst("Role").Value == "Admin" || lecture.OwnerID == User.FindFirst(ClaimTypes.Name).Value)
             {
-                return NotFound();
-            }
+                    if (id == null)
+                {
+                    return NotFound();
+                }
 
-            return View(lecture);
+                if (lecture == null)
+                {
+                    return NotFound();
+                }
+
+                return View(lecture);
+            }
+            else
+                return NotFound("Access Dinied");
+
         }
 
         // POST: Lecture/Delete/5
@@ -141,14 +176,24 @@ namespace ClassBoots.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var lecture = await _context.Lecture.FindAsync(id);
-            _context.Lecture.Remove(lecture);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            if (User.FindFirst("Role").Value == "Admin" || lecture.OwnerID == User.FindFirst(ClaimTypes.Name).Value)
+            {
+                _context.Lecture.Remove(lecture);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            else
+                return NotFound("Access Dinied");
         }
 
         private bool LectureExists(int id)
         {
-            return _context.Lecture.Any(e => e.ID == id);
+            if (User.FindFirst("Role").Value == "Admin")
+            {
+                return _context.Lecture.Any(e => e.ID == id);
+            }
+            else
+                return false;   
         }
     }
 }

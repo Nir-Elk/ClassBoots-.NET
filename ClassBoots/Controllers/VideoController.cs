@@ -24,49 +24,64 @@ namespace ClassBoots.Controllers
         // GET: Video
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Video.ToListAsync());
+            if (User.FindFirst("Role").Value == "Admin")
+            {
+                return View(await _context.Video.ToListAsync());
+            }
+            else
+                return NotFound("Access Dinied");
+
         }
 
         // GET: Video/View/5 with full layout!
         public async Task<IActionResult> View(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
             var video = await _context.Video
-                .FirstOrDefaultAsync(m => m.ID == id);
-            if (video == null)
-            {
-                return NotFound();
-            }
+                                .FirstOrDefaultAsync(m => m.ID == id);
+                if (id == null)
+                {
+                    return NotFound();
+                }
 
-            return View(video);
+                if (video == null)
+                {
+                    return NotFound();
+                }
+                video.Views++;
+                _context.Update(video);
+                await _context.SaveChangesAsync();
+                return View(video);
         }
 
         // GET: Video/Details/5 lightweight layout
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
-            {
-                return NotFound();
-            }
-
+                {
+                    return NotFound();
+                }
             var video = await _context.Video
-                .FirstOrDefaultAsync(m => m.ID == id);
+                    .FirstOrDefaultAsync(m => m.ID == id);
+            video.Views++;
+            _context.Update(video);
+            await _context.SaveChangesAsync();
             if (video == null)
-            {
-                return NotFound();
-            }
+                {
+                    return NotFound();
+                }
 
-            return View(video);
+                return View(video);
         }
 
         // GET: Video/Create
         public IActionResult Create()
         {
-            return View();
+            if (User.FindFirst("Role").Value != null)
+            {
+                return View();
+            }
+            else
+                return NotFound("Access Dinied");
         }
 
         // POST: Video/Create
@@ -76,7 +91,9 @@ namespace ClassBoots.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,Name,LectureID,URL,Views,Position,OwnerID")] Video video)
         {
-            if (ModelState.IsValid)
+            if (User.FindFirst("Role").Value != null)
+            {
+                if (ModelState.IsValid)
             {
                 video.OwnerID = User.FindFirst(ClaimTypes.Name).Value;
                 _context.Add(video);
@@ -84,23 +101,31 @@ namespace ClassBoots.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(video);
+            }
+            else
+                return NotFound("Access Dinied");
         }
 
         // GET: Video/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
             var video = await _context.Video.FindAsync(id);
-            if (video == null)
+            if (User.FindFirst("Role").Value == "Admin" || video.OwnerID == User.FindFirst(ClaimTypes.Name).Value)
             {
-                return NotFound();
+                if (id == null)
+                {
+                    return NotFound();
+                }
+                if (video == null)
+                {
+                    return NotFound();
+                }
+                return View(video);
             }
-            return View(video);
-        }
+            else
+                return NotFound("Access Dinied");
+
+            }
 
         // POST: Video/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -109,50 +134,60 @@ namespace ClassBoots.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ID,Name,LectureID,URL,Views,Position,OwnerID")] Video video)
         {
-            if (id != video.ID)
+            if (User.FindFirst("Role").Value == "Admin" || video.OwnerID == User.FindFirst(ClaimTypes.Name).Value)
             {
-                return NotFound();
-            }
+                    if (id != video.ID)
+                {
+                    return NotFound();
+                }
 
-            if (ModelState.IsValid)
-            {
-                try
+                if (ModelState.IsValid)
                 {
-                    _context.Update(video);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!VideoExists(video.ID))
+                    try
                     {
-                        return NotFound();
+                        _context.Update(video);
+                        await _context.SaveChangesAsync();
                     }
-                    else
+                    catch (DbUpdateConcurrencyException)
                     {
-                        throw;
+                        if (!VideoExists(video.ID))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
                     }
+                    return RedirectToAction(nameof(Index));
                 }
-                return RedirectToAction(nameof(Index));
+                return View(video);
             }
-            return View(video);
+            else
+                return NotFound("Access Dinied");
         }
 
         // GET: Video/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
             var video = await _context.Video
-                .FirstOrDefaultAsync(m => m.ID == id);
-            if (video == null)
+    .FirstOrDefaultAsync(m => m.ID == id);
+            if (User.FindFirst("Role").Value == "Admin" || video.OwnerID == User.FindFirst(ClaimTypes.Name).Value)
             {
-                return NotFound();
-            }
+                if (id == null)
+                {
+                    return NotFound();
+                }
+                if (video == null)
+                {
+                    return NotFound();
+                }
 
-            return View(video);
+                return View(video);
+            }
+            else
+                return NotFound("Access Dinied");
+
         }
 
         // POST: Video/Delete/5
@@ -161,14 +196,19 @@ namespace ClassBoots.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var video = await _context.Video.FindAsync(id);
-            _context.Video.Remove(video);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            if (User.FindFirst("Role").Value == "Admin" || video.OwnerID == User.FindFirst(ClaimTypes.Name).Value)
+            {
+                _context.Video.Remove(video);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            else
+                return NotFound("Access Dinied");
         }
 
         private bool VideoExists(int id)
         {
-            return _context.Video.Any(e => e.ID == id);
+                return _context.Video.Any(e => e.ID == id);
         }
     }
 }

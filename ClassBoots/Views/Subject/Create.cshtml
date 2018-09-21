@@ -2,6 +2,10 @@
 
 @{
     ViewData["Title"] = "Create";
+    if (User.FindFirst("Role").Value == "Admin")
+    {
+        Layout = "/Views/Shared/_LayoutAdmin.cshtml";
+    }
 }
 
 <h2>Create</h2>

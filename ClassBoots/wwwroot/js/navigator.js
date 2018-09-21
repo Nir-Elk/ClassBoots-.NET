@@ -57,11 +57,8 @@ $(function () {
         let pathArr = $.session.get('path').split('/');
         let newBtn = criclebtn.clone();
         newBtn.removeAttr('id');
-        newBtn.click(function (e) {
-            $.get('/'+param+'/create', function (data) {
-                $.session.set('currentID', pathArr[pathArr.length - 1]);
-                view(data)
-            });
+        newBtn.click(function () {
+            window.location.replace('/' +param + '/Create');
         });
         newBtn.show();
         options.append(newBtn);

@@ -1,7 +1,11 @@
-﻿<!-- Defaults -->
+﻿@using Microsoft.AspNetCore.Identity
+@using ClassBoots.Areas.Identity.Data
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+<!-- Defaults -->
 <li id="menuitem"><a class="waves-effect waves-dark" aria-expanded="false"><img class="bg-white little-margin thumb-md img-circle" /><span class="hide-menu"></span></a></li>
 <li id="previousbtn"><a class="waves-effect waves-dark" aria-expanded="false"><i class="mdi mdi-arrow-left-bold-circle"></i><span class="hide-menu"></span></a></li>
-<button id="circlebtn" type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark">+</button>
+<button id="circlebtn" class="btn btn-circle btn-lg btn-success waves-effect waves-dark">+</button>
 
 <aside class="left-sidebar">
     <div>
@@ -14,6 +18,12 @@
             <ul id="sidebarnav"></ul>
         </nav>
 
+        @if (SignInManager.IsSignedIn(User) && User.FindFirst("Role").Value == "Admin")
+        {
+            <div class="text-center m-t-30">
+                <a asp-area="" asp-controller="Administrator" asp-action="Index" class="btn waves-effect waves-light btn-warning hidden-md-down">BACKEND</a>
+            </div>
+        }
         <!-- End Sidebar navigation -->
     </div>
     <!-- End Sidebar scroll-->

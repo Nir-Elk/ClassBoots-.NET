@@ -2,7 +2,10 @@
 
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Empty.cshtml";
+    if (User.FindFirst("Role").Value == "Admin")
+    {
+        Layout = "/Views/Shared/_LayoutAdmin.cshtml";
+    }
 }
 
 <h2>Index</h2>
