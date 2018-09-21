@@ -27,7 +27,25 @@ namespace ClassBoots.Controllers
             return View(await _context.Video.ToListAsync());
         }
 
-        // GET: Video/Details/5
+        // GET: Video/View/5 with full layout!
+        public async Task<IActionResult> View(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var video = await _context.Video
+                .FirstOrDefaultAsync(m => m.ID == id);
+            if (video == null)
+            {
+                return NotFound();
+            }
+
+            return View(video);
+        }
+
+        // GET: Video/Details/5 lightweight layout
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
