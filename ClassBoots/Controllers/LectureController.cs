@@ -66,10 +66,7 @@ namespace ClassBoots.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,LecturerID,SubjectID,Name,Description,Image,Date,OwnerID")] Lecture lecture)
         {
-            if (User.FindFirst("Role").Value != "")
-            {
-
-                if (ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 lecture.OwnerID = User.FindFirst(ClaimTypes.Name).Value;
                 _context.Add(lecture);
@@ -77,10 +74,6 @@ namespace ClassBoots.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(lecture);
-            }
-            else
-                return NotFound("Access Dinied");
-
         }
 
         // GET: Lecture/Edit/5

@@ -25,7 +25,7 @@
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
-            <div class="form-group" style="display: none;">
+            <div class="form-group" >
                 <label asp-for="LectureID" class="control-label"></label>
                 <input asp-for="LectureID" class="form-control" />
                 <span asp-validation-for="LectureID" class="text-danger"></span>
@@ -45,7 +45,7 @@
                 <input asp-for="Position" class="form-control" />
                 <span asp-validation-for="Position" class="text-danger"></span>
             </div>
-            <div class="form-group" style="display:none">
+            <div class="form-group" >
                 <label asp-for="OwnerID" class="control-label"></label>
                 <input asp-for="OwnerID" class="form-control" />
                 <span asp-validation-for="OwnerID" class="text-danger"></span>
@@ -60,14 +60,12 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 <script>
-
-    if (document.readyState === 'complete') {
-        $('#LectureID').attr('value', $.session.get('currentID'));
-    }
-
+    document.addEventListener("DOMContentLoaded", function (event) {
+        $('#LectureID').attr('value', $.session.get('current_lecture'));
+        console.log($.session.get('current_lecture'));
+    });
 </script>
 }

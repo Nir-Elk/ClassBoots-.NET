@@ -53,7 +53,7 @@ $(function () {
         newPrevBtn.show();
         return newPrevBtn;
     }
-    var renderOption = function (param) {
+    var renderOption = function (param,id) {
         let newBtn = criclebtn.clone();
         newBtn.removeAttr('id');
         newBtn.click(function () {
@@ -62,7 +62,7 @@ $(function () {
         newBtn.show();
         options.append(newBtn);
     }
-    var renderOptions = function () {
+    var renderOptions = function (id) {
         options.html('');
         let pathArr = $.session.get('path').split('/');
         let len = pathArr.length - 3;
@@ -74,17 +74,22 @@ $(function () {
             case 3:
                 param = 'lecture';
                 break;
+            case 2:
+                param = 'subject';
+                break;
 
             default:
                 break;
         }
         if (param != null) {
-            renderOption(param);
+            $.session.set('current_' + param, id);
+            if (len > 2) {
+                renderOption(param);
+            }
         }
     }
 
     var renderMenu = function () {
-        renderOptions();
         let url = $.session.get('path');
         area.html('');
         if (url != '/api/path') {
@@ -119,7 +124,7 @@ $(function () {
                         });
                         newMenuItem.find('a').attr('href', nextPath);
                     }
-
+                    renderOptions(url.split('/').pop());
 
                     newMenuItem.find('a').find('img').attr('src', this.image);
                     newMenuItem.find('a').append(this.name);
@@ -133,7 +138,7 @@ $(function () {
             area.append('There is an error ): <br>'
                 + JSON.stringify(JSON.parse(JSON.stringify(e)), null, 2)
                 + '<br>Please content for any help:<br>' + '<b>avivsegal@gmail.com</b>');
-        });
+        }v);
     }
 
     renderMenu();

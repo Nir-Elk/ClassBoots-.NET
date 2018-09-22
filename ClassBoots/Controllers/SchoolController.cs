@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ClassBoots.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ClassBoots.Controllers
 {
+    [Authorize]
     public class SchoolController : Controller
     {
         private readonly ModelContext _context;

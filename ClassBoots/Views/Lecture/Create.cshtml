@@ -60,16 +60,14 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script>
-
-        if (document.readyState === 'complete') {
-            $('#SubjectID').attr('value', $.session.get('currentID'));
+        document.addEventListener("DOMContentLoaded", function (event) {
+            $('#SubjectID').attr('value', $.session.get('current_subject'));
+            console.log()
             $.get('/api/Lecturers', function (data) {
                 $.each(data, function () {
-                    $('#LecturerID').append('<option value="' + this.id + '">' + this.name+'</option>');
+                    $('#LecturerID').append('<option value="' + this.id + '">' + this.name + '</option>');
                 });
             });
-        }
-
-
+        });
     </script>
 }

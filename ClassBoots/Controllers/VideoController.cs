@@ -91,9 +91,21 @@ namespace ClassBoots.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,Name,LectureID,URL,Views,Position,OwnerID")] Video video)
         {
-            if (User.FindFirst("Role").Value != null)
+            char[] videoURL = video.URL.ToArray();
+            string videoID = "";
+            for (int i = 0; i < videoURL.Length - 2; i++)
             {
-                if (ModelState.IsValid)
+                if (videoURL[i] == 'v' && videoURL[i + 1] == '=')
+                {
+                    for (int j = i + 2; j < i + 13; j++)
+                    {
+                        videoID += video.URL[j];
+                    }
+                    break;
+                }
+            }
+            video.URL = videoID;
+            if (ModelState.IsValid)
             {
                 video.OwnerID = User.FindFirst(ClaimTypes.Name).Value;
                 _context.Add(video);
@@ -101,9 +113,6 @@ namespace ClassBoots.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(video);
-            }
-            else
-                return NotFound("Access Dinied");
         }
 
         // GET: Video/Edit/5
