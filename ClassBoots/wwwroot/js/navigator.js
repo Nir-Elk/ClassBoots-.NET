@@ -54,7 +54,6 @@ $(function () {
         return newPrevBtn;
     }
     var renderOption = function (param) {
-        let pathArr = $.session.get('path').split('/');
         let newBtn = criclebtn.clone();
         newBtn.removeAttr('id');
         newBtn.click(function () {
@@ -102,24 +101,26 @@ $(function () {
                     let nextPath = url + '/' + this.id;
 
                     if (len == 4) {
-                        let video = this;
-                        newMenuItem.click(function (e) {
-                            history.pushState('/Video/' + video.id, event.target.textContent, '/Video/View/' + video.id);
-                            $.get('/Video/Details/' + video.id, function (data) {
-                                view(data);
-                            }).fail(function () {
-                                view('<h1 class="alert alert-danger">Please Log-in.</h1>');
-                                });
-                            return e.preventDefault();
-                        });
+                        newMenuItem.find('a').attr('href', '/Video/View/' + this.id);
+
+                        //newMenuItem.click(function (e) {
+                        //    history.pushState('/Video/' + video.id, event.target.textContent, '/Video/View/' + video.id);
+                        //    $.get('/Video/Details/' + video.id, function (data) {
+                        //        view(data);
+                        //    }).fail(function () {
+                        //        view('<h1 class="alert alert-danger">Please Log-in.</h1>');
+                        //        });
+                        //    return e.preventDefault();
+                        //});
                     } else {
                         newMenuItem.click(function (e) {
                             menuClickHandler(nextPath);
                             return e.preventDefault();
                         });
+                        newMenuItem.find('a').attr('href', nextPath);
                     }
 
-                    newMenuItem.find('a').attr('href', nextPath);
+
                     newMenuItem.find('a').find('img').attr('src', this.image);
                     newMenuItem.find('a').append(this.name);
 
@@ -193,22 +194,27 @@ $(function () {
             else {
                 $('#results').show();
                 $.each(data, function () {
-                    let id = this.video.id;
+                    //let id = this.video.id;
                     let resultItem = resultLine.clone();
-                    resultItem.attr('id', 'resultLine_' + this.id);
-                    resultItem.find('.videolink').append(this.video.name);
-                    resultItem.find('.lecturelink').append(this.lecture.name);
-                    resultItem.find('.subjectlink').append(this.subject.name);
-                    resultItem.find('.schoollink').append(this.school.name);
-                    resultItem.find('.institutionlink').append(this.institution.name);
+                    resultItem.attr('id', 'resultLine_' + this.video.id);
+                    resultItem.find('a').attr('href', 'Video/View/' + this.video.id);
+
+                    resultItem.find('a').find('.videolink').append(this.video.name);
+                    resultItem.find('a').find('.lecturelink').append(this.lecture.name);
+                    resultItem.find('a').find('.subjectlink').append(this.subject.name);
+                    resultItem.find('a').find('.schoollink').append(this.school.name);
+                    resultItem.find('a').find('.institutionlink').append(this.institution.name);
+                   
                     resultItem.show();
-                    resultItem.click(function (e) {
-                        e.preventDefault();
-                        $.get('/Video/Details/' + id, function (d) {
-                            view(d);
-                        });
-                        clearSearch();
-                    });
+                    //resultItem.find('a').click(function (e) {
+                    //    e.preventDefault();
+                    //    history.pushState('/Video/' + id, event.target.textContent, '/Video/View/' + id);
+
+                    //    $.get('/Video/Details/' + id, function (d) {
+                    //        view(d);
+                    //    });
+                    //    clearSearch();
+                    //});
                     $('#results').append(resultItem);
                 });
             }
