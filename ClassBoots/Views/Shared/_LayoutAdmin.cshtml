@@ -26,7 +26,7 @@
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     </head>
 
-<body class="fix-header fix-sidebar card-no-border">
+<body class="fix-header fix-sidebar">
     <div class="preloader">
 
         <svg class="circular" viewBox="25 25 50 50">
@@ -51,7 +51,7 @@
                         <a class="waves-effect waves-dark" asp-area="" asp-controller="Administrator" asp-action="Statistics" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Statistics</span></a>
                     </li>
                     <li>
-                        <a class="waves-effect waves-dark" asp-area="" asp-controller="" asp-action="" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">User</span></a>
+                        <a class="waves-effect waves-dark" asp-area="" asp-controller="Administrator" asp-action="Users" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">User</span></a>
                     </li>
                     <li>
                         <a class="waves-effect waves-dark" asp-area="" asp-controller="Lecturer" asp-action="Index" aria-expanded="false"><i class="mdi mdi-glasses"></i><span class="hide-menu">Lecturers</span></a>
@@ -79,13 +79,7 @@
             <!-- End Sidebar navigation -->
         </div>
         <!-- End Sidebar scroll-->
-        <!-- Bottom points-->
-        <div class="sidebar-footer">
-            <!-- item--><a href="" class="link" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
-            <!-- item--><a href="" class="link" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
-            <!-- item--><a href="" class="link" dat9a-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a>
-        </div>
-        <!-- End Bottom points-->
+
     </aside>
     <!-- ============================================================== -->
     <!-- End Left Sidebar - style you can find in sidebar.scss  -->
@@ -109,13 +103,13 @@
         </div>
     </div>
 
-    <footer class="footer">
-        <div class="home-circle">
-            <div class="class-boots-home-icon"></div>
-        </div>
-        <br />
-        © 2018 ClassBoots
-    </footer>
+	<footer class="footer">
+		<div class="home-circle">
+			<div class="class-boots-home-icon"></div>
+		</div>
+		<br />
+		@ViewData["Title"]
+	</footer>
 
     <environment include="Development">
         <script src="~/assets/plugins/jquery/jquery.js"></script>

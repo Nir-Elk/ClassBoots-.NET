@@ -20,7 +20,7 @@ $(function () {
         $.get('Identity/Account/Loginbox', function (data) {
             loginPartial.html(data);
       });
-    }
+	}
 
     //$.session.clear();  /* Uncommet to destroy session. */
     if (!$.session.get('path')) {
@@ -98,7 +98,7 @@ $(function () {
         $.get(url, function (data) {
             if (data.length == 0) {
                 area.append("No items here.<br>Be the first to add items.")
-                $.session.set('path',url);
+				$.session.set('path/', url);
             } else {
                 let len = url.split('/').length - 3;
                 $.each(data, function () {
@@ -138,7 +138,7 @@ $(function () {
             area.append('There is an error ): <br>'
                 + JSON.stringify(JSON.parse(JSON.stringify(e)), null, 2)
                 + '<br>Please content for any help:<br>' + '<b>avivsegal@gmail.com</b>');
-        }v);
+        });
     }
 
     renderMenu();
@@ -238,6 +238,6 @@ $(function () {
         renderResults();
     });
     $('#searchIn').on('input', function () {
-        renderResults();
-    });
+		renderResults();
+	});
 });

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ClassBoots.Migrations.User
 {
     [DbContext(typeof(UserContext))]
-    [Migration("20180920142625_UserScheme")]
-    partial class UserScheme
+    [Migration("20180923084442_user")]
+    partial class user
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -1,0 +1,67 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using ClassBoots.Areas.Identity.Data
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+@{
+	ViewData["Title"] = "Administrator Panel";
+	Layout = "/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+	<div class="col-3">Full Name</div>
+	<div class="col-3">Email</div>
+	<div class="col-3">Role</div>
+	<div class="col-3">Options</div>
+</div>
+<div id="biggeruserarea">
+	<div id="usersarea" class="row">
+		<div class="col-3 usernameform"></div>
+		<div class="col-3 emailform"></div>
+		<div class="col-3 roleform"></div>
+		<div class="col-3 editform"></div>
+	</div>
+</div>
+
+@section Scripts {
+	@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+	<script>
+		$.get('/api/Administrator', function (data) {
+			$.each(data, function () {
+				let resultLine = $('#usersarea').clone();
+				resultLine.attr('id', this.id);
+				resultLine.find('.usernameform').append(this.name);
+				resultLine.find('.emailform').append(this.userName);
+				resultLine.find('.roleform').append(this.role);
+				resultLine.find('.editform').append('Edit - need to change');
+				$('#biggeruserarea').append(resultLine);
+
+			});
+		});
+	</script>
+}
+
+
+@*$.each(data, function () {
+                    //let id = this.video.id;
+                    let resultItem = resultLine.clone();
+                    resultItem.attr('id', 'resultLine_' + this.video.id);
+                    resultItem.find('a').attr('href', 'Video/View/' + this.video.id);
+
+                    resultItem.find('a').find('.videolink').append(this.video.name);
+                    resultItem.find('a').find('.lecturelink').append(this.lecture.name);
+                    resultItem.find('a').find('.subjectlink').append(this.subject.name);
+                    resultItem.find('a').find('.schoollink').append(this.school.name);
+                    resultItem.find('a').find('.institutionlink').append(this.institution.name);
+
+                    resultItem.show();
+                    //resultItem.find('a').click(function (e) {
+                    //    e.preventDefault();
+                    //    history.pushState('/Video/' + id, event.target.textContent, '/Video/View/' + id);
+
+                    //    $.get('/Video/Details/' + id, function (d) {
+                    //        view(d);
+                    //    });
+                    //    clearSearch();
+                    //});
+                    $('#results').append(resultItem);
+                });*@

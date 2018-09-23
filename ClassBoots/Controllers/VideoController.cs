@@ -104,15 +104,19 @@ namespace ClassBoots.Controllers
                     break;
                 }
             }
-            video.URL = videoID;
-            if (ModelState.IsValid)
-            {
-                video.OwnerID = User.FindFirst(ClaimTypes.Name).Value;
-                _context.Add(video);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(video);
+			if (videoID != "")
+			{
+				video.URL = videoID;
+				if (ModelState.IsValid)
+				{
+					video.OwnerID = User.FindFirst(ClaimTypes.Name).Value;
+					_context.Add(video);
+					await _context.SaveChangesAsync();
+					return RedirectToAction(nameof(Index));
+				}
+				return View(video);
+			}
+			return NotFound("Video link broke.");
         }
 
         // GET: Video/Edit/5
@@ -145,16 +149,22 @@ namespace ClassBoots.Controllers
         {
             if (User.FindFirst("Role").Value == "Admin" || video.OwnerID == User.FindFirst(ClaimTypes.Name).Value)
             {
-                    if (id != video.ID)
+                if (id != video.ID)
                 {
                     return NotFound();
                 }
-
+				var oldVideo = _context.Video.Find(id);
+				if (oldVideo != null)
+				{
+					oldVideo.Name = video.Name;
+					oldVideo.URL = video.URL;
+					oldVideo.Position = video.Position;
+				}
                 if (ModelState.IsValid)
                 {
                     try
                     {
-                        _context.Update(video);
+                        _context.Update(oldVideo);
                         await _context.SaveChangesAsync();
                     }
                     catch (DbUpdateConcurrencyException)
