@@ -47,6 +47,8 @@ namespace ClassBoots.Controllers
         // GET: Lecturer/Create
         public IActionResult Create()
         {
+            if (User.FindFirst("Role").Value != "Admin")
+                return NotFound("Access Dinied");
             return View();
         }
 
@@ -57,6 +59,8 @@ namespace ClassBoots.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,Name")] Lecturer lecturer)
         {
+            if (User.FindFirst("Role").Value != "Admin")
+                return NotFound("Access Dinied");
             if (ModelState.IsValid)
             {
                 _context.Add(lecturer);
@@ -69,6 +73,8 @@ namespace ClassBoots.Controllers
         // GET: Lecturer/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            if (User.FindFirst("Role").Value != "Admin")
+                return NotFound("Access Dinied");
             if (id == null)
             {
                 return NotFound();
@@ -89,6 +95,8 @@ namespace ClassBoots.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ID,Name")] Lecturer lecturer)
         {
+            if (User.FindFirst("Role").Value != "Admin")
+                return NotFound("Access Dinied");
             if (id != lecturer.ID)
             {
                 return NotFound();
@@ -120,6 +128,8 @@ namespace ClassBoots.Controllers
         // GET: Lecturer/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            if (User.FindFirst("Role").Value != "Admin")
+                return NotFound("Access Dinied");
             if (id == null)
             {
                 return NotFound();
@@ -140,6 +150,8 @@ namespace ClassBoots.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            if (User.FindFirst("Role").Value != "Admin")
+                return NotFound("Access Dinied");
             var lecturer = await _context.Lecturer.FindAsync(id);
             _context.Lecturer.Remove(lecturer);
             await _context.SaveChangesAsync();
