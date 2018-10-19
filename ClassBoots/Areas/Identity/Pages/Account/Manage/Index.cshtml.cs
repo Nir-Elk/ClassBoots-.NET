@@ -54,6 +54,10 @@ namespace ClassBoots.Areas.Identity.Pages.Account.Manage
             [DataType(DataType.Text)]
             public string Role { get; set; }
 
+            [Display(Name = "History")]
+            [DataType(DataType.Text)]
+            public string History { get; set; }
+
             [Required]
             [EmailAddress]
             public string Email { get; set; }
@@ -82,7 +86,7 @@ namespace ClassBoots.Areas.Identity.Pages.Account.Manage
                 Name = user.Name,
                 DOB = user.DOB,
                 Role = user.Role,
-
+                History = user.History,
                 Email = email,
                 PhoneNumber = phoneNumber
             };

@@ -77,7 +77,8 @@ namespace ClassBoots.Areas.Identity.Pages.Account
                 var user = new User {
                     UserName = Input.Email,
                     Email = Input.Email,
-                    Role = "User"
+                    Role = "User",
+                    History = ""
                 };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)

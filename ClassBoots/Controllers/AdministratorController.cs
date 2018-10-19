@@ -79,9 +79,6 @@ namespace ClassBoots.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditUser(string id, [Bind("Id,Name,Role")] User editedUser)
-        // ------------------------------------------------------------------------------------------------------------------- //
-        // --- need to fix ------------------------------- need to fix -------------------------- need to fix ---------------- //
-        // ------------------------------------------------------------------------------------------------------------------- //
         {
             if (User.FindFirst("Role").Value == "Admin")
             {
@@ -93,32 +90,14 @@ namespace ClassBoots.Controllers
                 if (ModelState.IsValid)
                 {
 
-                    var usertmp = _userManager.FindByIdAsync(id);
+                    var usertmp = await _userManager.GetUserAsync(User);
 
                     // Update it with the values from the view model
-                    usertmp.Result.Name = editedUser.Name;
-                    usertmp.Result.Role = editedUser.Role;
+                    usertmp.Name = editedUser.Name;
+                    usertmp.Role = editedUser.Role;
 
+                    await _userManager.UpdateAsync(usertmp);
 
-                    // Apply the changes if any to the db
-                    _userManager.UpdateAsync(usertmp.Result);
-
-                    /*try
-                    {
-                        _context.Update(editedUser);
-                        await _context.SaveChangesAsync();
-                    }
-                    catch (DbUpdateConcurrencyException)
-                    {
-                        if (_context.Users.FirstOrDefault(u => u.Id == id) == null)
-                        {
-                            return NotFound();
-                        }
-                        else
-                        {
-                            throw;
-                        }
-                    }*/
                     return RedirectToAction(nameof(Index));
                 }
                 return View(User);

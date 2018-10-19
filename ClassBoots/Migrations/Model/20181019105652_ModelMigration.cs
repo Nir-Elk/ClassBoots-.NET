@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace ClassBoots.Migrations
+namespace ClassBoots.Migrations.Model
 {
-    public partial class model : Migration
+    public partial class ModelMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

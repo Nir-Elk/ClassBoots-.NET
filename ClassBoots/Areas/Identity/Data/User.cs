@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ClassBoots.Models;
 using Microsoft.AspNetCore.Identity;
 
 namespace ClassBoots.Areas.Identity.Data
@@ -13,8 +14,9 @@ namespace ClassBoots.Areas.Identity.Data
         public string Name { get; set; }
         [PersonalData]
         public DateTime DOB { get; set; }
-
         [PersonalData]
         public string Role { get; set; }
+        [PersonalData]
+        public string History { get; set; }
     }
 }

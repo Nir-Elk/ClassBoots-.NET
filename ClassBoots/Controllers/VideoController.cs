@@ -8,17 +8,21 @@ using Microsoft.EntityFrameworkCore;
 using ClassBoots.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using ClassBoots.Areas.Identity.Data;
 
 namespace ClassBoots.Controllers
 {
     [Authorize]
     public class VideoController : Controller
     {
+        private readonly UserManager<User> _userManager;
         private readonly ModelContext _context;
 
-        public VideoController(ModelContext context)
+        public VideoController(ModelContext context,UserManager<User> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Video
@@ -33,24 +37,53 @@ namespace ClassBoots.Controllers
 
         }
 
+        public async Task<IdentityResult> AddToUserHistory(int? id)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+                return null;
+            string history = user.History;
+            if(history == "" || history == null)
+            {
+                history = ""+id;
+            }
+            else
+            {
+                bool flag = false;
+                List<string> historyList = history.Split(',').ToList();
+                historyList.ForEach(x =>
+                {
+                    if ("" + id == x)
+                    {
+                        flag = true;
+                    }
+                });
+                if(!flag)
+                    history += "," + id + "";
+            }
+            user.History= history;
+            var result = await _userManager.UpdateAsync(user);
+            return result;
+        }
+
         // GET: Video/View/5 with full layout!
         public async Task<IActionResult> View(int? id)
         {
             var video = await _context.Video
                                 .FirstOrDefaultAsync(m => m.ID == id);
-                if (id == null)
-                {
-                    return NotFound();
-                }
-
-                if (video == null)
-                {
-                    return NotFound();
-                }
-                video.Views++;
-                _context.Update(video);
-                await _context.SaveChangesAsync();
-                return View(video);
+            if (id == null)
+            {
+                return NotFound();
+            }
+            if (video == null)
+            {
+                return NotFound();
+            }
+            video.Views++;
+            _context.Update(video);
+            await AddToUserHistory(id);
+            await _context.SaveChangesAsync();
+            return View(video);
         }
 
         // GET: Video/Details/5 lightweight layout
@@ -69,8 +102,8 @@ namespace ClassBoots.Controllers
                 {
                     return NotFound();
                 }
-
-                return View(video);
+            await AddToUserHistory(id);
+            return View(video);
         }
 
         // GET: Video/Create
