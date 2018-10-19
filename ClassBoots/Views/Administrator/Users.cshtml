@@ -32,7 +32,7 @@
 				resultLine.find('.usernameform').append(this.name);
 				resultLine.find('.emailform').append(this.userName);
 				resultLine.find('.roleform').append(this.role);
-				resultLine.find('.editform').append('Edit - need to change');
+                resultLine.find('.editform').append('<a href="/Administrator/EditUser/' + this.id+'">Edit</a>');
 				$('#biggeruserarea').append(resultLine);
 
 			});
