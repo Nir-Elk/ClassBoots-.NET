@@ -10,6 +10,8 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using ClassBoots.Areas.Identity.Data;
+using Accord.MachineLearning.Rules;
+
 
 namespace ClassBoots.Controllers
 {
@@ -261,6 +263,12 @@ namespace ClassBoots.Controllers
         private bool VideoExists(int id)
         {
                 return _context.Video.Any(e => e.ID == id);
+        }
+        public List<int> Learn()
+        {
+            Apriori apriori = new Apriori(threshold: 1, confidence: 0);
+
+            return null;
         }
     }
 }
