@@ -11,7 +11,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using ClassBoots.Areas.Identity.Data;
 using Accord.MachineLearning.Rules;
-
+using System.Diagnostics;
+using System.Collections;
 
 namespace ClassBoots.Controllers
 {
@@ -21,7 +22,7 @@ namespace ClassBoots.Controllers
         private readonly UserManager<User> _userManager;
         private readonly ModelContext _context;
 
-        public VideoController(ModelContext context,UserManager<User> userManager)
+        public VideoController(ModelContext context, UserManager<User> userManager)
         {
             _context = context;
             _userManager = userManager;
@@ -30,6 +31,8 @@ namespace ClassBoots.Controllers
         // GET: Video
         public async Task<IActionResult> Index()
         {
+            GetAllViewingHistories();
+
             if (User.FindFirst("Role").Value == "Admin")
             {
                 return View(await _context.Video.ToListAsync());
@@ -45,9 +48,9 @@ namespace ClassBoots.Controllers
             if (user == null)
                 return null;
             string history = user.History;
-            if(history == "" || history == null)
+            if (history == "" || history == null)
             {
-                history = ""+id;
+                history = "" + id;
             }
             else
             {
@@ -60,10 +63,10 @@ namespace ClassBoots.Controllers
                         flag = true;
                     }
                 });
-                if(!flag)
+                if (!flag)
                     history += "," + id + "";
             }
-            user.History= history;
+            user.History = history;
             var result = await _userManager.UpdateAsync(user);
             return result;
         }
@@ -92,18 +95,18 @@ namespace ClassBoots.Controllers
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
-                {
-                    return NotFound();
-                }
+            {
+                return NotFound();
+            }
             var video = await _context.Video
                     .FirstOrDefaultAsync(m => m.ID == id);
             video.Views++;
             _context.Update(video);
             await _context.SaveChangesAsync();
             if (video == null)
-                {
-                    return NotFound();
-                }
+            {
+                return NotFound();
+            }
             await AddToUserHistory(id);
             return View(video);
         }
@@ -139,19 +142,19 @@ namespace ClassBoots.Controllers
                     break;
                 }
             }
-			if (videoID != "")
-			{
-				video.URL = videoID;
-				if (ModelState.IsValid)
-				{
-					video.OwnerID = User.FindFirst(ClaimTypes.Name).Value;
-					_context.Add(video);
-					await _context.SaveChangesAsync();
-					return RedirectToAction(nameof(Index));
-				}
-				return View(video);
-			}
-			return NotFound("Video link broke.");
+            if (videoID != "")
+            {
+                video.URL = videoID;
+                if (ModelState.IsValid)
+                {
+                    video.OwnerID = User.FindFirst(ClaimTypes.Name).Value;
+                    _context.Add(video);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                return View(video);
+            }
+            return NotFound("Video link broke.");
         }
 
         // GET: Video/Edit/5
@@ -173,7 +176,7 @@ namespace ClassBoots.Controllers
             else
                 return NotFound("Access Dinied");
 
-            }
+        }
 
         // POST: Video/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -188,13 +191,13 @@ namespace ClassBoots.Controllers
                 {
                     return NotFound();
                 }
-				var oldVideo = _context.Video.Find(id);
-				if (oldVideo != null)
-				{
-					oldVideo.Name = video.Name;
-					oldVideo.URL = video.URL;
-					oldVideo.Position = video.Position;
-				}
+                var oldVideo = _context.Video.Find(id);
+                if (oldVideo != null)
+                {
+                    oldVideo.Name = video.Name;
+                    oldVideo.URL = video.URL;
+                    oldVideo.Position = video.Position;
+                }
                 if (ModelState.IsValid)
                 {
                     try
@@ -262,13 +265,63 @@ namespace ClassBoots.Controllers
 
         private bool VideoExists(int id)
         {
-                return _context.Video.Any(e => e.ID == id);
+            return _context.Video.Any(e => e.ID == id);
         }
-        public List<int> Learn()
-        {
-            Apriori apriori = new Apriori(threshold: 1, confidence: 0);
 
-            return null;
+        public AssociationRuleMatcher<int> CreateAprioriClassifier()
+        {
+            // Create a new a-priori learning algorithm with support 3
+            Apriori apriori = new Apriori(threshold: 2, confidence: 0);
+
+            int[][] histories = GetAllViewingHistories();
+
+            // Use the algorithm to learn a set matcher
+            AssociationRuleMatcher<int> classifier = apriori.Learn(histories);
+
+            return classifier;
         }
+
+        [HttpGet("related/{videoID}/{limit?}")]
+        public List<Video> GetRelatedVideos([FromRoute] int videoID,[FromRoute] int limit = 5)
+        {
+            AssociationRuleMatcher<int> classifier = CreateAprioriClassifier();
+
+            // Get the videos that appear most with the video who's ID is the given argument videoID
+            int[][] matches = classifier.Decide(new[] { videoID });
+            List<Video> videos = new List<Video>();
+            HashSet<int> ids = new HashSet<int>();
+
+            // Merge all the video IDs into a single HashSet, this will remove duplicates.
+            foreach (int[] e in matches)
+            {
+                foreach (int f in e)
+                {
+                    ids.Add(f);
+                }
+            }
+
+            // Take only the given amount of videos from the argument 'limit'.
+           ids= ids.Take(limit).ToHashSet();
+
+            // Get the full video model for each of the IDs.
+            foreach (int id in ids)
+            {
+                videos.Add(_context.Video.FirstOrDefault(video => video.ID == id));
+            }
+
+            return videos;
+        }
+
+        public int[][] GetAllViewingHistories()
+        {
+            List<User> users = _userManager.Users.ToList();
+            List<int[]> histories = new List<int[]>();
+            users.ForEach(user => histories.Add(
+                             user.History.Split(',').Select(int.Parse).ToArray()));
+
+            return histories.ToArray();
+        }
+
+
     }
 }
