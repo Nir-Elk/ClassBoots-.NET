@@ -6,6 +6,8 @@ $(function () {
     var area = $('#sidebarnav');
     var emptyMenuItem = $('#menuitem');
     var emptyPreviousBtn = $('#previousbtn');
+    var emptyHomeBtn = $('#homebtn');
+
     var criclebtn = $('#circlebtn');
     var options = $('#sidebarnav-options');
     var loginPartial = $('#_Loginform')
@@ -15,6 +17,7 @@ $(function () {
     criclebtn.hide();
     emptyMenuItem.hide();
     emptyPreviousBtn.hide();
+    emptyHomeBtn.hide();
 
     if (loginPartial) {
         $.get('Identity/Account/Loginbox', function (data) {
@@ -53,6 +56,19 @@ $(function () {
         newPrevBtn.show();
         return newPrevBtn;
     }
+
+    var generateHomeBtn = function () {
+        let newHomeBtn = emptyHomeBtn.clone();
+
+        newHomeBtn.find('a').attr('href', '/');
+        newHomeBtn.removeAttr('id');
+        newHomeBtn.click(function (e) {
+            $.session.clear();
+        });
+        newHomeBtn.show();
+        return newHomeBtn;
+    }
+
     var renderOption = function (param,id) {
         let newBtn = criclebtn.clone();
         newBtn.removeAttr('id');
@@ -94,6 +110,7 @@ $(function () {
         area.html('');
         if (url != '/api/path') {
             area.append(generatePrevBtn());
+            area.append(generateHomeBtn());
         }
         $.get(url, function (data) {
             if (data.length == 0) {

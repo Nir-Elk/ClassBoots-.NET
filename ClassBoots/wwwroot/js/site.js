@@ -19,7 +19,4 @@ $('#logout').click(function (e) {
     e.preventDefault();
     $('#logoutForm').submit();
     e.stopPropagation();
-})
-
-
-
+});

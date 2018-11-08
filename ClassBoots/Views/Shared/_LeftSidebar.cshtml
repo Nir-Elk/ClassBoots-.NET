@@ -4,13 +4,13 @@
 @inject UserManager<User> UserManager
 <!-- Defaults -->
 <li id="menuitem"><a class="waves-effect waves-dark" aria-expanded="false"><img class="bg-white little-margin thumb-md img-circle" /><span class="hide-menu"></span></a></li>
-<li id="previousbtn"><a class="waves-effect waves-dark" aria-expanded="false"><i class="mdi mdi-arrow-left-bold-circle"></i><span class="hide-menu"></span></a></li>
+<li style="width:50px;" id="previousbtn"><a class="waves-effect waves-dark" aria-expanded="false"><i class="mdi mdi-arrow-left-bold-circle"></i><span class="hide-menu"></span></a></li>
+<li style="width:50px;" id="homebtn"><a class="waves-effect waves-dark" aria-expanded="false"><i class="mdi mdi-home"></i><span class="hide-menu"></span></a></li>
+
 <button id="circlebtn" class="btn btn-circle btn-lg btn-success waves-effect waves-dark">+</button>
 
 <aside class="left-sidebar">
-    <div>
-        <partial name="_LoginPartial" />
-    </div>
+    <div><!-- <partial name="_LoginPartial" /> --></div>
     <!-- Sidebar scroll-->
     <div class="scroll-sidebar">
         <!-- Sidebar navigation-->
@@ -25,6 +25,7 @@
             </div>
         }
         <!-- End Sidebar navigation -->
+
     </div>
     <!-- End Sidebar scroll-->
     <!-- Bottom points-->
