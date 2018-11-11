@@ -79,7 +79,7 @@
 
         $.get('/learn/'+@Model.ID+'/5', function (data) {
             $.each(data, function () {
-                $('#related').append('<div class="col-2"><h5>'+this.name+'</h5><img src="https://img.youtube.com/vi/' + this.url +'/1.jpg" /></div>');
+                $('#related').append('<a href="/Video/View/' + this.id + '"><div class="col-2"><h5>' + this.name + '</h5><img src="https://img.youtube.com/vi/' + this.url + '/1.jpg" /></div></a>');
             });
         });
     });

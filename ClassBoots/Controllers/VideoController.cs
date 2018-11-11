@@ -279,8 +279,11 @@ namespace ClassBoots.Controllers
         {
             List<User> users = _userManager.Users.ToList();
             List<int[]> histories = new List<int[]>();
-            users.ForEach(user => 
-                  histories.Add(user.History.Split(',').Select(int.Parse).ToArray()));
+            users.ForEach(user =>
+            {
+                if(user.History != "")
+                    histories.Add(user.History.Split(',').Select(int.Parse).ToArray());
+            });
 
             return histories.ToArray();
         }

@@ -53,7 +53,10 @@
     <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
+<h2> Related for this video: </h2>
+<div id="related" class="row">
 
+</div>
 
 <script>
     // 2. This code loads the IFrame Player API code asynchronously.
@@ -115,4 +118,17 @@
     <div>
         Admin Options goes here
     </div>
+}
+
+@section Scripts {
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        $.get('/learn/'+@Model.ID+'/5', function (data) {
+            $.each(data, function () {
+                $('#related').append('<a href="/Video/View/' + this.id + '"><div class="col-2"><h5>'+this.name+'</h5><img src="https://img.youtube.com/vi/' + this.url +'/1.jpg" /></div></a>');
+            });
+        });
+    });
+    </script>
 }
