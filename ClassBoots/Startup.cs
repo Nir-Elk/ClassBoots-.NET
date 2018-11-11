@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -58,12 +52,12 @@ namespace ClassBoots
 
             services.AddAuthentication().AddGoogle(googleOptions =>
             {
-                googleOptions.ClientId = Configuration["google:client_id"];
-                googleOptions.ClientSecret = Configuration["google:client_secret"];
+                googleOptions.ClientId = "823435120787-l04052src5miam0j01bo6vm3j07nubkc.apps.googleusercontent.com"; // Configuration["google:client_id"];
+                googleOptions.ClientSecret = "N17rMa2M8cL112rh8mkCRNhI"; // Configuration["google:client_secret"];
             }).AddFacebook(facebookOptions =>
             {
-                facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
-                facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+                facebookOptions.AppId = "313214946078073"; // Configuration["Authentication:Facebook:AppId"];
+                facebookOptions.AppSecret = "91631cfa75a7fcb0ef882d18ad92efa6"; // Configuration["Authentication:Facebook:AppSecret"];
             });
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
