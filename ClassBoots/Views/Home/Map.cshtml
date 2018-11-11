@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Map";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+
+<p>Use this area to provide additional information.</p>
+
+<div id="map">aviv</div>
+
+@section Scripts {
+    <script>
+        // Initialize and add the map
+        function initMap() {
+            // The location of Uluru
+            var myLatLng = { lat: 32.108341, lng: 34.901655};
+            // The map, centered at Uluru
+            var map = new google.maps.Map(
+                document.getElementById('map'), { zoom: 7, center: myLatLng });
+            // The marker, positioned at Uluru
+            $.get('/api/Institutions', function (data) {
+                $.each(data, function () {
+                    var geo = this.geoLocation.split(",");
+                    var x = parseFloat(geo[0]);
+                    var y = parseFloat(geo[1]);
+                    var title1 = this.name;
+                    new google.maps.Marker({
+                        position: { lat: x, lng:y },
+                        map: map,
+                        title: title1,
+                        label: title1,
+
+                    });
+                });
+            });
+        }
+    </script>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBy6yBkOFkfGLpxtBAzZ-pM6eGZa2yNLDA&callback=initMap">
+    </script>
+}    

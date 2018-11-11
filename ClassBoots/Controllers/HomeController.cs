@@ -19,7 +19,7 @@ namespace ClassBoots.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "Hi this is us.";
 
             return View();
         }
@@ -27,6 +27,13 @@ namespace ClassBoots.Controllers
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";
+
+            return View();
+        }
+
+        public IActionResult Map()
+        {
+            ViewData["Message"] = "Hi. here is our supported places, feel free to add one! :)";
 
             return View();
         }

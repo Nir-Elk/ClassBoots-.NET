@@ -71,10 +71,63 @@
     </div>
     <a asp-action="Index">Back to List</a>
 
-}
+}<div class="page-header">
+    <h1>Share Dialog</h1>
+</div>
+
+<p>Click the button below to trigger a Share Dialog</p>
+
+<div id="shareBtn" class="btn btn-success clearfix">Share</div>
+
+<p style="margin-top: 50px">
+    <hr />
+    <a class="btn btn-small" href="https://developers.facebook.com/docs/sharing/reference/share-dialog">Share Dialog Documentation</a>
+</p>
+
+
 
 @section Scripts {
-<script>
+    <script>
+        function init() {
+            FB.api(
+                '/l214.animaux',
+                { "fields": "fan_count" },
+                function (response) {
+                    alert(response.fan_count);
+                }
+            );
+        }
+
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '313214946078073',
+                xfbml: true,
+                version: 'v2.5'
+            });
+
+            init();
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <script>
+        document.getElementById('shareBtn').onclick = function () {
+            FB.ui({
+                method: 'share',
+                display: 'popup',
+                href: 'https://developers.facebook.com/docs/',
+            }, function (response) { });
+        }
+    </script>
+
+    <script>
     document.addEventListener('DOMContentLoaded', () => {
 
         $.get('/learn/'+@Model.ID+'/5', function (data) {
@@ -83,7 +136,7 @@
             });
         });
     });
-</script>
+    </script>
 }
 
 @*  How to use Roles:
