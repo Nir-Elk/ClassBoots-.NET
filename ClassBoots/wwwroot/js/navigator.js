@@ -10,7 +10,6 @@ $(function () {
 
     var criclebtn = $('#circlebtn');
     var options = $('#sidebarnav-options');
-    var loginPartial = $('#_Loginform')
     var resultLine = $('#resultLine');
 
     resultLine.hide();
@@ -19,11 +18,6 @@ $(function () {
     emptyPreviousBtn.hide();
     emptyHomeBtn.hide();
 
-    if (loginPartial) {
-        $.get('Identity/Account/Loginbox', function (data) {
-            loginPartial.html(data);
-      });
-	}
 
     //$.session.clear();  /* Uncommet to destroy session. */
     if (!$.session.get('path')) {
