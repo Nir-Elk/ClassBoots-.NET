@@ -93,7 +93,7 @@ $(function () {
         }
         if (param != null) {
             $.session.set('current_' + param, id);
-            if (len > 2) {
+            if (len > 1) {
                 renderOption(param);
             }
         }
@@ -135,15 +135,16 @@ $(function () {
                         });
                         newMenuItem.find('a').attr('href', nextPath);
                     }
-                    renderOptions(url.split('/').pop());
 
                     newMenuItem.find('a').find('img').attr('src', this.image);
                     newMenuItem.find('a').append(this.name);
-
-                    newMenuItem.show();
                     area.append(newMenuItem);
-                });         
+                    newMenuItem.show();
+                });    
+
             }
+            renderOptions(url.split('/').pop());
+
             
         }).fail(function (e) {
             area.append('There is an error ): <br>'

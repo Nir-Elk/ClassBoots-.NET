@@ -1,12 +1,10 @@
 {
   "Institutions": [
     {
-
       "Name": "Colman",
       "Adress": "Elie Wiesel St 2, Rishon Le-Zion",
       "GeoLocation": "31.969839, 34.772755",
       "Image": "https://www.colman.ac.il/sites/all/themes/component/images/logo-images/03.png"
-
     },
     {
       "Name": "IDC Herzliya",
@@ -36,184 +34,200 @@
   "Schools": [
     {
       "InstitutionID": 1,
-      "Name": "Computer science"
+      "Name": "Computer Science"
     },
     {
       "InstitutionID": 1,
       "Name": "Law"
     },
     {
-      "InstitutionID": 2,
-      "Name": "Engeneering"
-    },
-    {
-      "InstitutionID": 2,
-      "Name": "Art"
-    },
-    {
-      "InstitutionID": 3,
-      "Name": "Design"
-    },
-    {
-      "InstitutionID": 4,
-      "Name": "Computer science"
-    },
-    {
-      "InstitutionID": 5,
+      "InstitutionID": 1,
       "Name": "Styles"
     }
-
   ],
   "Subjects": [
     {
       "SchoolID": 1,
-      "Name": "Infi 1",
-      "Description": "Itikovich is great"
+      "Name": "Infinitesimal 1",
+      "Description": "Infinitesimal 1"
     },
     {
       "SchoolID": 1,
-      "Name": "Infi 2",
-      "Description": "Itikovich is great"
+      "Name": "Infinitesimal 2",
+      "Description": "Infinitesimal 2"
     },
     {
-      "SchoolID": 2,
-      "Name": "Mavo Mishpatim",
-      "Description": "Something"
-    },
-    {
-      "SchoolID": 3,
-      "Name": "Mavo to handasa",
-      "Description": "Bla bla"
-    },
-    {
-      "SchoolID": 4,
-      "Name": "Mavo to ART",
-      "Description": "Bla bla2"
-    },
-    {
-      "SchoolID": 4,
-      "Name": "How to get paid",
-      "Description": "Bla bla2"
-    },
-
-    {
-      "SchoolID": 6,
-      "Name": "Programing 1",
-      "Description": "Bla bla2"
-    },
-    {
-      "SchoolID": 6,
-      "Name": "c++",
-      "Description": "Bla bla2"
+      "SchoolID": 1,
+      "Name": "Infinitesimal 3",
+      "Description": "Infinitesimal 3"
     }
-
   ],
   "Lectures": [
     {
       "LecturerID": 1,
       "SubjectID": 1,
-      "Name": "Lecture 1",
-      "Description": "Description 1",
-      "Image": "Image",
-      "Date": "Date"
+      "Name": "Lecture 3",
+      "Description": "Lecture 3 Description.",
+      "Image": "",
+      "Date": 2015,
+      "OwnerID": "nir4453131@gmail.com"
     },
     {
       "LecturerID": 1,
       "SubjectID": 1,
-      "Name": "Lecture 1",
-      "Description": "Description 1",
-      "Image": "Image",
-      "Date": "Date"
+      "Name": "Lecture 4",
+      "Description": "Lecture 4 Description.",
+      "Image": "",
+      "Date": 2015,
+      "OwnerID": "nir4453131@gmail.com"
     },
     {
       "LecturerID": 1,
       "SubjectID": 2,
-      "Name": "Lecture 1",
-      "Description": "Description 1",
-      "Image": "Image",
-      "Date": "Date"
+      "Name": "Lecture 3",
+      "Description": "Lecture 3 Description.",
+      "Image": "",
+      "Date": 2015,
+      "OwnerID": "nir4453131@gmail.com"
     },
     {
       "LecturerID": 1,
       "SubjectID": 2,
-      "Name": "Lecture 1",
-      "Description": "Description 1",
-      "Image": "Image",
-      "Date": "Date"
-    },
-    {
-      "LecturerID": 1,
-      "SubjectID": 2,
-      "Name": "Lecture 1",
-      "Description": "Description 1",
-      "Image": "Image",
-      "Date": "Date"
-    },
-    {
-      "LecturerID": 1,
-      "SubjectID": 3,
-      "Name": "Lecture 1",
-      "Description": "Description 1",
-      "Image": "Image",
-      "Date": "Date"
-    },
-    {
-      "LecturerID": 1,
-      "SubjectID": 3,
-      "Name": "Lecture 1",
-      "Description": "Description 1",
-      "Image": "Image",
-      "Date": "Date"
-    },
-    {
-      "LecturerID": 1,
-      "SubjectID": 3,
-      "Name": "Lecture 1",
-      "Description": "Description 1",
-      "Image": "Image",
-      "Date": "Date"
-    },
-    {
-      "LecturerID": 1,
-      "SubjectID": 3,
-      "Name": "Lecture 1",
-      "Description": "Description 1",
-      "Image": "Image",
-      "Date": "Date"
+      "Name": "Lecture 4",
+      "Description": "Lecture 4 Description.",
+      "Image": "",
+      "Date": 2015,
+      "OwnerID": "nir4453131@gmail.com"
     }
   ],
   "Videos": [
     {
       "LectureID": 1,
-      "Name": "Video 1",
-      "URL": "https://www.youtube.com/watch?v=RAsN9OVI-vQ&start_radio=1&list=RDRAsN9OVI-vQ",
+      "Name": "Part 1",
+      "URL": "xw7Wq8XRElo",
       "Views": 0,
-      "Position": 0,
-      "OwnerID": 0
+      "Position": 1,
+      "OwnerID": "nir4453131@gmail.com"
+    },
+    {
+      "LectureID": 1,
+      "Name": "Part 2",
+      "URL": "FFHodymMmbc",
+      "Views": 0,
+      "Position": 2,
+      "OwnerID": "nir4453131@gmail.com"
+    },
+    {
+      "LectureID": 1,
+      "Name": "Part 3",
+      "URL": "FeN9fVcir9Q",
+      "Views": 0,
+      "Position": 3,
+      "OwnerID": "nir4453131@gmail.com"
+    },
+    {
+      "LectureID": 1,
+      "Name": "Part 4",
+      "URL": "_ZuUegLpxrU",
+      "Views": 0,
+      "Position": 4,
+      "OwnerID": "nir4453131@gmail.com"
+    },
+    {
+      "LectureID": 1,
+      "Name": "Part 5",
+      "URL": "VCQM4CebFE0",
+      "Views": 0,
+      "Position": 5,
+      "OwnerID": "nir4453131@gmail.com"
     },
     {
       "LectureID": 2,
-      "Name": "Video 2",
-      "URL": "https://www.youtube.com/watch?v=RAsN9OVI-vQ&start_radio=1&list=RDRAsN9OVI-vQ",
+      "Name": "Part 1",
+      "URL": "AZSDVCQRN5s",
       "Views": 0,
-      "Position": 0,
-      "OwnerID": 0
+      "Position": 1,
+      "OwnerID": "nir4453131@gmail.com"
+    },
+    {
+      "LectureID": 2,
+      "Name": "Part 2",
+      "URL": "BAerP5QKbPw",
+      "Views": 0,
+      "Position": 2,
+      "OwnerID": "nir4453131@gmail.com"
+    },
+    {
+      "LectureID": 2,
+      "Name": "Part 3",
+      "URL": "tYXJwLnpP_o",
+      "Views": 0,
+      "Position": 3,
+      "OwnerID": "nir4453131@gmail.com"
     },
     {
       "LectureID": 3,
-      "Name": "Video 3",
-      "URL": "https://www.youtube.com/watch?v=RAsN9OVI-vQ&start_radio=1&list=RDRAsN9OVI-vQ",
+      "Name": "Part 1",
+      "URL": "xw7Wq8XRElo",
       "Views": 0,
-      "Position": 0,
-      "OwnerID": 0
+      "Position": 1,
+      "OwnerID": "nir4453131@gmail.com"
+    },
+    {
+      "LectureID": 3,
+      "Name": "Part 2",
+      "URL": "FFHodymMmbc",
+      "Views": 0,
+      "Position": 2,
+      "OwnerID": "nir4453131@gmail.com"
+    },
+    {
+      "LectureID": 3,
+      "Name": "Part 3",
+      "URL": "FeN9fVcir9Q",
+      "Views": 0,
+      "Position": 3,
+      "OwnerID": "nir4453131@gmail.com"
+    },
+    {
+      "LectureID": 3,
+      "Name": "Part 4",
+      "URL": "_ZuUegLpxrU",
+      "Views": 0,
+      "Position": 4,
+      "OwnerID": "nir4453131@gmail.com"
+    },
+    {
+      "LectureID": 3,
+      "Name": "Part 5",
+      "URL": "VCQM4CebFE0",
+      "Views": 0,
+      "Position": 5,
+      "OwnerID": "nir4453131@gmail.com"
     },
     {
       "LectureID": 4,
-      "Name": "Video 4",
-      "URL": "https://www.youtube.com/watch?v=RAsN9OVI-vQ&start_radio=1&list=RDRAsN9OVI-vQ",
+      "Name": "Part 1",
+      "URL": "AZSDVCQRN5s",
       "Views": 0,
-      "Position": 0,
-      "OwnerID": 0
+      "Position": 1,
+      "OwnerID": "nir4453131@gmail.com"
+    },
+    {
+      "LectureID": 4,
+      "Name": "Part 2",
+      "URL": "BAerP5QKbPw",
+      "Views": 0,
+      "Position": 2,
+      "OwnerID": "nir4453131@gmail.com"
+    },
+    {
+      "LectureID": 4,
+      "Name": "Part 3",
+      "URL": "tYXJwLnpP_o",
+      "Views": 0,
+      "Position": 3,
+      "OwnerID": "nir4453131@gmail.com"
     }
   ]
 }

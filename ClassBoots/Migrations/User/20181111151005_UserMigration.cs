@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace ClassBoots.Migrations
+namespace ClassBoots.Migrations.User
 {
     public partial class UserMigration : Migration
     {
