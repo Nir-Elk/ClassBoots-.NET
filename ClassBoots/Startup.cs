@@ -52,12 +52,12 @@ namespace ClassBoots
 
             services.AddAuthentication().AddGoogle(googleOptions =>
             {
-                googleOptions.ClientId = "823435120787-l04052src5miam0j01bo6vm3j07nubkc.apps.googleusercontent.com"; // Configuration["google:client_id"];
-                googleOptions.ClientSecret = "N17rMa2M8cL112rh8mkCRNhI"; // Configuration["google:client_secret"];
+                googleOptions.ClientId =  Configuration["google:client_id"];
+                googleOptions.ClientSecret =  Configuration["google:client_secret"];
             }).AddFacebook(facebookOptions =>
             {
-                facebookOptions.AppId = "313214946078073"; // Configuration["Authentication:Facebook:AppId"];
-                facebookOptions.AppSecret = "91631cfa75a7fcb0ef882d18ad92efa6"; // Configuration["Authentication:Facebook:AppSecret"];
+                facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
+                facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
             });
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
