@@ -28,7 +28,9 @@
         <div class="col-2">
             @Html.DisplayNameFor(model => model.Views) @Html.DisplayFor(model => model.Views)
         </div>
-        <div class="col-2"></div>
+        <div class="col-2">
+            <div id="shareBtn" class="btn btn-success clearfix">Share</div>
+        </div>
         <div class="col-2"></div>
         <div class="col-2"></div>
         <div class="col-2"></div>
@@ -71,18 +73,10 @@
     </div>
     <a asp-action="Index">Back to List</a>
 
-}<div class="page-header">
-    <h1>Share Dialog</h1>
-</div>
+}
+<br />
 
-<p>Click the button below to trigger a Share Dialog</p>
 
-<div id="shareBtn" class="btn btn-success clearfix">Share</div>
-
-<p style="margin-top: 50px">
-    <hr />
-    <a class="btn btn-small" href="https://developers.facebook.com/docs/sharing/reference/share-dialog">Share Dialog Documentation</a>
-</p>
 
 
 

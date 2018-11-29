@@ -214,3 +214,11 @@ section {
     height: 400px; /* The height is 400 pixels */
     width: 100%; /* The width is the width of the web page */
 }
+
+.html5video {
+    width: 600px;
+}
+.dog {
+    width: 600px;
+
+}

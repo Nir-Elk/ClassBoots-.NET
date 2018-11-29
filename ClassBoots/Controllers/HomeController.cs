@@ -33,7 +33,25 @@ namespace ClassBoots.Controllers
 
         public IActionResult Map()
         {
-            ViewData["Message"] = "Hi. here is our supported places, feel free to add one! :)";
+            ViewData["Message"] = "Hi. here is our supported places, feel free to add one!";
+
+            return View();
+        }
+
+        public IActionResult Error()
+        {
+            ViewData["Message"] = "Error";
+            List<String> dogs = new List<String>();
+            dogs.Add("/images/dogs/yuli.jpg");
+            dogs.Add("/images/dogs/sandy.jpeg");
+            dogs.Add("/images/dogs/vaitzman.jpeg");
+            dogs.Add("/images/dogs/bruno.jpg");
+            dogs.Add("/images/dogs/annie.jpg");
+            dogs.Add("/images/dogs/allen.jpeg");
+            Random rand = new Random();
+            int index = rand.Next(dogs.Count);
+
+            ViewData["Dog"] = dogs[index];
 
             return View();
         }
@@ -47,10 +65,10 @@ namespace ClassBoots.Controllers
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        //public IActionResult Error()
+        //{
+        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        //}
     }
 }

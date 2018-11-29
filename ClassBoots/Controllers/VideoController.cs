@@ -281,7 +281,7 @@ namespace ClassBoots.Controllers
             List<int[]> histories = new List<int[]>();
             users.ForEach(user =>
             {
-                if(user.History != "")
+                if(user.History != "" && user.History != null)
                     histories.Add(user.History.Split(',').Select(int.Parse).ToArray());
             });
 
